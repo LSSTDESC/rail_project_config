@@ -1,0 +1,302 @@
+- Project:
+    name: roman_plus_rubin
+    yaml_file: "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_plus_rubin.yaml"
+- Dataset:
+    algo: knn
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: knn_romanrubin_base
+    name: maglim_25.5_knn_romanrubin_base_knn
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: knn
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: knn_romanrubin_zCOSMOS
+    name: maglim_25.5_knn_romanrubin_zCOSMOS_knn
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: knn
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: knn_romanrubin_HSC
+    name: maglim_25.5_knn_romanrubin_HSC_knn
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: fzboost
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: fzb_romanrubin_base
+    name: maglim_25.5_fzb_romanrubin_base_fzboost
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: fzboost
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: fzb_romanrubin_HSC
+    name: maglim_25.5_fzb_romanrubin_HSC_fzboost
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: fzboost
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: fzb_romanrubin_zCOSMOS
+    name: maglim_25.5_fzb_romanrubin_zCOSMOS_fzboost
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: tpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: tpz_romanrubin_base
+    name: maglim_25.5_tpz_romanrubin_base_tpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: tpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: tpz_romanrubin_zCOSMOS
+    name: maglim_25.5_tpz_romanrubin_zCOSMOS_tpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: tpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: tpz_romanrubin_HSC
+    name: maglim_25.5_tpz_romanrubin_HSC_tpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: bpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: bpz_romanrubin_base
+    name: maglim_25.5_bpz_romanrubin_base_bpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: bpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: bpz_romanrubin_HSC
+    name: maglim_25.5_bpz_romanrubin_HSC_bpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: bpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: bpz_romanrubin_zCOSMOS
+    name: maglim_25.5_bpz_romanrubin_zCOSMOS_bpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubin_base
+    name: maglim_25.5_gpz_romanrubin_base_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubin_zCOSMOS
+    name: maglim_25.5_gpz_romanrubin_zCOSMOS_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubin_HSC
+    name: maglim_25.5_gpz_romanrubin_HSC_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: simplenn
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: simplenn_romanrubin_base
+    name: maglim_25.5_simplenn_romanrubin_base_simplenn
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: simplenn
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: simplenn_romanrubin_HSC
+    name: maglim_25.5_simplenn_romanrubin_HSC_simplenn
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: simplenn
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: simplenn_romanrubin_zCOSMOS
+    name: maglim_25.5_simplenn_romanrubin_zCOSMOS_simplenn
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubinGC_base
+    name: maglim_25.5_gpz_romanrubinGC_base_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubinVD_base
+    name: maglim_25.5_gpz_romanrubinVD_base_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubinGD_base
+    name: maglim_25.5_gpz_romanrubinGD_base_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubinVL_base
+    name: maglim_25.5_gpz_romanrubinVL_base_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- Dataset:
+    algo: gpz
+    class_name: rail.plotting.project_dataset_holder.RailProjectDatasetHolder
+    extractor: rail.plotting.pz_data_extraction.PZPointEstimateDataExtractor
+    flavor: gpz_romanrubinGL_base
+    name: maglim_25.5_gpz_romanrubinGL_base_gpz
+    project: roman_plus_rubin
+    selection: maglim_25.5
+    tag: test
+- DatasetList:
+    datasets:
+    - maglim_25.5_knn_romanrubin_base_knn
+    name: pz_datasets_maglim_25.5_knn_romanrubin_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_knn_romanrubin_zCOSMOS_knn
+    name: pz_datasets_maglim_25.5_knn_romanrubin_zCOSMOS
+- DatasetList:
+    datasets:
+    - maglim_25.5_knn_romanrubin_HSC_knn
+    name: pz_datasets_maglim_25.5_knn_romanrubin_HSC
+- DatasetList:
+    datasets:
+    - maglim_25.5_fzb_romanrubin_base_fzboost
+    name: pz_datasets_maglim_25.5_fzb_romanrubin_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_fzb_romanrubin_HSC_fzboost
+    name: pz_datasets_maglim_25.5_fzb_romanrubin_HSC
+- DatasetList:
+    datasets:
+    - maglim_25.5_fzb_romanrubin_zCOSMOS_fzboost
+    name: pz_datasets_maglim_25.5_fzb_romanrubin_zCOSMOS
+- DatasetList:
+    datasets:
+    - maglim_25.5_tpz_romanrubin_base_tpz
+    name: pz_datasets_maglim_25.5_tpz_romanrubin_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_tpz_romanrubin_zCOSMOS_tpz
+    name: pz_datasets_maglim_25.5_tpz_romanrubin_zCOSMOS
+- DatasetList:
+    datasets:
+    - maglim_25.5_tpz_romanrubin_HSC_tpz
+    name: pz_datasets_maglim_25.5_tpz_romanrubin_HSC
+- DatasetList:
+    datasets:
+    - maglim_25.5_bpz_romanrubin_base_bpz
+    name: pz_datasets_maglim_25.5_bpz_romanrubin_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_bpz_romanrubin_HSC_bpz
+    name: pz_datasets_maglim_25.5_bpz_romanrubin_HSC
+- DatasetList:
+    datasets:
+    - maglim_25.5_bpz_romanrubin_zCOSMOS_bpz
+    name: pz_datasets_maglim_25.5_bpz_romanrubin_zCOSMOS
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubin_base_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubin_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubin_zCOSMOS_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubin_zCOSMOS
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubin_HSC_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubin_HSC
+- DatasetList:
+    datasets:
+    - maglim_25.5_simplenn_romanrubin_base_simplenn
+    name: pz_datasets_maglim_25.5_simplenn_romanrubin_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_simplenn_romanrubin_HSC_simplenn
+    name: pz_datasets_maglim_25.5_simplenn_romanrubin_HSC
+- DatasetList:
+    datasets:
+    - maglim_25.5_simplenn_romanrubin_zCOSMOS_simplenn
+    name: pz_datasets_maglim_25.5_simplenn_romanrubin_zCOSMOS
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubinGC_base_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubinGC_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubinVD_base_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubinVD_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubinGD_base_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubinGD_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubinVL_base_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubinVL_base
+- DatasetList:
+    datasets:
+    - maglim_25.5_gpz_romanrubinGL_base_gpz
+    name: pz_datasets_maglim_25.5_gpz_romanrubinGL_base

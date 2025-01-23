@@ -1,0 +1,300 @@
+- PlotterYaml:
+    path: ${RAIL_PROJECT_CONFIG_DIR}/plotting/pz_plots.yaml
+- DatasetYaml:
+    path: ${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/datasets/romam_rubin_pz_datasets.yaml
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_baseline
+    name: pz_datasets_maglim_25.5_baseline_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_train_zCOSMOS
+    name: pz_datasets_maglim_25.5_train_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_train_HSC
+    name: pz_datasets_maglim_25.5_train_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_base_base
+    name: pz_datasets_maglim_25.5_knn_base_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_base_zCOSMOS
+    name: pz_datasets_maglim_25.5_knn_base_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_base_HSC
+    name: pz_datasets_maglim_25.5_knn_base_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_base_base
+    name: pz_datasets_maglim_25.5_gpz_base_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_base_zCOSMOS
+    name: pz_datasets_maglim_25.5_gpz_base_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_base_HSC
+    name: pz_datasets_maglim_25.5_gpz_base_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_base_base
+    name: pz_datasets_maglim_25.5_fzb_base_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_base_zCOSMOS
+    name: pz_datasets_maglim_25.5_fzb_base_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_base_HSC
+    name: pz_datasets_maglim_25.5_fzb_base_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_bpz_base_base
+    name: pz_datasets_maglim_25.5_bpz_base_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_bpz_base_zCOSMOS
+    name: pz_datasets_maglim_25.5_bpz_base_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_bpz_base_HSC
+    name: pz_datasets_maglim_25.5_bpz_base_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_nneighMinMax46_zCOSMOS
+    name: pz_datasets_maglim_25.5_knn_nneighMinMax46_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_base_zCOSMOS
+    name: pz_datasets_maglim_25.5_tpz_base_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_base_base
+    name: pz_datasets_maglim_25.5_tpz_base_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_base_HSC
+    name: pz_datasets_maglim_25.5_tpz_base_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_nRandom10_base
+    name: pz_datasets_maglim_25.5_tpz_nRandom10_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_nRandom15_base
+    name: pz_datasets_maglim_25.5_tpz_nRandom15_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_nRandom10_HSC
+    name: pz_datasets_maglim_25.5_tpz_nRandom10_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_nRandom15_HSC
+    name: pz_datasets_maglim_25.5_tpz_nRandom15_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_nRandom10_zCOSMOS
+    name: pz_datasets_maglim_25.5_tpz_nRandom10_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_nRandom15_zCOSMOS
+    name: pz_datasets_maglim_25.5_tpz_nRandom15_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_sigmaFactor6_base
+    name: pz_datasets_maglim_25.5_tpz_sigmaFactor6_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_tpz_sigmaFactor8_base
+    name: pz_datasets_maglim_25.5_tpz_sigmaFactor8_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodVD_zCOSMOS
+    name: pz_datasets_maglim_25.5_gpz_methodVD_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodVL_zCOSMOS
+    name: pz_datasets_maglim_25.5_gpz_methodVL_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGC_zCOSMOS
+    name: pz_datasets_maglim_25.5_gpz_methodGC_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGD_zCOSMOS
+    name: pz_datasets_maglim_25.5_gpz_methodGD_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGL_zCOSMOS
+    name: pz_datasets_maglim_25.5_gpz_methodGL_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_base_base
+    name: pz_datasets_maglim_25.5_simplenn_base_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_base_HSC
+    name: pz_datasets_maglim_25.5_simplenn_base_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_base_zCOSMOS
+    name: pz_datasets_maglim_25.5_simplenn_base_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter600_base
+    name: pz_datasets_maglim_25.5_simplenn_maxIter600_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter800_base
+    name: pz_datasets_maglim_25.5_simplenn_maxIter800_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter1000_base
+    name: pz_datasets_maglim_25.5_simplenn_maxIter1000_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter600_zCOSMOS
+    name: pz_datasets_maglim_25.5_simplenn_maxIter600_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter800_zCOSMOS
+    name: pz_datasets_maglim_25.5_simplenn_maxIter800_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter1000_zCOSMOS
+    name: pz_datasets_maglim_25.5_simplenn_maxIter1000_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter600_HSC
+    name: pz_datasets_maglim_25.5_simplenn_maxIter600_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter800_HSC
+    name: pz_datasets_maglim_25.5_simplenn_maxIter800_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_simplenn_maxIter1000_HSC
+    name: pz_datasets_maglim_25.5_simplenn_maxIter1000_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodVD_base
+    name: pz_datasets_maglim_25.5_gpz_methodVD_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodVD_HSC
+    name: pz_datasets_maglim_25.5_gpz_methodVD_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGL_HSC
+    name: pz_datasets_maglim_25.5_gpz_methodGL_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodVL_HSC
+    name: pz_datasets_maglim_25.5_gpz_methodVL_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGD_HSC
+    name: pz_datasets_maglim_25.5_gpz_methodGD_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGC_HSC
+    name: pz_datasets_maglim_25.5_gpz_methodGC_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGL_base
+    name: pz_datasets_maglim_25.5_gpz_methodGL_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodVL_base
+    name: pz_datasets_maglim_25.5_gpz_methodVL_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGD_base
+    name: pz_datasets_maglim_25.5_gpz_methodGD_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_gpz_methodGC_base
+    name: pz_datasets_maglim_25.5_gpz_methodGC_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_nneighMinMax46_base
+    name: pz_datasets_maglim_25.5_knn_nneighMinMax46_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_nneighMinMax46_HSC
+    name: pz_datasets_maglim_25.5_knn_nneighMinMax46_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_nneighMinMax28_base
+    name: pz_datasets_maglim_25.5_knn_nneighMinMax28_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_trainfrac5_base
+    name: pz_datasets_maglim_25.5_knn_trainfrac5_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_trainfrac5_HSC
+    name: pz_datasets_maglim_25.5_knn_trainfrac5_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_trainfrac5_zCOSMOS
+    name: pz_datasets_maglim_25.5_knn_trainfrac5_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_trainfrac3_base
+    name: pz_datasets_maglim_25.5_knn_trainfrac3_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_trainfrac3_HSC
+    name: pz_datasets_maglim_25.5_knn_trainfrac3_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_trainfrac3_zCOSMOS
+    name: pz_datasets_maglim_25.5_knn_trainfrac3_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_leafsize30_base
+    name: pz_datasets_maglim_25.5_knn_leafsize30_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_leafsize10_base
+    name: pz_datasets_maglim_25.5_knn_leafsize10_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_leafsize20_base
+    name: pz_datasets_maglim_25.5_knn_leafsize20_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_knn_leafsize40_base
+    name: pz_datasets_maglim_25.5_knn_leafsize40_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_maxdepth12_base
+    name: pz_datasets_maglim_25.5_fzb_maxdepth12_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_maxdepth12_zCOSMOS
+    name: pz_datasets_maglim_25.5_fzb_maxdepth12_zCOSMOS_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_maxdepth12_HSC
+    name: pz_datasets_maglim_25.5_fzb_maxdepth12_HSC_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_bumpMinMax.02.5_base
+    name: pz_datasets_maglim_25.5_fzb_bumpMinMax.02.5_base_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_fzb_2
+    name: pz_datasets_maglim_25.5_fzb_2_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_bpz_2
+    name: pz_datasets_maglim_25.5_bpz_2_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
+- PlotGroup:
+    dataset_dict_name: pz_datasets_maglim_25.5_bpz_3
+    name: pz_datasets_maglim_25.5_bpz_3_zestimate_v_ztrue
+    plotter_list_name: zestimate_v_ztrue
