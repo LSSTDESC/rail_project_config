@@ -1,1190 +1,1327 @@
 # Includes
 Includes:
-    - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_rubin_common.yaml"
+  - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_rubin_common.yaml"
 
-# These are used to make all the other paths
-CommonPaths:  
+
+Project:
+
+  Name: roman_rubin_2023
+
+  PathTemplates: {}
+
+  # These are used to make all the other paths
+  CommonPaths:
     project: roman_rubin_2023
     sim_version: v1.1.3
-
-# We can use this to override the pipeline configurations
-Flavors:
-    train_zCOSMOS:
-        Pipelines: ['pz', 'tomography', 'som_pz']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-
-    train_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-
-    som_base_base:
-        Pipelines: ['tomography', 'som_pz']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-
-    som_base_HSC:
-        Pipelines: ['tomography', 'som_pz']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-
-    som_d50w32_base:
-        Pipelines: ['tomography', 'som_pz']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            som_pz:
-                inform_sompz:
-                    som_shape_deep: [50, 50]
-                    som_shape_wide: [32, 32]
-                estimate_sompz:
-                    som_shape_deep: [50, 50]
-                    som_shape_wide: [32, 32]
-
-    som_d50w50_base:
-        Pipelines: ['tomography', 'som_pz']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            som_pz:
-                inform_sompz:
-                    som_shape_deep: [50, 50]
-                    som_shape_wide: [50, 50]
-                estimate_sompz:
-                    som_shape_deep: [50, 50]
-                    som_shape_wide: [50, 50]
-
-    som_d100w50_base:
-        Pipelines: ['tomography', 'som_pz']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            som_pz:
-                inform_sompz:
-                    som_shape_deep: [100, 100]
-                    som_shape_wide: [50, 50]
-                estimate_sompz:
-                    som_shape_deep: [100, 100]
-                    som_shape_wide: [50, 50]
-
-    som_base_zCOSMOS:
-        Pipelines: ['tomography', 'som_pz']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-
-    knn_base_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_base_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    gpz_base_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VC
-
-    gpz_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VC
-
-    gpz_base_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VC
-
-    fzb_base_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.35
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 8
-
-    fzb_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.35
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 8
-
-    fzb_base_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.35
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 8
-
-    bpz_base_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['bpz']
-            pz:
-                inform_bpz:
-                    columns_file: /sdf/home/y/yashraj/romandesc.columns
-
-    bpz_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['bpz']
-            pz:
-                inform_bpz:
-                    columns_file: /sdf/home/y/yashraj/romandesc.columns
-
-    bpz_base_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['bpz']
-            pz:
-                inform_bpz:
-                    columns_file: /sdf/home/y/yashraj/romandesc.columns
-
-    knn_nneighMinMax46_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases:  # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 4
-                    nneigh_max: 6
-
-    bpz_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['bpz']
-            pz:
-                inform_bpz:
-                    columns_file: /sdf/home/y/yashraj/romandesc.columns
-
-    tpz_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_base_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_base_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y'] 
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_nRandom10_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 10
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_nRandom15_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 15
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_nRandom10_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 10
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_nRandom15_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 15
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_nRandom10_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 10
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_nRandom15_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 15
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    tpz_sigmaFactor6_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 8
-                    sigmafactor: 6.0
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}  
-
-    tpz_sigmaFactor8_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['tpz']
-            pz:
-                inform_tpz:
-                    use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
-                    err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
-                    nrandom: 8 
-                    sigmafactor: 8.0
-                    tree_strategy: sklearn
-                estimate_tpz:
-                    test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
-
-    gpz_methodVD_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VD
-
-    gpz_methodVL_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VL
-
-    gpz_methodGC_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GC
-
-    gpz_methodGD_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GD
-
-    gpz_methodGL_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GL
-
-    simplenn_base_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 500
-
-    simplenn_base_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 500
-
-    simplenn_base_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 500
-
-    simplenn_maxIter600_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 600
-
-    simplenn_maxIter800_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 800
-
-    simplenn_maxIter1000_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 1000
-
-    simplenn_maxIter600_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 600
-
-    simplenn_maxIter800_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 800
-
-    simplenn_maxIter1000_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 1000
-
-    simplenn_maxIter600_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 600
-
-    simplenn_maxIter800_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 800
-
-    simplenn_maxIter1000_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['simplenn']
-            pz:
-                inform_simplenn:
-                    width: 0.05
-                    max_iter: 1000
-
-
-
-    gpz_methodVD_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VD
-
-    gpz_methodVD_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VD
-
-    gpz_methodVD_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VD
-
-    gpz_methodGL_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GL
-
-    gpz_methodVL_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VL
-
-    gpz_methodGD_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GD
-
-    gpz_methodVD_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VD
-
-    gpz_methodGC_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GC
-
-    gpz_methodGL_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GL
-
-    gpz_methodVL_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: VL
-
-    gpz_methodGD_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GD
-
-    gpz_methodGC_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['gpz']
-            pz:
-                inform_gpz:
-                    gpz_method: GC
-
-    knn_nneighMinMax46_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 4
-                    nneigh_max: 6
-
-    knn_nneighMinMax46_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 4
-                    nneigh_max: 6
-
-    knn_nneighMinMax46_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 4
-                    nneigh_max: 6
-
-
-    knn_nneighMinMax28_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 15
-                    nneigh_min: 2
-                    nneigh_max: 8
-
-    knn_trainfrac5_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.5
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_trainfrac5_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.5
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_trainfrac5_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.5
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_trainfrac3_base:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.3
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_trainfrac3_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.3
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_trainfrac3_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.3
-                    leaf_size: 15
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_leafsize30_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 30
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_leafsize10_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 10
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_leafsize20_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 20
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    knn_leafsize40_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['knn']
-            pz:
-                inform_knn:
-                    trainfrac: 0.75
-                    leaf_size: 40
-                    nneigh_min: 3
-                    nneigh_max: 7
-
-    fzb_maxdepth12_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.35
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 12
-
-    fzb_maxdepth12_zCOSMOS:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_zCOSMOS_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.35
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 12
-
-    fzb_maxdepth12_HSC:
-        Pipelines: ['pz', 'tomography']
-        FileAliases: # Set the training and test files
-            test: test_file_100k
-            train: train_file_HSC_100k
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.35
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 12
-
-    fzb_bumpMinMax.02.5_base:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.02
-                    bumpmax: 0.5
-                    sharpmin: 0.7
-                    sharpmax: 2.1
-                    nsharp: 15
-                    max_basis: 35
-                    regression_params:
-                        max_depth: 8
-
-    fzb_2:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['fzboost']
-            pz:
-                inform_fzboost:
-                    trainfrac: 0.75
-                    bumpmin: 0.05
-                    bumpmax: 0.35
-                    sharpmin: 0.5
-                    sharpmax: 2.5
-                    nsharp: 20
-                    max_basis: 55
-                    regression_params:
-                        max_depth: 10
-
-    bpz_2:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['bpz']
-            pz:
-                inform_bpz:
-                    columns_file: /sdf/home/y/yashraj/romandesc.columns
-                    init_zo: 0.6
-                    init_alpha: 2.0
-                    init_km: 0.2
-
-    bpz_3:
-        Pipelines: ['pz', 'tomography']
-        PipelineOverrides:
-            default:
-                kwargs:
-                    PZAlgorithms: ['bpz']
-            pz:
-                inform_bpz:
-                    columns_file: /sdf/home/y/yashraj/romandesc.columns
-                    init_zo: 0.8
-                    init_alpha: 3.0
-                    init_km: 0.5
+    root: /sdf/data/rubin/shared/pz
+    scratch_root: "{root}"
+    catalogs_dir: "{root}/data"
+
+  # Baseline configuraiton, included in others by default
+  Baseline:
+    catalog_tag: roman_rubin
+    pipelines: ['all']
+    file_aliases:  # Set the training and test files
+      test: test_file_100k
+      train: train_file_100k
+      train_zCOSMOS: train_file_zCOSMOS_100k
+      train_HSC: train_file_HSC_100k
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    healpix:
+      - 10050
+      - 10051
+      - 10052
+      - 10053
+      - 10177
+      - 10178
+      - 10179
+      - 10180
+      - 10181
+      - 10305
+      - 10306
+      - 10307
+      - 10308
+      - 10429
+      - 10430
+      - 10431
+      - 10432
+      - 10549
+      - 10550
+      - 10551
+      - 10552
+      - 10665
+      - 10666
+      - 10667
+      - 10668
+      - 10777
+      - 10778
+      - 10779
+      - 9921
+      - 9922
+      - 9923
+      - 9924
+      - 9925
+
+
+  Flavors:
+    - Flavor:
+        name: train_zCOSMOS
+        pipelines: ['pz', 'tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+
+    - Flavor:
+        name: train_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+
+    - Flavor:
+        name: som_base_base
+        pipelines: ['tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+
+    - Flavor:
+        name: som_base_HSC
+        pipelines: ['tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+
+    - Flavor:
+        name: som_d50w32_base
+        pipelines: ['tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          som_pz:
+            inform_sompz:
+              som_shape_deep: [50, 50]
+              som_shape_wide: [32, 32]
+            estimate_sompz:
+              som_shape_deep: [50, 50]
+              som_shape_wide: [32, 32]
+
+    - Flavor:
+        name: som_d50w50_base
+        pipelines: ['tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          som_pz:
+            inform_sompz:
+              som_shape_deep: [50, 50]
+              som_shape_wide: [50, 50]
+            estimate_sompz:
+              som_shape_deep: [50, 50]
+              som_shape_wide: [50, 50]
+
+    - Flavor:
+        name: som_d100w50_base
+        pipelines: ['tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          som_pz:
+            inform_sompz:
+              som_shape_deep: [100, 100]
+              som_shape_wide: [50, 50]
+            estimate_sompz:
+              som_shape_deep: [100, 100]
+              som_shape_wide: [50, 50]
+
+    - Flavor:
+        name: som_base_zCOSMOS
+        pipelines: ['tomography', 'som_pz']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+
+    - Flavor:
+        name: knn_base_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_base_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: gpz_base_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VC
+
+    - Flavor:
+        name: gpz_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VC
+
+    - Flavor:
+        name: gpz_base_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VC
+
+    - Flavor:
+        name: fzb_base_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.35
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 8
+
+    - Flavor:
+        name: fzb_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.35
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 8
+
+    - Flavor:
+        name: fzb_base_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.35
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 8
+
+    - Flavor:
+        name: bpz_base_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['bpz']
+          pz:
+            inform_bpz:
+              columns_file: /sdf/home/y/yashraj/romandesc.columns
+
+    - Flavor:
+        name: bpz_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['bpz']
+          pz:
+            inform_bpz:
+              columns_file: /sdf/home/y/yashraj/romandesc.columns
+
+    - Flavor:
+        name: bpz_base_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['bpz']
+          pz:
+            inform_bpz:
+              columns_file: /sdf/home/y/yashraj/romandesc.columns
+
+    - Flavor:
+        name: knn_nneighMinMax46_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 4
+              nneigh_max: 6
+
+    - Flavor:
+        name: bpz_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['bpz']
+          pz:
+            inform_bpz:
+              columns_file: /sdf/home/y/yashraj/romandesc.columns
+
+    - Flavor:
+        name: tpz_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_base_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_base_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_nRandom10_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 10
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_nRandom15_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 15
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_nRandom10_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 10
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_nRandom15_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 15
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_nRandom10_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 10
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_nRandom15_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 15
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_sigmaFactor6_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 8
+              sigmafactor: 6.0
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: tpz_sigmaFactor8_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['tpz']
+          pz:
+            inform_tpz:
+              use_atts: ['LSST_obs_u', 'LSST_obs_g', 'LSST_obs_r', 'LSST_obs_i', 'LSST_obs_z', 'LSST_obs_y']
+              err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': 'None'}
+              nrandom: 8
+              sigmafactor: 8.0
+              tree_strategy: sklearn
+            estimate_tpz:
+              test_err_dict: {'LSST_obs_u': 'LSST_obs_u_err', 'LSST_obs_g': 'LSST_obs_g_err', 'LSST_obs_r': 'LSST_obs_r_err', 'LSST_obs_i': 'LSST_obs_i_err', 'LSST_obs_z': 'LSST_obs_z_err', 'LSST_obs_y': 'LSST_obs_y_err', 'redshift': None}
+
+    - Flavor:
+        name: gpz_methodVD_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VD
+
+    - Flavor:
+        name: gpz_methodVL_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VL
+
+    - Flavor:
+        name: gpz_methodGC_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GC
+
+    - Flavor:
+        name: gpz_methodGD_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GD
+
+    - Flavor:
+        name: gpz_methodGL_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GL
+
+    - Flavor:
+        name: simplenn_base_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 500
+
+    - Flavor:
+        name: simplenn_base_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 500
+
+    - Flavor:
+        name: simplenn_base_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 500
+
+    - Flavor:
+        name: simplenn_maxIter600_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 600
+
+    - Flavor:
+        name: simplenn_maxIter800_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 800
+
+    - Flavor:
+        name: simplenn_maxIter1000_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 1000
+
+    - Flavor:
+        name: simplenn_maxIter600_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 600
+
+    - Flavor:
+        name: simplenn_maxIter800_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 800
+
+    - Flavor:
+        name: simplenn_maxIter1000_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 1000
+
+    - Flavor:
+        name: simplenn_maxIter600_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 600
+
+    - Flavor:
+        name: simplenn_maxIter800_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 800
+
+    - Flavor:
+        name: simplenn_maxIter1000_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['simplenn']
+          pz:
+            inform_simplenn:
+              width: 0.05
+              max_iter: 1000
+
+    - Flavor:
+        name: gpz_methodVD_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VD
+
+    - Flavor:
+        name: gpz_methodVD_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VD
+
+    - Flavor:
+        name: gpz_methodVD_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VD
+
+    - Flavor:
+        name: gpz_methodGL_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GL
+
+    - Flavor:
+        name: gpz_methodVL_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VL
+
+    - Flavor:
+        name: gpz_methodGD_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GD
+
+    - Flavor:
+        name: gpz_methodVD_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VD
+
+    - Flavor:
+        name: gpz_methodGC_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GC
+
+    - Flavor:
+        name: gpz_methodGL_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GL
+
+    - Flavor:
+        name: gpz_methodVL_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: VL
+
+    - Flavor:
+        name: gpz_methodGD_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GD
+
+    - Flavor:
+        name: gpz_methodGC_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['gpz']
+          pz:
+            inform_gpz:
+              gpz_method: GC
+
+    - Flavor:
+        name: knn_nneighMinMax46_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 4
+              nneigh_max: 6
+
+    - Flavor:
+        name: knn_nneighMinMax46_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 4
+              nneigh_max: 6
+
+    - Flavor:
+        name: knn_nneighMinMax46_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 4
+              nneigh_max: 6
+
+    - Flavor:
+        name: knn_nneighMinMax28_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 15
+              nneigh_min: 2
+              nneigh_max: 8
+
+    - Flavor:
+        name: knn_trainfrac5_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.5
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_trainfrac5_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.5
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_trainfrac5_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.5
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_trainfrac3_base
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.3
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_trainfrac3_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.3
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_trainfrac3_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.3
+              leaf_size: 15
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_leafsize30_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 30
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_leafsize10_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 10
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_leafsize20_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 20
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: knn_leafsize40_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['knn']
+          pz:
+            inform_knn:
+              trainfrac: 0.75
+              leaf_size: 40
+              nneigh_min: 3
+              nneigh_max: 7
+
+    - Flavor:
+        name: fzb_maxdepth12_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.35
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 12
+
+    - Flavor:
+        name: fzb_maxdepth12_zCOSMOS
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_zCOSMOS_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.35
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 12
+
+    - Flavor:
+        name: fzb_maxdepth12_HSC
+        pipelines: ['pz', 'tomography']
+        file_aliases:  # Set the training and test files
+          test: test_file_100k
+          train: train_file_HSC_100k
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.35
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 12
+
+    - Flavor:
+        name: fzb_bumpMinMax.02.5_base
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.02
+              bumpmax: 0.5
+              sharpmin: 0.7
+              sharpmax: 2.1
+              nsharp: 15
+              max_basis: 35
+              regression_params:
+                max_depth: 8
+
+    - Flavor:
+        name: fzb_2
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost']
+          pz:
+            inform_fzboost:
+              trainfrac: 0.75
+              bumpmin: 0.05
+              bumpmax: 0.35
+              sharpmin: 0.5
+              sharpmax: 2.5
+              nsharp: 20
+              max_basis: 55
+              regression_params:
+                max_depth: 10
+
+    - Flavor:
+        name: bpz_2
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['bpz']
+          pz:
+            inform_bpz:
+              columns_file: /sdf/home/y/yashraj/romandesc.columns
+              init_zo: 0.6
+              init_alpha: 2.0
+              init_km: 0.2
+
+    - Flavor:
+        name: bpz_3
+        pipelines: ['pz', 'tomography']
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['bpz']
+          pz:
+            inform_bpz:
+              columns_file: /sdf/home/y/yashraj/romandesc.columns
+              init_zo: 0.8
+              init_alpha: 3.0
+              init_km: 0.5
