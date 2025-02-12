@@ -1,0 +1,17 @@
+# This file describes the plots that we can use with the rail_plotting module
+Plots:
+
+  # Plot the n(z) in a series of tomographic bins
+  - Plotter:
+      name: tomo_bins
+      class_name: rail.plotting.nz_plotters.NZPlotterTomoBins
+      z_min: 0.0
+      z_max: 3.0
+      n_zbins: 151
+
+  # This makes a list with only one type of plot
+  - PlotterList:
+      name: tomo_bins
+      dataset_holder_class: rail.plotting.nz_data_holders.RailNZTomoBinsDataHolder
+      plotters:
+        - tomo_bins
