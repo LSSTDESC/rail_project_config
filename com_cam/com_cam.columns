@@ -11,4 +11,3 @@ DC2LSST_y      y_cModelMag, y_cModelMagErr	AB			  0.005	    0.0
 Z_S            redshift
 ID	       id
 M_0	       i_cModelMag
-

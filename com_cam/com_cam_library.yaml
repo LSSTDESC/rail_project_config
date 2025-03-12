@@ -1,3 +1,19 @@
+# These are templates for catalogs produced in the early stages of the analysis
+Catalogs:
+  - CatalogTemplate:
+      name: input
+      path_template: "{catalogs_dir}/{project}_{release_version}/{tract}/objectTable_tract.parquet"
+      iteration_vars: ['tract']
+  - CatalogTemplate:
+      name: reduced
+      path_template: "{catalogs_dir}/{project}_{release_version}_{selection}/{tract}/objectTable_tract.pq"
+      iteration_vars: ['tract']
+  - CatalogTemplate:
+      name: prepared
+      path_template: "{catalogs_dir}/{project}_{release_version}_{selection}/{tract}/output.hdf5"
+      iteration_vars: ['tract']
+
+
 # These are templates for specific files, such as testing and training files
 Files:
   - FileTemplate:
@@ -6,6 +22,9 @@ Files:
   - FileTemplate:
       name: train_file
       path_template: "{catalogs_dir}/train/{parent}_secured_matched_train.hdf5"
+  - FileTemplate:
+      name: ECDFS
+      path_template: "{catalogs_dir}/test/{parent}_{release_version}_{selection}_ECDFS.hdf5"
 
 
 # These describe all the algorithms that estimate PZ
@@ -74,6 +93,11 @@ Summarizers:
 # These describe the various data analysis pipelines
 Pipelines:
   - PipelineTemplate:
+      name: prepare
+      pipeline_class: rail.pipelines.utils.prepare_comcam.PrepareComCamPipeline
+      input_catalog_template: reduced
+      output_catalog_template: prepared
+  - PipelineTemplate:
       name: inform
       pipeline_class: rail.pipelines.estimation.inform_all.InformPipeline
       input_file_templates:
@@ -125,7 +149,17 @@ Pipelines:
         summarizers: ['all']
         n_tomo_bins: 5
 
+
+# These describe the ways we can reduce the data
+Reducers:
+  - Reducer:
+      name: com_cam
+      Reduce: ComCamReducer
+      Module: rail.projects.reducer
+
+
 Selections:
   - Selection:
       name: gold
-      cuts: {}
+      cuts:
+        maglim_i: [null, 25.5]

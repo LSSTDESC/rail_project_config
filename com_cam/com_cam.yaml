@@ -11,12 +11,15 @@ Project:
   CommonPaths:
     parent: com_cam
     project: com_cam
-    root: /sdf/data/rubin/shared/pz
+    release_version: dp1
+    root: /Users/echarles/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
   # These are variables that we iterate over when running over entire catalogs
-  IterationVars: {}
+  IterationVars:
+    tract:
+      - 5063
 
   Baseline:
     catalog_tag: com_cam
@@ -24,6 +27,7 @@ Project:
     file_aliases:  # Set the training and test files
       test: test_file
       train: train_file
+      ECDFS: ECDFS
     pipeline_overrides:
       default:
         kwargs:
@@ -33,7 +37,7 @@ Project:
 
     - Flavor:
         name: knn_nneighMinMax37
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -47,7 +51,7 @@ Project:
 
     - Flavor:
         name: knn_nneighMinMax46
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -61,7 +65,7 @@ Project:
 
     - Flavor:
         name: knn_nneighMinMax28
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -75,7 +79,7 @@ Project:
 
     - Flavor:
         name: knn_trainfrac5
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -89,7 +93,7 @@ Project:
 
     - Flavor:
         name: knn_trainfrac3
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -102,7 +106,7 @@ Project:
               nneigh_max: 7
     - Flavor:
         name: knn_leafsize30
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -116,7 +120,7 @@ Project:
 
     - Flavor:
         name: knn_leafsize10
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -130,7 +134,7 @@ Project:
 
     - Flavor:
         name: knn_leafsize20
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -144,7 +148,7 @@ Project:
 
     - Flavor:
         name: knn_leafsize40
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -158,7 +162,7 @@ Project:
 
     - Flavor:
         name: gpz_MethodVC
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -169,7 +173,7 @@ Project:
 
     - Flavor:
         name: gpz_methodVD
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -180,7 +184,7 @@ Project:
 
     - Flavor:
         name: gpz_methodGL
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -191,7 +195,7 @@ Project:
 
     - Flavor:
         name: gpz_methodVL
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -202,7 +206,7 @@ Project:
 
     - Flavor:
         name: gpz_methodGD
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -213,7 +217,7 @@ Project:
 
     - Flavor:
         name: gpz_methodGC
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -224,7 +228,7 @@ Project:
 
     - Flavor:
         name: fzb_base
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -243,7 +247,7 @@ Project:
 
     - Flavor:
         name: fzb_maxdepth12
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -262,7 +266,7 @@ Project:
 
     - Flavor:
         name: fzb_bumpMinMax.02.5
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -281,7 +285,7 @@ Project:
 
     - Flavor:
         name: fzb_2
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -300,7 +304,7 @@ Project:
 
     - Flavor:
         name: bpz_base
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -311,7 +315,7 @@ Project:
 
     - Flavor:
         name: bpz_2
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -325,7 +329,7 @@ Project:
 
     - Flavor:
         name: bpz_3
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -339,7 +343,7 @@ Project:
 
     - Flavor:
         name: tpz_base
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -354,7 +358,7 @@ Project:
 
     - Flavor:
         name: tpz_nRandom10
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -370,7 +374,7 @@ Project:
 
     - Flavor:
         name: tpz_nRandom15
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -387,7 +391,7 @@ Project:
 
     - Flavor:
         name: tpz_sigmaFactor6
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -404,7 +408,7 @@ Project:
 
     - Flavor:
         name: tpz_sigmaFactor8
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -421,7 +425,7 @@ Project:
 
     - Flavor:
         name: simplenn_maxIter600
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -433,7 +437,7 @@ Project:
 
     - Flavor:
         name: simplenn_maxIter800
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -445,7 +449,7 @@ Project:
 
     - Flavor:
         name: simplenn_maxIter1000
-        pipelines: ['pz', 'tomography']
+        pipelines: ['pz', 'tomography', 'estimate']
         pipeline_overrides:
           default:
             kwargs:
@@ -454,4 +458,3 @@ Project:
             inform_simplenn:
               width: 0.05
               max_iter: 1000
-
