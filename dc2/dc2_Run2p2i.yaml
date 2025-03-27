@@ -3,31 +3,25 @@ Project:
   Name: com_cam
 
   Includes:
-    - '${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam_library.yaml'
+    - '${RAIL_PROJECT_CONFIG_DIR}/dc2/dc2_Run2p2i_library.yaml'
 
   PathTemplates: {}
 
   # These are used to make all the other paths
   CommonPaths:
-    parent: com_cam
-    project: com_cam
-    release_version: dp1
+    parent: dc2_run2p2i
+    project: dc2_run2p2i
+    release_version: dr6
     root: /Users/echarles/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
-
-  # These are variables that we iterate over when running over entire catalogs
-  IterationVars:
-    tract:
-      - 5063
-
+    
   Baseline:
-    catalog_tag: com_cam
+    catalog_tag: dc2
     pipelines: ['all']
     file_aliases:  # Set the training and test files
       test: test_file
       train: train_file
-      ECDFS: ECDFS
     pipeline_overrides:
       default:
         kwargs:
