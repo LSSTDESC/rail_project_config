@@ -12,7 +12,7 @@ Project:
     parent: com_cam
     project: com_cam
     release_version: dp1
-    root: /Users/echarles/pz
+    root: /sdf/data/rubin/shared/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
