@@ -175,6 +175,10 @@ Reducers:
 
 Selections:
   - Selection:
+      name: nosel
+      cuts:
+        maglim_i: [null, 99.9]
+  - Selection:
       name: gold
       cuts:
         maglim_i: [null, 25.5]
