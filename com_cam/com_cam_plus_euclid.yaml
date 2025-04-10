@@ -1,27 +1,32 @@
 Project:
 
-  Name: hsc
+  Name: com_cam
 
   Includes:
-    - '${RAIL_PROJECT_CONFIG_DIR}/hsc/hsc_pdr3_library.yaml'
+    - '${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam_library.yaml'
 
   PathTemplates: {}
 
   # These are used to make all the other paths
   CommonPaths:
-    parent: hsc
-    project: hsc
-    release_version: pdr3
-    root: /Users/echarles/pz
+    parent: com_cam_euclid
+    project: com_cam_plus_euclid
+    release_version: dp1
+    root: /sdf/data/rubin/shared/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
-    
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    tract:
+      - 5063
+
   Baseline:
-    catalog_tag: hsc
+    catalog_tag: com_cam_euclid
     pipelines: ['all']
     file_aliases:  # Set the training and test files
-      test: test_file
-      train: train_file
+      test: test_file_euclid
+      train: train_file_euclid
     pipeline_overrides:
       default:
         kwargs:
@@ -305,7 +310,7 @@ Project:
               algorithms: ['bpz']
           pz:
             inform_bpz:
-              columns_file: "${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam.columns"
+              columns_file: "${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam_plus_euclid.columns"
 
     - Flavor:
         name: bpz_2
@@ -316,7 +321,7 @@ Project:
               algorithms: ['bpz']
           pz:
             inform_bpz:
-              columns_file: "${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam.columns"
+              columns_file: "${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam_plus_euclid.columns"
               init_zo: 0.6
               init_alpha: 2.0
               init_km: 0.2
@@ -330,57 +335,10 @@ Project:
               algorithms: ['bpz']
           pz:
             inform_bpz:
-              columns_file: "${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam.columns"
+              columns_file: "${RAIL_PROJECT_CONFIG_DIR}/com_cam/com_cam_plus_euclid.columns"
               init_zo: 0.8
               init_alpha: 3.0
               init_km: 0.5
-
-    - Flavor:
-        name: tpz_base
-        pipelines: ['pz', 'tomography', 'estimate']
-        pipeline_overrides:
-          default:
-            kwargs:
-              algorithms: ['tpz']
-          pz:
-            inform_tpz:
-              use_atts: ['u_cModelMag', 'g_cModelMag', 'r_cModelMag', 'i_cModelMag', 'z_cModelMag', 'y_cModelMag']
-              err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': 'None'}
-              tree_strategy: sklearn
-            estimate_tpz:
-              test_err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': None}
-
-    - Flavor:
-        name: tpz_nRandom10
-        pipelines: ['pz', 'tomography', 'estimate']
-        pipeline_overrides:
-          default:
-            kwargs:
-              algorithms: ['tpz']
-          pz:
-            inform_tpz:
-              use_atts: ['u_cModelMag', 'g_cModelMag', 'r_cModelMag', 'i_cModelMag', 'z_cModelMag', 'y_cModelMag']
-              err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': 'None'}
-              nrandom: 10
-              tree_strategy: sklearn
-            estimate_tpz:
-              test_err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': None}
-
-    - Flavor:
-        name: tpz_nRandom15
-        pipelines: ['pz', 'tomography', 'estimate']
-        pipeline_overrides:
-          default:
-            kwargs:
-              algorithms: ['tpz']
-          pz:
-            inform_tpz:
-              use_atts: ['u_cModelMag', 'g_cModelMag', 'r_cModelMag', 'i_cModelMag', 'z_cModelMag', 'y_cModelMag']
-              err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': 'None'}
-              nrandom: 15
-              tree_strategy: sklearn
-            estimate_tpz:
-              test_err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': None}
 
 
     - Flavor:
@@ -392,30 +350,9 @@ Project:
               algorithms: ['tpz']
           pz:
             inform_tpz:
-              use_atts: ['u_cModelMag', 'g_cModelMag', 'r_cModelMag', 'i_cModelMag', 'z_cModelMag', 'y_cModelMag']
-              err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': 'None'}
               nrandom: 8
               sigmafactor: 6.0
               tree_strategy: sklearn
-            estimate_tpz:
-              test_err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': None}
-
-    - Flavor:
-        name: tpz_sigmaFactor8
-        pipelines: ['pz', 'tomography', 'estimate']
-        pipeline_overrides:
-          default:
-            kwargs:
-              algorithms: ['tpz']
-          pz:
-            inform_tpz:
-              use_atts: ['u_cModelMag', 'g_cModelMag', 'r_cModelMag', 'i_cModelMag', 'z_cModelMag', 'y_cModelMag']
-              err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': 'None'}
-              nrandom: 8
-              sigmafactor: 8.0
-              tree_strategy: sklearn
-            estimate_tpz:
-              test_err_dict: {'u_cModelMag': 'u_cModelMagErr', 'g_cModelMag': 'g_cModelMagErr', 'r_cModelMag': 'r_cModelMagErr', 'i_cModelMag': 'i_cModelMagErr', 'z_cModelMag': 'z_cModelMagErr', 'y_cModelMag': 'y_cModelMagErr', 'redshift': None}
 
     - Flavor:
         name: simplenn_maxIter600

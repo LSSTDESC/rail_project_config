@@ -23,6 +23,12 @@ Files:
       name: train_file
       path_template: "{catalogs_dir}/train/{parent}_secured_matched_train.hdf5"
   - FileTemplate:
+      name: test_file_euclid
+      path_template: "{catalogs_dir}/test/{parent}_{release_version}_spec_test.hdf5"
+  - FileTemplate:
+      name: train_file_euclid
+      path_template: "{catalogs_dir}/train/{parent}_{release_version}_spec_train.hdf5"
+  - FileTemplate:
       name: ECDFS
       path_template: "{catalogs_dir}/test/{parent}_{release_version}_{selection}_ECDFS.hdf5"
 
