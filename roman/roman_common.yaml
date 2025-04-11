@@ -20,7 +20,7 @@ Files:
       path_template: "{catalogs_dir}/test/{project}_{selection}_baseline_100k.hdf5"
   - FileTemplate:
       name: train_file_100k
-      path_template: "{catalogs_dir}/test/{project}_{selection}_baseline_100k.hdf5"
+      path_template: "{catalogs_dir}/train/{project}_{selection}_baseline_100k.hdf5"
   - FileTemplate:
       name: train_file_zCOSMOS_100k
       path_template: "{catalogs_dir}/train/{project}_{selection}_zCOSMOS_100k.hdf5"
