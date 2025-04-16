@@ -10,7 +10,7 @@ Catalogs:
       iteration_vars: ['healpix']
   - CatalogTemplate:
       name: degraded
-      path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}_{flavor}/{healpix}/{basename}"
+      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{healpix}/{basename}"
       iteration_vars: ['healpix']
 
 # These are templates for specific files, such as testing and training files
@@ -170,9 +170,16 @@ Subsamples:
 # These describe the error models we use in the truth_to_observed pipeline
 ErrorModels:
   - ErrorModel:
+      name: lsst
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']
+  - ErrorModel:
       name: roman
       ErrorModel: RomanErrorModel
       Module: rail.creation.degraders.photometric_errors
+      # Bands: ['K', 'F', 'H', 'J', 'Y', 'Z', 'W']
+      Bands: ['H', 'J', 'Y']
 
 
 # These describe the various data analysis pipelines

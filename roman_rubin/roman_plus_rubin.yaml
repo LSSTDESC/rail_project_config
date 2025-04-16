@@ -1,24 +1,22 @@
-# Includes
-Includes:
-  - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_rubin_common.yaml"
-
-
-Catalogs:
-  - CatalogTemplate:
-      name: truth
-      path_template: "{catalogs_dir}/{parent}_{sim_version}/{healpix}/part-0.parquet"
-      iteration_vars: ['healpix']
-  - CatalogTemplate:
-      name: reduced
-      path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}/{healpix}/part-0.pq"
-      iteration_vars: ['healpix']
-  - CatalogTemplate:
-      name: degraded
-      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{healpix}/{basename}"
-      iteration_vars: ['healpix']
-
-
 Project:
+
+  # Includes 
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_rubin_common.yaml"
+
+  Catalogs:
+    - CatalogTemplate:
+        name: truth
+        path_template: "{catalogs_dir}/{parent}_{sim_version}/{healpix}/part-0.parquet"
+        iteration_vars: ['healpix']
+    - CatalogTemplate:
+        name: reduced
+        path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}/{healpix}/part-0.pq"
+        iteration_vars: ['healpix']
+    - CatalogTemplate:
+        name: degraded
+        path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{healpix}/{basename}"
+        iteration_vars: ['healpix']
 
   Name: roman_rubin_2023
 
@@ -36,6 +34,7 @@ Project:
   # Baseline configuraiton, included in others by default
   Baseline:
     pipelines: ['all']
+    catalog_tag: roman_7band_rubin
     file_aliases:  # Set the training and test files
       test: test_file_100k
       train: train_file_100k

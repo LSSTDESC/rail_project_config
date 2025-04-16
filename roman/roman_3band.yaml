@@ -56,7 +56,7 @@ Project:
   # Baseline configuraiton, included in others by default
   Baseline:
     catalog_tag: roman_3band  
-    pipelines: ['all']
+    pipelines: ['pz', 'tomography']
     file_aliases:  # Set the training and test files
       test: test_file_100k
       train: train_file_100k
