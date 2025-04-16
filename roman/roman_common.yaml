@@ -147,9 +147,9 @@ Selections:
       cuts:
         maglim_i: [null, 26.0]
   - Selection:
-      name: crap
+      name: roman_wl
       cuts:
-        maglim_i: [null, 30.0]
+        maglim_y: [null, 27.0]
   - Selection:
       name: all
       cuts:
