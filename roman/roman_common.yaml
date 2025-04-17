@@ -149,7 +149,11 @@ Selections:
   - Selection:
       name: roman_wl
       cuts:
-        maglim_y: [null, 27.0]
+        maglim_Y: [null, 27.0]
+  - Selection:
+      name: roman_deep
+      cuts:
+        maglim_Y: [null, 28.0]
   - Selection:
       name: all
       cuts:
