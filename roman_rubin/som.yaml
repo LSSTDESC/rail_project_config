@@ -1,0 +1,26 @@
+Project:
+
+  Name: romandesc_som
+
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/som_common.yaml"
+
+
+  PathTemplates: {}
+
+  # These are used to make all the other paths
+  CommonPaths:
+    project: romandesc
+    root: /sdf/data/rubin/shared/pz
+    scratch_root: "{root}"
+    catalogs_dir: "{root}/data"
+
+  # Baseline configuraiton, included in others by default
+  Baseline:
+    catalog_tag: roman_rubin
+    pipelines: ['all']
+    file_aliases:  # Set the training and test files
+      wide: wide_file_full
+      deep: deep_file_full
+      spec: spec_file_full
+

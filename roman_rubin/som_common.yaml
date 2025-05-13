@@ -1,0 +1,56 @@
+# These are templates for specific files, such as testing and training files
+Files:
+  - FileTemplate:
+      name: deep_file_full
+      path_template: "{catalogs_dir}/som/{project}_deep_data_full.hdf5"
+  - FileTemplate:
+      name: deep_file_small
+      path_template: "{catalogs_dir}/som/{project}_deep_data_small.hdf5"
+  - FileTemplate:
+      name: wide_file_full
+      path_template: "{catalogs_dir}/som/{project}_wide_data_full.hdf5"
+  - FileTemplate:
+      name: wide_file_small
+      path_template: "{catalogs_dir}/som/{project}_wide_data_small.hdf5"
+  - FileTemplate:
+      name: spec_file_full
+      path_template: "{catalogs_dir}/som/{project}_spec_data_full.hdf5"
+  - FileTemplate:
+      name: spec_file_small
+      path_template: "{catalogs_dir}/som/{project}_spec_data_small.hdf5"
+
+
+# These describe the various data analysis pipelines
+Pipelines:
+  - PipelineTemplate:
+      name: inform_sompz
+      pipeline_class: rail.pipelines.estimation.inform_sompz.InformSomPZPipeline
+      input_file_templates:
+        input_deep_data:
+          flavor: baseline
+          tag: deep
+        input_wide_data:
+          flavor: baseline
+          tag: wide
+      kwargs:
+        wide_catalog_tag: SompzWideTestCatalogConfig
+        deep_catalog_tag: SompzDeepTestCatalogConfig
+        catalog_module: rail.sompz.utils
+  - PipelineTemplate:
+      name: estimate_sompz
+      pipeline_class: rail.pipelines.estimation.estimate_sompz.EstimateSomPZPipeline
+      input_file_templates:
+        input_deep_data:
+          flavor: baseline
+          tag: deep
+        input_wide_data:
+          flavor: baseline
+          tag: wide
+        input_spec_data:
+          flavor: baseline
+          tag: spec
+      kwargs:
+        wide_catalog_tag: SompzWideTestCatalogConfig
+        catalog_module: rail.sompz.utils
+        deep_catalog_tag: SompzDeepTestCatalogConfig
+
