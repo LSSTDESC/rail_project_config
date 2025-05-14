@@ -125,3 +125,42 @@ Pipelines:
           tag: spec
       kwargs:
         recalib_algos: null
+
+# These describe all the algorithms that estimate PZ
+PZAlgorithms:
+  - PZAlgorithm:
+      name: trainz
+      Estimate: TrainZEstimator
+      Inform: TrainZInformer
+      Module: rail.estimation.algos.train_z
+  - PZAlgorithm:
+      name: simplenn
+      Estimate: SklNeurNetEstimator
+      Inform: SklNeurNetInformer
+      Module: rail.estimation.algos.sklearn_neurnet
+  - PZAlgorithm:
+      name: fzboost
+      Estimate: FlexZBoostEstimator
+      Inform: FlexZBoostInformer
+      Module: rail.estimation.algos.flexzboost
+  - PZAlgorithm:
+      name: knn
+      Estimate: KNearNeighEstimator
+      Inform: KNearNeighInformer
+      Module: rail.estimation.algos.k_nearneigh
+  - PZAlgorithm:
+      name: gpz
+      Estimate: GPzEstimator
+      Inform: GPzInformer
+      Module: rail.estimation.algos.gpz
+  - PZAlgorithm:
+      name: bpz
+      Estimate: BPZliteEstimator
+      Inform: BPZliteInformer
+      Module: rail.estimation.algos.bpz_lite
+  - PZAlgorithm:
+      name: tpz
+      Estimate: TPZliteEstimator
+      Inform: TPZliteInformer
+      Module: rail.estimation.algos.tpz_lite
+
