@@ -23,4 +23,6 @@ Project:
       wide: wide_file_full
       deep: deep_file_full
       spec: spec_file_full
+      train: spec_file_small
+      test: spec_file_full
 

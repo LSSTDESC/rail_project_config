@@ -23,6 +23,20 @@ Files:
 # These describe the various data analysis pipelines
 Pipelines:
   - PipelineTemplate:
+      name: pz
+      pipeline_class: rail.pipelines.estimation.pz_all.PzPipeline
+      input_catalog_template: degraded
+      output_catalog_template: degraded
+      input_file_templates:
+        input_train:
+          flavor: baseline
+          tag: train
+        input_test:
+          flavor: baseline
+          tag: test
+      kwargs:
+        algorithms: ['all']
+  - PipelineTemplate:
       name: inform_sompz
       pipeline_class: rail.pipelines.estimation.inform_sompz.InformSomPZPipeline
       input_file_templates:
