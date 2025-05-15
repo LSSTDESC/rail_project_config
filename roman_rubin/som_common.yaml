@@ -102,28 +102,21 @@ Pipelines:
       name: inform_recalib
       pipeline_class: rail.pipelines.calib.inform_recalib.InformRecalibPipeline
       input_file_templates:
-        input_deep_data:
+        truth:
           flavor: baseline
-          tag: deep
-        input_wide_data:
-          flavor: baseline
-          tag: wide
+          tag: test
       kwargs:
+        algorithms: ['all']
         recalib_algos: null
   - PipelineTemplate:
       name: estimate_recalib
       pipeline_class: rail.pipelines.calib.estimate_recalib.EstimateRecalibPipeline
       input_file_templates:
-        input_deep:
+        input:
           flavor: baseline
-          tag: deep
-        input_wide:
-          flavor: baseline
-          tag: wide
-        input_spec:
-          flavor: baseline
-          tag: spec
+          tag: test
       kwargs:
+        algorithms: ['all']
         recalib_algos: null
 
 # These describe all the algorithms that estimate PZ
