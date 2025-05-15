@@ -83,13 +83,13 @@ Pipelines:
       name: somlike_recalib
       pipeline_class: rail.pipelines.calib.somlike_recalib.SomlikeRecalibPipeline
       input_file_templates:
-        input_deep:
+        input_deep_data:
           flavor: baseline
           tag: deep
-        input_wide:
+        input_wide_data:
           flavor: baseline
           tag: wide
-        input_spec:
+        input_spec_data:
           flavor: baseline
           tag: spec
       kwargs:
