@@ -1,11 +1,9 @@
-# Includes
-Includes:
-  - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_rubin_common.yaml"
-
-
 Project:
 
   Name: roman_rubin_2023
+
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/roman_rubin/roman_rubin_common.yaml"
 
   PathTemplates: {}
 
