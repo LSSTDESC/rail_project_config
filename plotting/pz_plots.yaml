@@ -17,14 +17,31 @@ Plots:
       z_max: 3.0
       n_zbins: 60
 
-  # This combines the two previous plots, since they used the same type of data
+  # A plot of summary stats v. redshift
+  - Plotter:
+      name: biweight_stats_v_redshift
+      class_name: rail.plotting.pz_plotters.PZPlotterBiweightStatsVsRedshift
+      z_min: 0.0
+      z_max: 3.0
+      n_zbins: 60
+
+  # A plot of summary stats v. Mag 
+  - Plotter:
+      name: biweight_stats_v_mag
+      class_name: rail.plotting.pz_plotters.PZPlotterBiweightStatsVsMag
+      mag_min: 18.0
+      mag_max: 25.0
+      n_magbins: 14
+
+  # This combines some of the previous plots, since they used the same type of data
   # they can be made together
   - PlotterList:
       name: zestimate_v_ztrue
       dataset_holder_class: rail.plotting.pz_data_holders.RailPZPointEstimateDataHolder
       plotters:
         - zestimate_v_ztrue_hist2d
-        - zestimate_v_ztrue_profile
+        - biweight_stats_v_redshift
+        - biweight_stats_v_mag
 
   # Plot the accuracy v. redshift for a set of point estimates
   - Plotter:
