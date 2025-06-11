@@ -12,7 +12,7 @@ Project:
     parent: dp1
     project: dp1
     release_version: dp1
-    root: /sdf/data/rubin/shared/pz
+    root: /Users/echarles/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
@@ -37,6 +37,10 @@ Project:
           algorithms: ['trainz', 'simplenn', 'fzboost', 'knn', 'gpz', 'bpz', 'cmnn', 'dnf', 'tpz']
 
   Flavors:
+
+    - Flavor:
+        name: kron
+        catalog_tag: com_cam_kron
 
     - Flavor:
         name: knn_nneighMinMax37
