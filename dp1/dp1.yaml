@@ -11,7 +11,7 @@ Project:
   CommonPaths:
     parent: dp1
     project: dp1
-    release_version: dp1
+    release_version: v29.0.0
     root: /Users/echarles/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
@@ -19,11 +19,35 @@ Project:
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     tract:
+      - 453
+      - 454
+      - 2234
+      - 2235
+      - 2393
+      - 2394
+      - 4016
+      - 4017
+      - 4217
+      - 4218
       - 4848
       - 4849
       - 5062
       - 5063
       - 5064
+      - 5305
+      - 5306
+      - 5525
+      - 5526
+      - 7610
+      - 7611
+      - 7849
+      - 7850
+      - 10221
+      - 10222
+      - 10463
+      - 10464
+      - 10704
+      - 10705
 
   Baseline:
     catalog_tag: com_cam_gaap
@@ -31,12 +55,18 @@ Project:
     file_aliases:  # Set the training and test files
       test: test_file
       train: train_file
+      dp1_all: dp1_all_file
     pipeline_overrides:
       default:
         kwargs:
-          algorithms: ['trainz', 'simplenn', 'fzboost', 'knn', 'gpz', 'bpz', 'cmnn', 'dnf', 'tpz']
+          algorithms: ['fzboost', 'knn', 'gpz', 'bpz', 'cmnn', 'dnf', 'tpz']
 
   Flavors:
+
+    - Flavor:
+        name: prepare
+        catalog_tag: dp1_all
+        pipelines: ['prepare']
 
     - Flavor:
         name: kron

@@ -2,11 +2,11 @@
 Catalogs:
   - CatalogTemplate:
       name: input
-      path_template: "{catalogs_dir}/{project}_{release_version}/{tract}/objectTable_tract.parquet"
+      path_template: "{catalogs_dir}/{project}_{release_version}/{tract}/object.parquet"
       iteration_vars: ['tract']
   - CatalogTemplate:
       name: reduced
-      path_template: "{catalogs_dir}/{project}_{release_version}_{selection}/{tract}/objectTable_tract.pq"
+      path_template: "{catalogs_dir}/{project}_{release_version}_{selection}/{tract}/object.pq"
       iteration_vars: ['tract']
   - CatalogTemplate:
       name: prepared
@@ -22,6 +22,9 @@ Files:
   - FileTemplate:
       name: train_file
       path_template: "{catalogs_dir}/train/{parent}_matched_train.hdf5"
+  - FileTemplate:
+      name: dp1_all_file
+      path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_all.hdf5"
 
 
 # These describe all the algorithms that estimate PZ
@@ -105,6 +108,12 @@ Summarizers:
 # These describe the various data analysis pipelines
 Pipelines:
   - PipelineTemplate:
+      name: prepare
+      pipeline_class: rail.pipelines.utils.prepare_observed.PrepareObservedPipeline
+      input_catalog_template: reduced
+      output_catalog_template: prepared
+
+  - PipelineTemplate:
       name: inform
       pipeline_class: rail.pipelines.estimation.inform_all.InformPipeline
       input_file_templates:
@@ -160,8 +169,8 @@ Pipelines:
 # These describe the ways we can reduce the data
 Reducers:
   - Reducer:
-      name: com_cam
-      Reduce: ComCamReducer
+      name: dp1
+      Reduce: DP1Reducer
       Module: rail.projects.reducer
 
 
@@ -173,4 +182,4 @@ Selections:
   - Selection:
       name: gold
       cuts:
-        maglim_i: [null, 25.5]
+        maglim_i: [null, 26.0]
