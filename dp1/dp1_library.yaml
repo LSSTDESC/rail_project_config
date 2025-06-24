@@ -25,6 +25,12 @@ Files:
   - FileTemplate:
       name: dp1_all_file
       path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_all.hdf5"
+  - FileTemplate:
+      name: dp1_6band_file
+      path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_ecdfs_edfs_sv95.hdf5"
+  - FileTemplate:
+      name: dp1_4band_file
+      path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_SV_38_7.hdf5"
 
 
 # These describe all the algorithms that estimate PZ
