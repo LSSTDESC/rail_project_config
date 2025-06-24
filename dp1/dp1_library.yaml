@@ -18,10 +18,10 @@ Catalogs:
 Files:
   - FileTemplate:
       name: test_file
-      path_template: "{catalogs_dir}/test/{parent}_matched_test.hdf5"
+      path_template: "{catalogs_dir}/test/{parent}_matched_v2_test.hdf5"
   - FileTemplate:
       name: train_file
-      path_template: "{catalogs_dir}/train/{parent}_matched_train.hdf5"
+      path_template: "{catalogs_dir}/train/{parent}_matched_v2_train.hdf5"
   - FileTemplate:
       name: dp1_all_file
       path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_all.hdf5"
