@@ -56,6 +56,8 @@ Project:
       test: test_file
       train: train_file
       dp1_all: dp1_all_file
+      dp1_6band: dp1_6band_file
+      dp1_4band: dp1_4band_file
     pipeline_overrides:
       default:
         kwargs:
@@ -441,6 +443,19 @@ Project:
           default:
             kwargs:
               algorithms: ['fzboost', 'knn', 'gpz', 'bpz', 'cmnn', 'dnf', 'tpz', 'lephare']
+          estimate:
+            estimate_bpz:
+              no_prior: false
+              madau_flag: 'yes'
+              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
+              spectra_file: 'cosmossedswdust136.list'
+              zp_errors:
+                - 0.03
+                - 0.03
+                - 0.03
+                - 0.03
+                - 0.03
+                - 0.03
           pz:
             inform_knn:
               nneigh_max: 10
@@ -568,6 +583,17 @@ Project:
           default:
             kwargs:
               algorithms: ['fzboost', 'knn', 'gpz', 'bpz', 'cmnn', 'dnf', 'tpz', 'lephare']
+          estimate:
+            estimate_bpz:
+              no_prior: false
+              madau_flag: 'yes'
+              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
+              spectra_file: 'cosmossedswdust136.list'
+              zp_errors:
+                - 0.03
+                - 0.03
+                - 0.03
+                - 0.03
           pz:
             inform_knn:
               nneigh_max: 10
