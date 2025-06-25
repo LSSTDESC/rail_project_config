@@ -547,9 +547,9 @@ Project:
                 MAGTYPE: AB
                 MAG_ABS: -24,-5
                 MAG_ABS_QSO: -30,-10
-                MAG_REF: '3'
+                MAG_REF: '2'
                 MIN_THRES: '0.02'
-                MOD_EXTINC: 0,0
+                MOD_EXTINC: 18,26,26,33,26,33,26,33
                 PARA_OUT: /sdf/data/rubin/shared/pz/data/lephare/data/examples/output.para
                 PDZ_OUT: test
                 PDZ_TYPE: BAY_ZG
@@ -559,7 +559,7 @@ Project:
                 QSO_LIB_OUT: LSST_QSO_MAG
                 QSO_SED: /sdf/data/rubin/shared/pz/data/lephare/data/sed/QSO/SALVATO09/AGN_MOD.list
                 RF_COLORS: 32,4,4,13
-                RM_DISCREPANT_BD: '500'
+                RM_DISCREPANT_BD: '300'
                 SPEC_OUT: 'NO'
                 STAR_FSCALE: '3.432E-09'
                 STAR_LIB: LSST_STAR_BIN
@@ -683,9 +683,9 @@ Project:
                 MAGTYPE: AB
                 MAG_ABS: -24,-5
                 MAG_ABS_QSO: -30,-10
-                MAG_REF: '3'
+                MAG_REF: '2'
                 MIN_THRES: '0.02'
-                MOD_EXTINC: 0,0
+                MOD_EXTINC: 18,26,26,33,26,33,26,33
                 PARA_OUT: /sdf/data/rubin/shared/pz/data/lephare/data/examples/output.para
                 PDZ_OUT: test
                 PDZ_TYPE: BAY_ZG
@@ -695,7 +695,7 @@ Project:
                 QSO_LIB_OUT: LSST_QSO_MAG
                 QSO_SED: /sdf/data/rubin/shared/pz/data/lephare/data/sed/QSO/SALVATO09/AGN_MOD.list
                 RF_COLORS: 32,4,4,13
-                RM_DISCREPANT_BD: '500'
+                RM_DISCREPANT_BD: '300'
                 SPEC_OUT: 'NO'
                 STAR_FSCALE: '3.432E-09'
                 STAR_LIB: LSST_STAR_BIN
