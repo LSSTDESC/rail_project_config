@@ -447,7 +447,7 @@ Project:
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_u', 'comcam_g','comcam_r','comcam_i','comcam_z','comcam_y']
+              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
               - 0.03
@@ -473,11 +473,11 @@ Project:
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
-              filter_list: ['comcam_u', 'comcam_g','comcam_r','comcam_i','comcam_z','comcam_y']
+              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_u', 'comcam_g','comcam_r','comcam_i','comcam_z','comcam_y']
+              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
               - 0.03
@@ -588,9 +588,13 @@ Project:
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_g','comcam_r','comcam_i','comcam_z']
+              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
               spectra_file: 'cosmossedswdust136.list'
-              zp_errors: [0.03, 0.03, 0.03, 0.03]
+              zp_errors:
+                - 0.03
+                - 0.03
+                - 0.03
+                - 0.03
           pz:
             inform_knn:
               nneigh_max: 10
@@ -608,13 +612,17 @@ Project:
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
-              filter_list: [ 'comcam_g','comcam_r','comcam_i','comcam_z']
+              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_g','comcam_r','comcam_i','comcam_z']
+              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
               spectra_file: 'cosmossedswdust136.list'
-              zp_errors: [0.03, 0.03, 0.03, 0.03]
+              zp_errors:
+                - 0.03
+                - 0.03
+                - 0.03
+                - 0.03
             inform_tpz:
               tree_strategy: 'sklearn'
             inform_lephare:
