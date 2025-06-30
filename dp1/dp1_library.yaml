@@ -18,10 +18,22 @@ Catalogs:
 Files:
   - FileTemplate:
       name: test_file
-      path_template: "{catalogs_dir}/test/{parent}_matched_v2_test.hdf5"
+      path_template: "{catalogs_dir}/test/{parent}_matched_test.hdf5"
   - FileTemplate:
       name: train_file
+      path_template: "{catalogs_dir}/train/{parent}_matched_train.hdf5"
+  - FileTemplate:
+      name: test_file_v2
+      path_template: "{catalogs_dir}/test/{parent}_matched_v2_test.hdf5"
+  - FileTemplate:
+      name: train_file_v2
       path_template: "{catalogs_dir}/train/{parent}_matched_v2_train.hdf5"
+  - FileTemplate:
+      name: test_file_v3
+      path_template: "{catalogs_dir}/test/{parent}_ecdfs_matched_specgold_test.hdf5"
+  - FileTemplate:
+      name: train_file_v3
+      path_template: "{catalogs_dir}/train/{parent}_ecdfs_matched_specgold_train.hdf5"
   - FileTemplate:
       name: dp1_all_file
       path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_all.hdf5"
@@ -30,7 +42,7 @@ Files:
       path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_ecdfs_edfs_sv95.hdf5"
   - FileTemplate:
       name: dp1_4band_file
-      path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_SV_38_7.hdf5"
+      path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_Rubin_SV_38_7.hdf5"
 
 
 # These describe all the algorithms that estimate PZ
