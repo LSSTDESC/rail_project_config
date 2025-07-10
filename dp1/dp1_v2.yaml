@@ -12,7 +12,7 @@ Project:
     parent: dp1
     project: dp1_v2
     release_version: v29.0.0
-    root: /sdf/data/rubin/shared/pz
+    root: /global/cfs/cdirs/lsst/groups/PZ/DP1
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
