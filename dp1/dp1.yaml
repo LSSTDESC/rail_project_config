@@ -71,8 +71,25 @@ Project:
         pipelines: ['prepare']
 
     - Flavor:
+        name: psf
+        catalog_tag: com_cam_psf
+
+    - Flavor:
         name: kron
         catalog_tag: com_cam_kron
+
+    - Flavor:
+        name: sersic
+        catalog_tag: com_cam_sersic
+
+    - Flavor:
+        name: cmodel
+        catalog_tag: com_cam_cmodel
+
+    - Flavor:
+        name: gaap3p0
+        catalog_tag: com_cam_gaap3p0
+
 
     - Flavor:
         name: knn_nneighMinMax37
