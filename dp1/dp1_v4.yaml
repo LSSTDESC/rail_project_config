@@ -1,6 +1,6 @@
 Project:
 
-  Name: dp1_v1
+  Name: dp1_v4
 
   Includes:
     - '${RAIL_PROJECT_CONFIG_DIR}/dp1/dp1_library.yaml'
@@ -10,7 +10,7 @@ Project:
   # These are used to make all the other paths
   CommonPaths:
     parent: dp1
-    project: dp1_v2
+    project: dp1_v4
     release_version: v29.0.0
     root: /global/cfs/cdirs/lsst/groups/PZ/DP1
     scratch_root: "{root}"
@@ -53,8 +53,8 @@ Project:
     catalog_tag: com_cam_gaap
     pipelines: ['all']
     file_aliases:  # Set the training and test files
-      test: test_file_v3
-      train: train_file_v3
+      test: test_file_v4
+      train: train_file_v4
       dp1_all: dp1_all_file
       dp1_6band: dp1_6band_file
       dp1_4band: dp1_4band_file

@@ -35,6 +35,18 @@ Files:
       name: train_file_v3
       path_template: "{catalogs_dir}/train/{parent}_ecdfs_matched_specgold_train.hdf5"
   - FileTemplate:
+      name: test_file_v4
+      path_template: "{catalogs_dir}/test/{parent}_matched_v4_test.hdf5"
+  - FileTemplate:
+      name: train_file_v4
+      path_template: "{catalogs_dir}/train/{parent}_matched_v4_train.hdf5"
+  - FileTemplate:
+      name: test_file_euclid
+      path_template: "{catalogs_dir}/test/{parent}_euclid_test.hdf5"
+  - FileTemplate:
+      name: train_file_euclid
+      path_template: "{catalogs_dir}/train/{parent}_euclid_train.hdf5"
+  - FileTemplate:
       name: dp1_all_file
       path_template: "{catalogs_dir}/on_sky/{parent}_{release_version}_{selection}_all.hdf5"
   - FileTemplate:
