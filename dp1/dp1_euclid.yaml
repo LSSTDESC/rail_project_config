@@ -64,6 +64,45 @@ Project:
           algorithms: ['fzboost', 'knn', 'gpz', 'cmnn', 'dnf', 'tpz']
 
   Flavors:
+    - Flavor:
+        name: dp1_paper_euclid_nir
+        catalog_tag: com_cam_euclid_nir
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost', 'tpz']
+          pz:
+            inform_tpz:
+              tree_strategy: 'sklearn'
+              nrandom: 10
+              ntrees: 10
+              sigmafactor: 1
+              minleaf: 2
+              natt: 5
+            inform_fzboost:
+              max_basis: 50
+              nsharp: 30
+              nbump: 40
+
+    - Flavor:
+        name: dp1_paper_comcam # use the same train/test, but just comcam filters, for comparison
+        catalog_tag: com_cam_gaap
+        pipeline_overrides:
+          default:
+            kwargs:
+              algorithms: ['fzboost', 'tpz']
+          pz:
+            inform_tpz:
+              tree_strategy: 'sklearn'
+              nrandom: 10
+              ntrees: 10
+              sigmafactor: 1
+              minleaf: 2
+              natt: 5
+            inform_fzboost:
+              max_basis: 50
+              nsharp: 30
+              nbump: 40
 
     - Flavor:
         name: dp1_6band_euclid
