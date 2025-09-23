@@ -12,7 +12,7 @@ Project:
     parent: dp1
     project: dp1_euclid
     release_version: v29.0.0
-    root: /Users/echarles/pz
+    root: /sdf/data/rubin/shared/pz
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
@@ -187,7 +187,7 @@ Project:
                 FILTER_CALIB: 0,0,0,0,0,0
                 FILTER_FILE: filter_lsst
                 FILTER_LIST: comcam/u.pb,comcam/g.pb,comcam/r.pb,comcam/i.pb,comcam/z.pb,comcam/y.pb
-                FILTER_REP: /Users/echarles/pz/data/lephare/data/filt
+                FILTER_REP: /sdf/data/rubin/shared/pz/data/lephare/data/filt
                 FIR_CONT: '-1'
                 FIR_FREESCALE: 'YES'
                 FIR_LIB: NONE
@@ -199,7 +199,7 @@ Project:
                 GAL_LIB: LSST_GAL_BIN
                 GAL_LIB_IN: LSST_GAL_BIN
                 GAL_LIB_OUT: LSST_GAL_MAG
-                GAL_SED: /Users/echarles/pz/data/lephare/data/examples/COSMOS_MOD.list
+                GAL_SED: /sdf/data/rubin/shared/pz/data/lephare/data/examples/COSMOS_MOD.list
                 GLB_CONTEXT: '63'
                 INP_TYPE: M
                 LIB_ASCII: 'NO'
@@ -218,14 +218,14 @@ Project:
                 MAG_REF: '2'
                 MIN_THRES: '0.02'
                 MOD_EXTINC: 18,26,26,33,26,33,26,33
-                PARA_OUT: /Users/echarles/pz/data/lephare/data/examples/output.para
+                PARA_OUT: /sdf/data/rubin/shared/pz/data/lephare/data/examples/output.para
                 PDZ_OUT: test
                 PDZ_TYPE: BAY_ZG
                 QSO_FSCALE: '1.'
                 QSO_LIB: LSST_QSO_BIN
                 QSO_LIB_IN: LSST_QSO_BIN
                 QSO_LIB_OUT: LSST_QSO_MAG
-                QSO_SED: /Users/echarles/pz/data/lephare/data/sed/QSO/SALVATO09/AGN_MOD.list
+                QSO_SED: /sdf/data/rubin/shared/pz/data/lephare/data/sed/QSO/SALVATO09/AGN_MOD.list
                 RF_COLORS: 32,4,4,13
                 RM_DISCREPANT_BD: '300'
                 SPEC_OUT: 'NO'
@@ -233,7 +233,7 @@ Project:
                 STAR_LIB: LSST_STAR_BIN
                 STAR_LIB_IN: LSST_STAR_BIN
                 STAR_LIB_OUT: LSST_STAR_MAG
-                STAR_SED: /Users/echarles/pz/data/lephare/data/sed/STAR/STAR_MOD_ALL.list
+                STAR_SED: /sdf/data/rubin/shared/pz/data/lephare/data/sed/STAR/STAR_MOD_ALL.list
                 TRANS_TYPE: '1'
                 VERBOSE: 'NO'
                 ZFIX: 'NO'
@@ -329,7 +329,7 @@ Project:
                 FILTER_CALIB: 0,0,0,0,0,0
                 FILTER_FILE: filter_lsst
                 FILTER_LIST: comcam/u.pb,comcam/g.pb,comcam/r.pb,comcam/i.pb,comcam/z.pb,comcam/y.pb
-                FILTER_REP: /Users/echarles/pz/data/lephare/data/filt
+                FILTER_REP: /sdf/data/rubin/shared/pz/data/lephare/data/filt
                 FIR_CONT: '-1'
                 FIR_FREESCALE: 'YES'
                 FIR_LIB: NONE
@@ -341,7 +341,7 @@ Project:
                 GAL_LIB: LSST_GAL_BIN
                 GAL_LIB_IN: LSST_GAL_BIN
                 GAL_LIB_OUT: LSST_GAL_MAG
-                GAL_SED: /Users/echarles/pz/data/lephare/data/examples/COSMOS_MOD.list
+                GAL_SED: /sdf/data/rubin/shared/pz/data/lephare/data/examples/COSMOS_MOD.list
                 GLB_CONTEXT: '63'
                 INP_TYPE: M
                 LIB_ASCII: 'NO'
@@ -360,14 +360,14 @@ Project:
                 MAG_REF: '2'
                 MIN_THRES: '0.02'
                 MOD_EXTINC: 18,26,26,33,26,33,26,33
-                PARA_OUT: /Users/echarles/pz/data/lephare/data/examples/output.para
+                PARA_OUT: /sdf/data/rubin/shared/pz/data/lephare/data/examples/output.para
                 PDZ_OUT: test
                 PDZ_TYPE: BAY_ZG
                 QSO_FSCALE: '1.'
                 QSO_LIB: LSST_QSO_BIN
                 QSO_LIB_IN: LSST_QSO_BIN
                 QSO_LIB_OUT: LSST_QSO_MAG
-                QSO_SED: /Users/echarles/pz/data/lephare/data/sed/QSO/SALVATO09/AGN_MOD.list
+                QSO_SED: /sdf/data/rubin/shared/pz/data/lephare/data/sed/QSO/SALVATO09/AGN_MOD.list
                 RF_COLORS: 32,4,4,13
                 RM_DISCREPANT_BD: '300'
                 SPEC_OUT: 'NO'
@@ -375,7 +375,7 @@ Project:
                 STAR_LIB: LSST_STAR_BIN
                 STAR_LIB_IN: LSST_STAR_BIN
                 STAR_LIB_OUT: LSST_STAR_MAG
-                STAR_SED: /Users/echarles/pz/data/lephare/data/sed/STAR/STAR_MOD_ALL.list
+                STAR_SED: /sdf/data/rubin/shared/pz/data/lephare/data/sed/STAR/STAR_MOD_ALL.list
                 TRANS_TYPE: '1'
                 VERBOSE: 'NO'
                 ZFIX: 'NO'
