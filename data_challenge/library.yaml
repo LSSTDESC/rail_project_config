@@ -13,6 +13,8 @@ Catalogs:
       path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{healpix}/{basename}"
       iteration_vars: ['healpix']
 
+
+
 # These are templates for specific files, such as testing and training files
 Files:
   - FileTemplate:
@@ -139,8 +141,40 @@ ErrorModels:
       ErrorModel: LSSTErrorModel
       Module: rail.creation.degraders.photometric_errors
   - ErrorModel:
-      name: roman
-      ErrorModel: RomanErrorModel
+      name: lsst_4yr_app_corr
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: lsst_10yr_app_corr
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: lsst_10yr_app_corr
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: roman_wide
+      ErrorModel: RomanWideErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: roman_medium
+      ErrorModel: RomanMediumErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: roman_deep
+      ErrorModel: RomanDeepErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: roman_ultradepp
+      ErrorModel: RomanUltraDeepErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: euclid_wide
+      ErrorModel: EuclidWideErrorModel
+      Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: euclid_deep
+      ErrorModel: EuclidDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
 
 
