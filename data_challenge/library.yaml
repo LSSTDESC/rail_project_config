@@ -144,7 +144,7 @@ ErrorModels:
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
         hdf5_groupname: ''
-        mask:"${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/WFD-mask-nside-128.fits"
+        mask:"${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
           m5:
             u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_ExgalM5_u-band-1-year-wfd_HEAL.fits"
@@ -183,7 +183,7 @@ ErrorModels:
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
         hdf5_groupname: ''
-        mask:"${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/WFD-mask-nside-128.fits"
+        mask:"${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
           m5:
             u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_u-band-4-year-wfd_HEAL.fits"
@@ -222,7 +222,7 @@ ErrorModels:
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
         hdf5_groupname: ''
-        mask:"${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/WFD-mask-nside-128.fits"
+        mask:"${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
           m5:
             u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_ExgalM5_u-band-10-year-wfd_HEAL.fits"
