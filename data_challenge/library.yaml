@@ -2,11 +2,11 @@
 Catalogs:
   - CatalogTemplate:
       name: truth
-      path_template: "{catalogs_dir}/{project}_{sim_version}/{healpix}/part-0.parquet"
+      path_template: "{catalogs_dir}/{parent}_{sim_version{/{healpix}/part-0.parquet"
       iteration_vars: ['healpix']
   - CatalogTemplate:
       name: reduced
-      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}/{healpix}/part-0.pq"
+      path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}/{healpix}/part-0.pq"
       iteration_vars: ['healpix']
   - CatalogTemplate:
       name: degraded
@@ -31,7 +31,7 @@ Files:
       path_template: "{catalogs_dir}/train/{project}_{selection}_HSC_100k.hdf5"
 
 
-# These	describe all the algorithms that emulate spectroscopic selections
+# These describe all the algorithms that emulate spectroscopic selections
 SpecSelections:
   # - SpecSelection:
   #      name: GAMA:
