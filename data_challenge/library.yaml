@@ -169,7 +169,7 @@ ErrorModels:
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-1-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-1-year-wfd_HEAL.fits"
           airmass: 0 # do not change this as we use effective theta, which accounts for dependence on airmass
-          EBV: "${PZ_DUSTMAP_DIR}/sfd/SFD_dust_4096_sgp.fits"
+          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -208,7 +208,7 @@ ErrorModels:
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-4-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-4-year-wfd_HEAL.fits"
           airmass: 0 # do not change this as we use effective theta, which accounts for dependence on airmass
-          EBV: "${PZ_DUSTMAP_DIR}/sfd/SFD_dust_4096_sgp.fits"
+          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -247,7 +247,7 @@ ErrorModels:
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-10-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-10-year-wfd_HEAL.fits"
           airmass: 0 # do not change this as we use effective theta, which accounts for dependence on airmass
-          EBV: "${PZ_DUSTMAP_DIR}/sfd/SFD_dust_4096_sgp.fits"
+          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           minorCol: minor
           majorCol: major
           extendedType: gaap
