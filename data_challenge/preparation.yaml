@@ -1,9 +1,8 @@
-# Includes
-Includes:
-  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/library.yaml"
-
-
 Project:
+
+  # includes
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/library.yaml"
 
   Name: data_challenge_prep_test
 
@@ -69,22 +68,29 @@ Project:
         name: truth_to_observed_rubin
         pipelines: ['truth_to_observed', 'photometric_errors', 'blending', 'spec_selection']
         pipeline_overrides:
-          default:
+          truth_to_observed:
             kwargs:
-              error_models: ['lsst_1yr_app_corr', 'lsst_4yr_app_corr', 'lsst_10yr_app_corr']
-	      
+              error_models: ['lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
+          photometric_errors:
+            kwargs:
+              error_models: ['lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
     - Flavor:
         name: truth_to_observed_roman
         pipelines: ['truth_to_observed', 'photometric_errors', 'blending', 'spec_selection']
         pipeline_overrides:
-          default:
+          truth_to_observed:
             kwargs:
               error_models: ['roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradepp']
-	
+          photometric_errors:
+            kwargs:
+              error_models: ['roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradepp']
     - Flavor:
         name: truth_to_observed_euclid
         pipelines: ['truth_to_observed', 'photometric_errors', 'blending', 'spec_selection']
         pipeline_overrides:
-          default:
+          truth_to_observed:
+            kwargs:
+              error_models: ['euclid_wide', 'euclid_deep']
+          photometric_errors:
             kwargs:
               error_models: ['euclid_wide', 'euclid_deep']
