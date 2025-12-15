@@ -13,7 +13,7 @@ Project:
     project: data_challenge_prep_test
     parent: roman_rubin_2023
     sim_version: v1.1.3
-    root: "${PZ_BASE_AREA}"
+    root: "{PZ_BASE_AREA}"
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
@@ -66,6 +66,16 @@ Project:
         pipelines: ['blending']
 
     - Flavor:
+        name: truth_to_observed_all
+        pipelines: ['truth_to_observed', 'photometric_errors', 'blending', 'spec_selection']
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              error_models: ['lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradeep', 'euclid_wide', 'euclid_deep']
+          photometric_errors:
+            kwargs:
+              error_models: ['lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradeep', 'euclid_wide', 'euclid_deep']
+    - Flavor:
         name: truth_to_observed_rubin
         pipelines: ['truth_to_observed', 'photometric_errors', 'blending', 'spec_selection']
         pipeline_overrides:
@@ -81,10 +91,10 @@ Project:
         pipeline_overrides:
           truth_to_observed:
             kwargs:
-              error_models: ['roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradepp']
+              error_models: ['roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradeep']
           photometric_errors:
             kwargs:
-              error_models: ['roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradepp']
+              error_models: ['roman_wide', 'roman_medium', 'roman_deep', 'roman_ultradeep']
     - Flavor:
         name: truth_to_observed_euclid
         pipelines: ['truth_to_observed', 'photometric_errors', 'blending', 'spec_selection']

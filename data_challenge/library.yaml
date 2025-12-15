@@ -169,7 +169,6 @@ ErrorModels:
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-1-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-1-year-wfd_HEAL.fits"
           airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
-          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -208,7 +207,6 @@ ErrorModels:
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-4-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-4-year-wfd_HEAL.fits"
           airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
-          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -247,7 +245,6 @@ ErrorModels:
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-10-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-10-year-wfd_HEAL.fits"
           airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
-          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -266,7 +263,7 @@ ErrorModels:
       ErrorModel: RomanDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
   - ErrorModel:
-      name: roman_ultradepp
+      name: roman_ultradeep
       ErrorModel: RomanUltraDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
   - ErrorModel:
@@ -290,6 +287,7 @@ Pipelines:
         error_models: ['all']
         selectors: ['all']
         blending: true
+        parallel: true
   - PipelineTemplate:
       name: photometric_errors
       pipeline_class: rail.pipelines.degradation.apply_phot_errors.ApplyPhotErrorsPipeline
@@ -297,6 +295,7 @@ Pipelines:
       output_catalog_template: degraded
       kwargs:
         error_models: ['all']
+        parallel: true
   - PipelineTemplate:
       name: blending
       input_catalog_template: degraded
