@@ -1,6 +1,6 @@
 Project:
 
-  Name: roman_3band
+  Name: roman_HBand_rubin_10yr
 
   Includes:
     - "${RAIL_PROJECT_CONFIG_DIR}/roman/roman_common.yaml"
