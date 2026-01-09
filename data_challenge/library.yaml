@@ -14,7 +14,6 @@ Catalogs:
       iteration_vars: ['healpix']
 
 
-
 # These are templates for specific files, such as testing and training files
 Files:
   - FileTemplate:
@@ -29,6 +28,9 @@ Files:
   - FileTemplate:
       name: train_file_HSC_100k
       path_template: "{catalogs_dir}/train/{project}_{selection}_HSC_100k.hdf5"
+  - FileTemplate:
+      name: lsst_1yr_roman_wide
+      path_template: "{catalogs_dir}/train/{project}_{selection}_lsst_1yr_roman_wide.hdf5"
 
 
 # These describe all the algorithms that emulate spectroscopic selections
@@ -100,6 +102,10 @@ Subsamplers:
       name: random_subsampler
       Subsample: RandomSubsampler
       Module: rail.projects.subsampler
+  - Subsampler:
+      name: multi_catalog_subsampler
+      Subsample: MultiCatalogSubsampler
+      Module: rail.projects.subsampler
 
 
 # These describe the ways we can reduce the data
@@ -132,10 +138,32 @@ Subsamples:
       name: train_100k
       seed: 4321
       num_objects: 100000
+  - Subsample:
+      name: multi_catalog
+      seed: 5555
+      num_objects: 1000
+      object_id_col: galaxy_id
+      inputs:                        # All the inputs
+        rubin:                            # rubin input config
+          basename: output_deredden_lsst.pq     # file to look for
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']              # bands to consider
+          mag_band_name_template: "LSST_obs_{band}"          # template for columns
+          mag_err_band_name_template: "LSST_obs_{band}_err"  # template for columns
+          extra_cols: []                                     # extra columns to copy
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y106', 'J129', 'H158']
+          mag_band_name_template: "ROMAN_obs_{band}"
+          mag_err_band_name_template: "ROMAN_obs_{band}_err"
+          extra_cols: []
 
 
 # These describe the error models we use in the truth_to_observed pipeline
 ErrorModels:
+  - ErrorModel:
+      name: lsst
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
   - ErrorModel:
       name: lsst_obs_cond_1yr
       ErrorModel: ObsCondition
@@ -168,7 +196,8 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-1-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-1-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-1-year-wfd_HEAL.fits"
-          airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
+          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
+          airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -206,7 +235,15 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-4-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-4-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-4-year-wfd_HEAL.fits"
+<<<<<<< Updated upstream
           airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
+<<<<<<< HEAD
+=======
+          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
+=======
+          airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
+>>>>>>> Stashed changes
+>>>>>>> 91943cf (updates to data_challenge)
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -244,7 +281,15 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-10-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-10-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-10-year-wfd_HEAL.fits"
+<<<<<<< Updated upstream
           airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
+<<<<<<< HEAD
+=======
+          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
+=======
+          airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
+>>>>>>> Stashed changes
+>>>>>>> 91943cf (updates to data_challenge)
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -254,18 +299,22 @@ ErrorModels:
       name: roman_wide
       ErrorModel: RomanWideErrorModel
       Module: rail.creation.degraders.photometric_errors
+      Bands: ['H']
   - ErrorModel:
       name: roman_medium
       ErrorModel: RomanMediumErrorModel
       Module: rail.creation.degraders.photometric_errors
+      Bands: ['Y', 'J', 'H']
   - ErrorModel:
       name: roman_deep
       ErrorModel: RomanDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
+      Bands: ['Z', 'Y', 'J', 'W', 'H', 'F', 'K']
   - ErrorModel:
       name: roman_ultradeep
       ErrorModel: RomanUltraDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
+      Bands: ['Y', 'J', 'H']
   - ErrorModel:
       name: euclid_wide
       ErrorModel: EuclidWideErrorModel
@@ -286,8 +335,16 @@ Pipelines:
       kwargs:
         error_models: ['all']
         selectors: ['all']
+<<<<<<< Updated upstream
         blending: true
+<<<<<<< HEAD
         parallel: true
+=======
+=======
+        blending: false
+        parallel: true
+>>>>>>> Stashed changes
+>>>>>>> 91943cf (updates to data_challenge)
   - PipelineTemplate:
       name: photometric_errors
       pipeline_class: rail.pipelines.degradation.apply_phot_errors.ApplyPhotErrorsPipeline
