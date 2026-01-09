@@ -56,16 +56,6 @@ SpecSelections:
 # These describe all the algorithms that estimate PZ
 PZAlgorithms:
   - PZAlgorithm:
-      name: trainz
-      Estimate: TrainZEstimator
-      Inform: TrainZInformer
-      Module: rail.estimation.algos.train_z
-  - PZAlgorithm:
-      name: simplenn
-      Estimate: SklNeurNetEstimator
-      Inform: SklNeurNetInformer
-      Module: rail.estimation.algos.sklearn_neurnet
-  - PZAlgorithm:
       name: fzboost
       Estimate: FlexZBoostEstimator
       Inform: FlexZBoostInformer
@@ -183,7 +173,8 @@ ErrorModels:
       ErrorModel: RomanErrorModel
       Module: rail.creation.degraders.photometric_errors
       # Bands: ['K', 'F', 'H', 'J', 'Y', 'Z', 'W']
-      Bands: ['H', 'J', 'Y']
+      # Bands: ['H', 'J', 'Y']
+      Bands: ['H']
 
 
 # These describe the various data analysis pipelines
@@ -214,6 +205,7 @@ Pipelines:
       name: spec_selection
       input_catalog_template: degraded
       output_catalog_template: degraded
+      input_catalog_basename: output_dereddener_errors.pq
       pipeline_class: rail.pipelines.degradation.spectroscopic_selection_pipeline.SpectroscopicSelectionPipeline
       kwargs:
         selectors: ['all']
