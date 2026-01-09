@@ -274,15 +274,8 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-10-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-10-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-10-year-wfd_HEAL.fits"
-<<<<<<< Updated upstream
-          airmass: 0. # do not change this as we use effective theta, which accounts for dependence on airmass
-<<<<<<< HEAD
-=======
           EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
-=======
           airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
->>>>>>> Stashed changes
->>>>>>> 91943cf (updates to data_challenge)
           minorCol: minor
           majorCol: major
           extendedType: gaap
@@ -328,16 +321,8 @@ Pipelines:
       kwargs:
         error_models: ['all']
         selectors: ['all']
-<<<<<<< Updated upstream
-        blending: true
-<<<<<<< HEAD
-        parallel: true
-=======
-=======
         blending: false
         parallel: true
->>>>>>> Stashed changes
->>>>>>> 91943cf (updates to data_challenge)
   - PipelineTemplate:
       name: photometric_errors
       pipeline_class: rail.pipelines.degradation.apply_phot_errors.ApplyPhotErrorsPipeline
