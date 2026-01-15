@@ -242,7 +242,7 @@ ErrorModels:
           extendedType: gaap
           aMin: 1.5  # from Gaap1p0
           highSNR: true  # found to fit the photometric error better at faint end
-   - ErrorModel:
+  - ErrorModel:
       name: lsst_obs_cond_10yr
       ErrorModel: ObsCondition
       Module: rail.creation.degraders.observing_condition_degrader
