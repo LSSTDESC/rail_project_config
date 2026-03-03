@@ -2,11 +2,11 @@
 Catalogs:
   - CatalogTemplate:
       name: truth_roman_rubin
-      path_template: "{catalogs_dir}/{parent}_roman_rubin/{pixel}/part-0.parquet"
+      path_template: "{catalogs_dir}/{project}_roman_rubin/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: reduced_roman_rubin
-      path_template: "{catalogs_dir}/{parent}_roman_rubin_{selection}/{pixel}/part-0.pq"
+      path_template: "{catalogs_dir}/{project}_roman_rubin_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: degraded_roman_rubin
@@ -14,11 +14,11 @@ Catalogs:
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_cardinal
-      path_template: "{catalogs_dir}/{parent}_cardinal/{pixel}/part-0.parquet"
+      path_template: "{catalogs_dir}/{project}_cardinal/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: reduced_cardinal
-      path_template: "{catalogs_dir}/{parent}_cardinal_{selection}/{pixel}/part-0.pq"
+      path_template: "{catalogs_dir}/{project}_cardinal_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: degraded_cardinal
@@ -26,11 +26,11 @@ Catalogs:
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_flagship
-      path_template: "{catalogs_dir}/{parent}_flagship/{pixel}/part-0.parquet"
+      path_template: "{catalogs_dir}/{project}_flagship/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: reduced_flagship
-      path_template: "{catalogs_dir}/{parent}_flagship_{selection}/{pixel}/part-0.pq"
+      path_template: "{catalogs_dir}/{project}_flagship_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: degraded_flagship

@@ -10,7 +10,7 @@ Project:
   # These are used to make all the other paths
   CommonPaths:
     project: pz_challenge_test
-    root: "${PZ_BASE_AREA}"
+    root: "{PZ_BASE_AREA}"
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
