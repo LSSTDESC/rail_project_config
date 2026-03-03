@@ -1,9 +1,7 @@
-# Includes
-Includes:
-  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/prep_library.yaml"
-
-
 Project:
+
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/prep_library.yaml"
 
   Name: pz_challenge
 
