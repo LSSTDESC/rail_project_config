@@ -1,0 +1,27 @@
+# Includes
+Includes:
+  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/prep_library.yaml"
+
+
+Project:
+
+  Name: pz_challenge
+
+  PathTemplates: {}
+
+  # These are used to make all the other paths
+  CommonPaths:
+    project: pz_challenge_test
+    sim_version: flagship
+    root: "${PZ_BASE_AREA}"
+    scratch_root: "{root}"
+    catalogs_dir: "{root}/data"
+
+  # Baseline configuraiton, included in others by default
+  Baseline:
+    catalog_tag: flagship
+    pipelines: ['all']
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    pixel:
