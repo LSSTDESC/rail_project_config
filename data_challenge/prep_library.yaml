@@ -1,16 +1,40 @@
 # These are templates for catalogs produced in the early stages of the analysis
 Catalogs:
   - CatalogTemplate:
-      name: truth
-      path_template: "{catalogs_dir}/{parent}_{sim_version}/{pixel}/part-0.parquet"
+      name: truth_roman_rubin
+      path_template: "{catalogs_dir}/{parent}_roman_rubin/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
-      name: reduced
-      path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}/{pixel}/part-0.pq"
+      name: reduced_roman_rubin
+      path_template: "{catalogs_dir}/{parent}_roman_rubin_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
-      name: degraded
-      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
+      name: degraded_roman_rubin
+      path_template: "{catalogs_dir}/{project}_roman_rubin_{selection}_{flavor}/{pixel}/{basename}"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: truth_cardinal
+      path_template: "{catalogs_dir}/{parent}_cardinal/{pixel}/part-0.parquet"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: reduced_cardinal
+      path_template: "{catalogs_dir}/{parent}_cardinal_{selection}/{pixel}/part-0.pq"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: degraded_cardinal
+      path_template: "{catalogs_dir}/{project}_cardinal_{selection}_{flavor}/{pixel}/{basename}"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: truth_flagship
+      path_template: "{catalogs_dir}/{parent}_flagship/{pixel}/part-0.parquet"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: reduced_flagship
+      path_template: "{catalogs_dir}/{parent}_flagship_{selection}/{pixel}/part-0.pq"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: degraded_flagship
+      path_template: "{catalogs_dir}/{project}_flagship_{selection}_{flavor}/{pixel}/{basename}"
       iteration_vars: ['pixel']
 
 
