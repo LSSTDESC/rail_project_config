@@ -5,36 +5,20 @@ Catalogs:
       path_template: "{catalogs_dir}/{project}_roman_rubin/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
-      name: reduced_roman_rubin
-      path_template: "{catalogs_dir}/{project}_roman_rubin_{selection}/{pixel}/part-0.pq"
-      iteration_vars: ['pixel']
-  - CatalogTemplate:
-      name: degraded_roman_rubin
-      path_template: "{catalogs_dir}/{project}_roman_rubin_{selection}_{flavor}/{pixel}/{basename}"
-      iteration_vars: ['pixel']
-  - CatalogTemplate:
       name: truth_cardinal
       path_template: "{catalogs_dir}/{project}_cardinal/{pixel}/part-0.parquet"
-      iteration_vars: ['pixel']
-  - CatalogTemplate:
-      name: reduced_cardinal
-      path_template: "{catalogs_dir}/{project}_cardinal_{selection}/{pixel}/part-0.pq"
-      iteration_vars: ['pixel']
-  - CatalogTemplate:
-      name: degraded_cardinal
-      path_template: "{catalogs_dir}/{project}_cardinal_{selection}_{flavor}/{pixel}/{basename}"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_flagship
       path_template: "{catalogs_dir}/{project}_flagship/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
-      name: reduced_flagship
-      path_template: "{catalogs_dir}/{project}_flagship_{selection}/{pixel}/part-0.pq"
+      name: reduced
+      path_template: "{catalogs_dir}/{project}_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
-      name: degraded_flagship
-      path_template: "{catalogs_dir}/{project}_flagship_{selection}_{flavor}/{pixel}/{basename}"
+      name: degraded
+      path_template: "{catalogs_dir}/{project}_{selection}_{flavor}/{pixel}/{basename}"
       iteration_vars: ['pixel']
 
 
@@ -142,7 +126,15 @@ Reducers:
 # These describe the selections going from Input to Reduced catalog
 Selections:
   - Selection:
-      name: gold
+      name: roman_rubin_gold
+      cuts:
+        maglim_i: [null, 25.5]
+  - Selection:
+      name: cardinal_gold
+      cuts:
+        maglim_i: [null, 25.5]
+  - Selection:
+      name: flagship_gold
       cuts:
         maglim_i: [null, 25.5]
   - Selection:
@@ -200,7 +192,6 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-1-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-1-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-1-year-wfd_HEAL.fits"
-          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
           minorCol: minor
           majorCol: major
@@ -239,7 +230,6 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-4-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-4-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-4-year-wfd_HEAL.fits"
-          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
           minorCol: minor
           majorCol: major
@@ -278,7 +268,6 @@ ErrorModels:
             i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-10-year-wfd_HEAL.fits"
             z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-10-year-wfd_HEAL.fits"
             y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y10/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-10-year-wfd_HEAL.fits"
-          EBV: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/EBV/ebv-nside-128-gcrs.fits"
           airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
           minorCol: minor
           majorCol: major
@@ -295,11 +284,11 @@ ErrorModels:
       ErrorModel: RomanMediumErrorModel
       Module: rail.creation.degraders.photometric_errors
       Bands: ['Y', 'J', 'H']
-  - ErrorModel:
-      name: roman_deep
-      ErrorModel: RomanDeepErrorModel
-      Module: rail.creation.degraders.photometric_errors
-      Bands: ['Z', 'Y', 'J', 'W', 'H', 'F', 'K']
+      #  - ErrorModel:
+      #name: roman_deep
+      #ErrorModel: RomanDeepErrorModel
+      #Module: rail.creation.degraders.photometric_errors
+      #Bands: ['Z', 'Y', 'J', 'W', 'H', 'F', 'K']
   - ErrorModel:
       name: roman_ultradeep
       ErrorModel: RomanUltraDeepErrorModel

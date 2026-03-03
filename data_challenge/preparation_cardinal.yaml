@@ -1,7 +1,7 @@
 Project:
 
   Includes:
-    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/prep_library.yaml"
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/prepration_library.yaml"
 
   Name: pz_challenge
 
