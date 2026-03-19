@@ -153,6 +153,25 @@ Subsamples:
       name: train_100k
       seed: 4321
       num_objects: 100000
+  - Subsample:
+      name: "train_wfd_1yr_100k"
+      object_id_col: 'ra'
+      seed: 1234
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_deredden_lsst_obs_cond_1yr.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "LSST_obs_{band}"
+          mag_err_band_name_template: "LSST_obs_{band}_err"
+          extra_cols: []
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y106', 'J129', 'H158']
+          mag_band_name_template: "ROMAN_obs_{band}"
+          mag_err_band_name_template: "ROMAN_obs_{band}_err"
+          extra_cols: []
+
 
 # These describe the error models we use in the truth_to_observed pipeline
 ErrorModels:
