@@ -1,7 +1,7 @@
 Project:
 
   Includes:
-    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/prepration_library.yaml"
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/preparation_library.yaml"
 
   Name: pz_challenge
 
@@ -11,7 +11,7 @@ Project:
   CommonPaths:
     project: pz_challenge_test
     sim_version: flagship
-    root: "${PZ_BASE_AREA}"
+    root: "{PZ_BASE_AREA}"
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"
 
@@ -20,6 +20,23 @@ Project:
     catalog_tag: flagship
     pipelines: ['all']
 
+
+  Flavors:
+    - Flavor:
+       name: prepare_flagship
+       pipelines: ['truth_to_observed', 'prepare', 'photometric_errors', 'spec_selection']
+
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pixel:
+      - 5
+      - 10
+      - 20
+      - 21
+      - 22
+      - 25
+      - 28
+      - 29
+      - 30
+      - 32
+      - 47

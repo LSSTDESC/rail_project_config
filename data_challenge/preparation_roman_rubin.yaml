@@ -19,6 +19,11 @@ Project:
     catalog_tag: roman_plus_rubin
     pipelines: ['all']
 
+  Flavors:
+    - Flavor:
+       name: prepare_roman_rubin
+       pipelines: ['truth_to_observed', 'prepare', 'photometric_errors', 'spec_selection']
+
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pixel:
