@@ -53,7 +53,75 @@ Bands:
 
 CatalogTags:
   - CatalogTag:
-      name: "data_challenge"
+      name: "data_challenge_flagship"
+      mag_column_template: "mag_{band}_lsst"
+      mag_err_column_template: "mag_{band}_lsst_err"
+      filter_template: "DC2LSST_{band}"
+      band_list: ['u', 'g', 'r', 'i', 'z', 'y', 'Y', 'J', 'H']
+      bands:
+        u:
+          mag_limit: 26.4
+        g:
+          mag_limit: 27.8
+        r:
+          mag_limit: 27.1
+        i:
+          mag_limit: 26.7
+        z:
+          mag_limit: 25.8
+        y:
+          mag_limit: 24.6
+        Y:
+          filter: euclid_Y
+          mag_column_name: "mag_y_euclid"
+          mag_err_column_name: "mag_y_euclid"
+          mag_limit: 26.0
+        J:
+          filter: euclid_J
+          mag_column_name: "mag_j_euclid"
+          mag_err_column_name: "mag_j_euclid"
+          mag_limit: 26.0
+        H:
+          filter: euclid_H
+          mag_column_name: "mag_h_euclid"
+          mag_err_column_name: "mag_h_euclid"
+          mag_limit: 26.0
+  - CatalogTag:
+      name: "data_challenge_roman_rubin"
+      mag_column_template: "mag_{band}_lsst"
+      mag_err_column_template: "mag_{band}_lsst_err"
+      filter_template: "DC2LSST_{band}"
+      band_list: ['u', 'g', 'r', 'i', 'z', 'y', 'Y', 'J', 'H']
+      bands:
+        u:
+          mag_limit: 26.4
+        g:
+          mag_limit: 27.8
+        r:
+          mag_limit: 27.1
+        i:
+          mag_limit: 26.7
+        z:
+          mag_limit: 25.8
+        y:
+          mag_limit: 24.6
+        Y:
+          filter: roman_Y106
+          mag_column_name: "mag_Y_roman"
+          mag_err_column_name: "mag_Y_roman_err"
+          mag_limit: 26.5
+        J:
+          filter: roman_J129
+          mag_column_name: "mag_J_roman"
+          mag_err_column_name: "mag_J_roman_err"
+          mag_limit: 26.5
+        H:
+          filter: roman_H158
+          mag_column_name: "mag_H_roman"
+          mag_err_column_name: "mag_H_roman_err"
+          mag_limit: 26.5
+  - CatalogTag:
+      name: "data_challenge_cardinal"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
       filter_template: "DC2LSST_{band}"
