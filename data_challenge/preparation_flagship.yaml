@@ -29,11 +29,12 @@ Project:
         name: prepare_flagship
         pipeline_overrides:
           truth_to_observed:
-            error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
             kwargs:
+              error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
               models_to_run_select: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
           photometric_errors:
-            error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
+            kwargs:
+              error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
 
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
