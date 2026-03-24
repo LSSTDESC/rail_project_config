@@ -2,15 +2,15 @@
 Catalogs:
   - CatalogTemplate:
       name: truth_roman_rubin
-      path_template: "{catalogs_dir}/{project}_roman_rubin/{pixel}/part-0.parquet"
+      path_template: "{catalogs_dir}/{parent}_roman_rubin/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_cardinal
-      path_template: "{catalogs_dir}/{project}_cardinal/parquet_files/Chinchilla-3-triofile.{pixel}.parquet"
+      path_template: "{catalogs_dir}/{parent}_cardinal/parquet_files/Chinchilla-3-triofile.{pixel}.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_flagship
-      path_template: "{catalogs_dir}/{project}_flagship/Flagship/euclid_fs2_mock_dr_v1_1_phz.pix{pixel}.pq"
+      path_template: "{catalogs_dir}/{parent}_flagship/Flagship/euclid_fs2_mock_dr_v1_1_phz.pix{pixel}.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: reduced

@@ -12,7 +12,8 @@ Project:
 
   # These are used to make all the other paths
   CommonPaths:
-    project: pz_challenge_test
+    parent: pz_challenge_test
+    project: pz_challenge_test_v2
     sim_version: flagship
     root: "{PZ_BASE_AREA}"
     scratch_root: "{root}"
@@ -20,7 +21,7 @@ Project:
 
   # Baseline configuraiton, included in others by default
   Baseline:
-    catalog_tag: flagship
+    catalog_tag: data_challenge
     pipelines: ['all']
 
 
@@ -33,13 +34,13 @@ Project:
   IterationVars:
     pixel:
       - 5
-      - 10
-      - 20
-      - 21
-      - 22
-      - 25
-      - 28
-      - 29
-      - 30
-      - 32
-      - 47
+      #- 10
+      #- 20
+      #- 21
+      #- 22
+      #- 25
+      #- 28
+      #- 29
+      #- 30
+      #- 32
+      #- 47
