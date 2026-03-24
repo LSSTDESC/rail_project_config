@@ -14,7 +14,7 @@ Catalogs:
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: reduced
-      path_template: "{catalogs_dir}/{project}_{selection}/{pixel}/part-0.pq"
+      path_template: "{reduced_dir}/{project}_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: degraded
@@ -30,6 +30,9 @@ Files:
   - FileTemplate:
       name: train_file_100k
       path_template: "{catalogs_dir}/train/{project}_{selection}_baseline_100k.hdf5"
+  # - FileTemplate:
+  #     name: threshold_table_lrg
+  #     path_template: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/lrg_threshold.parquet"
 
 
 # These describe all the algorithms that emulate spectroscopic selections
@@ -38,14 +41,18 @@ SpecSelections:
   #      name: GAMA:
   #      Select: SpecSelection_GAMA
   #      Module: rail.creation.degraders.spectroscopic_selections
-  # - SpecSelection:
-  #      name: BOSS
-  #      Select: SpecSelection_BOSS
-  #      Module: rail.creation.degraders.spectroscopic_selections
-  #  - SpecSelection:
-  #      name: VVDSf02
-  #      Select: SpecSelection_VVDSf02
-  #      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+       name: BOSS
+       Select: SpecSelection_BOSS
+       Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+       name: DEEP2_LSST
+       Select: SpecSelection_DEEP2_LSST
+       Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+       name: VVDSf02
+       Select: SpecSelection_VVDSf02
+       Module: rail.creation.degraders.spectroscopic_selections
   - SpecSelection:
       name: zCOSMOS
       Select: SpecSelection_zCOSMOS
@@ -54,6 +61,67 @@ SpecSelections:
       name: HSC
       Select: SpecSelection_HSC
       Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_BGS
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "bgs"
+        threshold_col: "sod_halo_mass"
+        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/bgs_threshold.parquet"
+  - SpecSelection:
+      name: DESI_LRG
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "lrg"
+        threshold_col: "logsm_obs"
+        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/lrg_threshold.parquet"
+  - SpecSelection:
+      name: DESI_ELG
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "elg"
+        threshold_col: "sfr"
+        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/elg_threshold.parquet"
+  - SpecSelection:
+      name: DESI_BGS_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "bgs"
+        threshold_col: "lm_halo"
+        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/flagship_desi_thresh/bgs_threshold.parquet"
+  - SpecSelection:
+      name: DESI_LRG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "lrg"
+        threshold_col: "log_stellar_mass"
+        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/flagship_desi_thresh/lrg_threshold.parquet"
+  - SpecSelection:
+      name: DESI_ELG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "elg"
+        threshold_col: "log_sfr"
+        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/flagship_desi_thresh/elg_threshold.parquet"
+  - SpecSelection:
+      name: DESI_BGS_color
+      Select: SpecSelection_DESI_BGS
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_LRG_color
+      Select: SpecSelection_DESI_LRG
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_ELG_LOP_color
+      Select: SpecSelection_DESI_ELG_LOP
+      Module: rail.creation.degraders.spectroscopic_selections
+
 
 
 # These describe all the algorithms that estimate PZ
@@ -322,7 +390,6 @@ ErrorModels:
       ErrorModel: EuclidDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
 
-
 # These describe the various data analysis pipelines
 Pipelines:
   - PipelineTemplate:
@@ -333,6 +400,7 @@ Pipelines:
       kwargs:
         error_models: ['all']
         selectors: ['all']
+        models_to_run_select: ['all']
         blending: false
         parallel: true
   - PipelineTemplate:
