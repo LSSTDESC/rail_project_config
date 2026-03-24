@@ -2,23 +2,23 @@
 Catalogs:
   - CatalogTemplate:
       name: truth_roman_rubin
-      path_template: "{catalogs_dir}/{parent}_roman_rubin/{pixel}/part-0.parquet"
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/{pixel}/part-0.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_cardinal
-      path_template: "{catalogs_dir}/{parent}_cardinal/parquet_files/Chinchilla-3-triofile.{pixel}.parquet"
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/parquet_files/Chinchilla-3-triofile.{pixel}.parquet"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: truth_flagship
-      path_template: "{catalogs_dir}/{parent}_flagship/Flagship/euclid_fs2_mock_dr_v1_1_phz.pix{pixel}.pq"
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/Flagship/euclid_fs2_mock_dr_v1_1_phz.pix{pixel}.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: reduced
-      path_template: "{catalogs_dir}/{project}_{selection}/{pixel}/part-0.pq"
+      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}/{pixel}/part-0.pq"
       iteration_vars: ['pixel']
   - CatalogTemplate:
       name: degraded
-      path_template: "{catalogs_dir}/{project}_{selection}_{flavor}/{pixel}/{basename}"
+      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
       iteration_vars: ['pixel']
 
 
@@ -26,10 +26,10 @@ Catalogs:
 Files:
   - FileTemplate:
       name: test_file_100k
-      path_template: "{catalogs_dir}/test/{project}_{selection}_baseline_100k.hdf5"
+      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k.hdf5"
   - FileTemplate:
       name: train_file_100k
-      path_template: "{catalogs_dir}/train/{project}_{selection}_baseline_100k.hdf5"
+      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k.hdf5"
 
 
 # These describe all the algorithms that emulate spectroscopic selections
@@ -126,15 +126,7 @@ Reducers:
 # These describe the selections going from Input to Reduced catalog
 Selections:
   - Selection:
-      name: roman_rubin_gold
-      cuts:
-        maglim_i: [null, 25.5]
-  - Selection:
-      name: cardinal_gold
-      cuts:
-        maglim_i: [null, 25.5]
-  - Selection:
-      name: flagship_gold
+      name: gold
       cuts:
         maglim_i: [null, 25.5]
   - Selection:
@@ -170,8 +162,7 @@ Subsamples:
           bands: ['Y106', 'J129', 'H158']
           mag_band_name_template: "ROMAN_obs_{band}"
           mag_err_band_name_template: "ROMAN_obs_{band}_err"
-          extra_cols: []    
-
+          extra_cols: []
 
 # These describe the error models we use in the truth_to_observed pipeline
 ErrorModels:
@@ -303,11 +294,11 @@ ErrorModels:
       ErrorModel: RomanMediumErrorModel
       Module: rail.creation.degraders.photometric_errors
       Bands: ['Y', 'J', 'H']
-      #  - ErrorModel:
-      #name: roman_deep
-      #ErrorModel: RomanDeepErrorModel
-      #Module: rail.creation.degraders.photometric_errors
-      #Bands: ['Z', 'Y', 'J', 'W', 'H', 'F', 'K']
+      # - ErrorModel:
+      #   name: roman_deep
+      #   ErrorModel: RomanDeepErrorModel
+      #   Module: rail.creation.degraders.photometric_errors
+      #   Bands: ['Z', 'Y', 'J', 'W', 'H', 'F', 'K']
   - ErrorModel:
       name: roman_ultradeep
       ErrorModel: RomanUltraDeepErrorModel

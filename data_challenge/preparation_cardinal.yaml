@@ -26,18 +26,20 @@ Project:
 
   Flavors:
     - Flavor:
-       name: prepare_cardinal
-       pipelines: ['truth_to_observed', 'prepare', 'photometric_errors', 'spec_selection']
+        name: prepare_cardinal
+        pipeline_overrides:
+          truth_to_observed:
+          models_to_run_select: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
 
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pix:
       - 16
-      #- 17
-      #- 18
-      #- 19
-      #- 20
-      #- 21
+#      - 17
+#      - 18
+#      - 19
+#      - 20
+#      - 21
 #      - 22
 #      - 25
 #      - 26

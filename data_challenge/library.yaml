@@ -285,7 +285,7 @@ ErrorModels:
       name: lsst_obs_cond_dp2
       ErrorModel: ObsCondition
       Module: rail.creation.degraders.observing_condition_degrader
-      Bands: ['u', 'g', 'r', 'i', 'z', 'y'] # we can remove bands if needed, as effectively only g, r, i are good
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']  # we can remove bands if needed, as effectively only g, r, i are good
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
         hdf5_groupname: ''
