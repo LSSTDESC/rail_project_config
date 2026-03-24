@@ -155,7 +155,7 @@ Subsamples:
       num_objects: 100000
   - Subsample:
       name: "train_wfd_1yr_100k"
-      object_id_col: 'ra'
+      object_id_col: "galaxy_id"
       seed: 1234
       num_objects: 100000
       inputs:
@@ -170,7 +170,7 @@ Subsamples:
           bands: ['Y106', 'J129', 'H158']
           mag_band_name_template: "ROMAN_obs_{band}"
           mag_err_band_name_template: "ROMAN_obs_{band}_err"
-          extra_cols: []
+          extra_cols: []    
 
 
 # These describe the error models we use in the truth_to_observed pipeline

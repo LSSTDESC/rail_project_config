@@ -5,6 +5,9 @@ Project:
 
   Name: pz_challenge
 
+  CatalogLib:
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
   PathTemplates: {}
 
   # These are used to make all the other paths

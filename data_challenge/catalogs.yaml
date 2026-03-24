@@ -1,0 +1,103 @@
+Bands:
+  - Band:
+      name: DC2LSST_u
+      a_env: 4.81
+  - Band:
+      name: DC2LSST_g
+      a_env: 3.64
+  - Band:
+      name: DC2LSST_r
+      a_env: 2.70
+  - Band:
+      name: DC2LSST_i
+      a_env: 2.06
+  - Band:
+      name: DC2LSST_z
+      a_env: 1.58
+  - Band:
+      name: DC2LSST_y
+      a_env: 1.31
+  - Band:
+      name: euclid_H
+      a_env: 0.
+  - Band:
+      name: euclid_J
+      a_env: 0.
+  - Band:
+      name: euclid_Y
+      a_env: 0.
+  - Band:
+      name: euclid_vis
+      a_env: 0.
+  - Band:
+      name: roman_K213
+      a_env: 0.37
+  - Band:
+      name: roman_F184
+      a_env: 0.47
+  - Band:
+      name: roman_H158
+      a_env: 0.60
+  - Band:
+      name: roman_W146
+      a_env: 0.68
+  - Band:
+      name: roman_J129
+      a_env: 0.83
+  - Band:
+      name: roman_Y106
+      a_env: 1.14
+  - Band:
+      name: roman_Z087
+      a_env: 1.57
+
+CatalogTags:
+  - CatalogTag:
+      name: "data_challenge"
+      mag_column_template: "mag_{band}_lsst"
+      mag_err_column_template: "mag_{band}_lsst_err"
+      filter_template: "DC2LSST_{band}"
+      band_list: ['u', 'g', 'r', 'i', 'z', 'y', 'Y', 'J', 'H', 'y', 'j', 'h']
+      bands:
+        u:
+          mag_limit: 26.4
+        g:
+          mag_limit: 27.8
+        r:
+          mag_limit: 27.1
+        i:
+          mag_limit: 26.7
+        z:
+          mag_limit: 25.8
+        y:
+          mag_limit: 24.6
+        Y:
+          filter: roman_Y106
+          mag_column_name: "mag_Y_roman"
+          mag_err_column_name: "mag_Y_roman_err"
+          mag_limit: 26.5
+        J:
+          filter: roman_J129
+          mag_column_name: "mag_J_roman"
+          mag_err_column_name: "mag_J_roman_err"
+          mag_limit: 26.5
+        H:
+          filter: roman_H158
+          mag_column_name: "mag_H_roman"
+          mag_err_column_name: "mag_H_roman_err"
+          mag_limit: 26.5
+        y:
+          filter: euclid_Y
+          mag_column_name: "mag_y_roman"
+          mag_err_column_name: "mag_H_roman"
+          mag_limit: 26.0
+        j:
+          filter: euclid_J
+          mag_column_name: "mag_j_roman"
+          mag_err_column_name: "mag_j_roman"
+          mag_limit: 26.0
+        h:
+          filter: euclid_H
+          mag_column_name: "mag_h_roman"
+          mag_err_column_name: "mag_h_roman"
+          mag_limit: 26.0

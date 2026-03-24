@@ -7,6 +7,9 @@ Project:
 
   PathTemplates: {}
 
+  CatalogLib:
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
   # These are used to make all the other paths
   CommonPaths:
     project: pz_challenge_test
