@@ -276,7 +276,79 @@ Subsamples:
           bands: ['Y', 'J', 'H']
           mag_band_name_template: "mag_{band}_roman"
           mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []	  
+  - Subsample:
+      name: "train_wfd_4yr_100k_spec_select"
+      object_id_col: "object_id"
+      seed: 1237
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_4yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'hsc', 'cosmos']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
+  - Subsample:
+      name: "test_wfd_4yr_100k_spec_select"
+      object_id_col: "object_id"
+      seed: 1238
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_4yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'hsc', 'cosmos']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      name: "train_wfd_10yr_100k_spec_select"
+      object_id_col: "object_id"
+      seed: 1237
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_10yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'hsc', 'cosmos']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      name: "test_wfd_10yr_100k_spec_select"
+      object_id_col: "object_id"
+      seed: 1238
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_10yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'hsc', 'cosmos']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []	  
   - Subsample:
       name: "test_wfd_1yr_100k"
       object_id_col: "object_id"
