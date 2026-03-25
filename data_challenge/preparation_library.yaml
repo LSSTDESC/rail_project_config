@@ -276,7 +276,7 @@ Subsamples:
           bands: ['Y', 'J', 'H']
           mag_band_name_template: "mag_{band}_roman"
           mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []	  
+          extra_cols: []
   - Subsample:
       name: "train_wfd_4yr_100k_spec_select"
       object_id_col: "object_id"
@@ -348,7 +348,7 @@ Subsamples:
           bands: ['Y', 'J', 'H']
           mag_band_name_template: "mag_{band}_roman"
           mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []	  
+          extra_cols: []
   - Subsample:
       name: "test_wfd_1yr_100k"
       object_id_col: "object_id"
