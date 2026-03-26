@@ -39,7 +39,7 @@ Project:
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pixel:
-      - 5
+      # - 5
       # - 10
       # - 20
       # - 21
@@ -49,4 +49,4 @@ Project:
       # - 29
       # - 30
       # - 32
-      # - 47
+      - 47
