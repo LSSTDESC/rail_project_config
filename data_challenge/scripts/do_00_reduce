@@ -1,0 +1,4 @@
+rail-project reduce --catalog-template truth_roman_rubin --output-catalog-template reduced --sim-version roman_rubin --reducer-class-name roman_rubin --selection gold data_challenge/preparation_roman_rubin.yaml 
+rail-project reduce --catalog-template truth_flagship --output-catalog-template reduced --sim-version flagship --reducer-class-name flagship --selection gold data_challenge/preparation_flagship.yaml 
+rail-project reduce --catalog-template truth_cardinal --output-catalog-template reduced --sim-version cardinal --reducer-class-name cardinal --selection gold data_challenge/preparation_cardinal.yaml 
+
