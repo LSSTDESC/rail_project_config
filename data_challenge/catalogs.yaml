@@ -53,7 +53,7 @@ Bands:
 
 CatalogTags:
   - CatalogTag:
-  # This is for the flagship sims, which don't have the roman band yet
+      # This is for the flagship sims, which don't have the roman band yet
       name: "data_challenge_flagship"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
@@ -88,7 +88,7 @@ CatalogTags:
           mag_err_column_name: "mag_h_euclid"
           mag_limit: 26.0
   - CatalogTag:
-  # This is for the roman rubin sims, which don't have the euclids band yet
+      # This is for the roman rubin sims, which don't have the euclids band yet
       name: "data_challenge_roman_rubin"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
@@ -123,7 +123,7 @@ CatalogTags:
           mag_err_column_name: "mag_H_roman_err"
           mag_limit: 26.5
   - CatalogTag:
-  # This is for the cardinal sims
+      # This is for the cardinal sims
       name: "data_challenge_cardinal"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
