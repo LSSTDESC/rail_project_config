@@ -14,6 +14,7 @@ Project:
   # These are used to make all the other paths
   CommonPaths:
     project: pz_challenge_test_v2
+    sim_version: roman_rubin    
     root: "{PZ_BASE_AREA}"
     scratch_root: "{root}"
     catalogs_dir: "{root}/data"

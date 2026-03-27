@@ -50,6 +50,19 @@ Files:
       path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_10yr_spec_select.hdf5"
 
 
+# These describe the selections going from Truth to Reduced catalog
+# These are applied by the reducers
+Selections:
+  - Selection:
+      name: gold
+      cuts:
+        maglim_i: [null, 25.5]
+  - Selection:
+      name: deep
+      cuts:
+        maglim_i: [null, 27.0]
+
+
 # These describe all the algorithms that estimate PZ
 PZAlgorithms:
 #  - PZAlgorithm:
