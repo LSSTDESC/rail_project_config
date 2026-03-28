@@ -1,0 +1,3 @@
+rail-project run pz --flavor all --sim-version flagship data_challenge/pz_all.yaml
+rail-project run pz --flavor all --sim-version cardinal data_challenge/pz_all.yaml
+rail-project run pz --flavor all --sim-version roman_rubin data_challenge/pz_all.yaml
