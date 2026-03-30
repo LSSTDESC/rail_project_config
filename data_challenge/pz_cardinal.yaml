@@ -1,0 +1,95 @@
+Project:
+
+  Name: pz_cardinal
+
+  Includes:
+    - '${RAIL_PROJECT_CONFIG_DIR}/data_challenge/pz_library.yaml'
+
+  PathTemplates:
+    ceci_output_dir: '{project_dir}/data/{sim_version}_{selection}_{flavor}'
+
+  CatalogLib:
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
+  # These are used to make all the other paths
+  CommonPaths:
+    project: pz_challenge_test_v2
+    sim_version: cardinal
+    root: "{PZ_BASE_AREA}"
+    scratch_root: "{root}"
+    catalogs_dir: "{root}/data"
+
+  Baseline:
+    catalog_tag: data_challenge_rubin
+    pipelines: ['all']
+    file_aliases:  # Set the training and test files
+      test: test_file_100k_lsst
+      train: train_file_100k_lsst
+    pipeline_overrides:
+      estimate:
+        estimate_bpz:
+          no_prior: false
+          madau_flag: 'yes'
+          spectra_file: 'cosmossedswdust136.list'
+          zp_errors:
+            - 0.03
+            - 0.03
+            - 0.03
+            - 0.03
+            - 0.03
+            - 0.03
+      pz:
+        inform_knn:
+          nneigh_max: 10
+        inform_gpz:
+          gpz_method: 'VD'
+        inform_fzboost:
+          max_basis: 50
+          nsharp: 30
+          nbump: 40
+        inform_bpz:
+          nt_array: [7, 57, 72]
+          output_hdfn: true
+        estimate_bpz:
+          no_prior: false
+          madau_flag: 'yes'
+          spectra_file: 'cosmossedswdust136.list'
+          zp_errors:
+            - 0.03
+            - 0.03
+            - 0.03
+            - 0.03
+            - 0.03
+            - 0.03
+
+  Flavors:
+    - Flavor:
+        name: lsst_100k_1yr
+        file_aliases:  # Set the training and test files
+          test: test_file_100k_lsst_1yr
+          train: train_file_100k_lsst_1yr
+    - Flavor:
+        name: lsst_100k_4yr
+        file_aliases:  # Set the training and test files
+          test: test_file_100k_lsst_4yr
+          train: train_file_100k_lsst_4yr
+    - Flavor:
+        name: lsst_100k_10yr
+        file_aliases:  # Set the training and test files
+          test: test_file_100k_lsst_10yr
+          train: train_file_100k_lsst_10yr
+    - Flavor:
+        name: lsst_100k_1yr_spec_select
+        file_aliases:  # Set the training and test files
+          test: test_file_100k_lsst_1yr
+          train: train_file_100k_lsst_1yr_spec_select
+    - Flavor:
+        name: lsst_100k_4yr_spec_select
+        file_aliases:  # Set the training and test files
+          test: test_file_100k_lsst_4yr
+          train: train_file_100k_lsst_4yr_spec_select
+    - Flavor:
+        name: lsst_100k_10yr_spec_select
+        file_aliases:  # Set the training and test files
+          test: test_file_100k_lsst_10yr
+          train: train_file_100k_lsst_10yr_spec_select

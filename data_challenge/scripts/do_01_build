@@ -1,0 +1,3 @@
+rail-project build --flavor all --force data_challenge/preparation_roman_rubin.yaml
+rail-project build --flavor all --force data_challenge/preparation_flagship.yaml
+rail-project build --flavor all --force data_challenge/preparation_cardinal.yaml

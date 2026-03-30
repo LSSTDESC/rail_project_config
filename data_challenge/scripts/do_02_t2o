@@ -1,0 +1,3 @@
+rail-project run truth-to-observed --flavor prepare_roman_rubin --no-convert-output --selection gold data_challenge/preparation_roman_rubin.yaml
+rail-project run truth-to-observed --flavor prepare_flagship --no-convert-output --selection gold data_challenge/preparation_flagship.yaml
+rail-project run truth-to-observed --flavor prepare_cardinal --no-convert-output --selection gold data_challenge/preparation_cardinal.yaml

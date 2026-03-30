@@ -1,0 +1,49 @@
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_1yr_100k --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_1yr_100k --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name test_wfd_1yr_100k --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name test_wfd_1yr_100k --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml 
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_4yr --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_4yr_100k --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_4yr --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_4yr_100k --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_4yr --subsampler-class-name multi_catalog_subsampler --subsample-name test_wfd_4yr_100k --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_4yr --subsampler-class-name multi_catalog_subsampler --subsample-name test_wfd_4yr_100k --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml 
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_10yr_100k --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_10yr_100k --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name test_wfd_10yr_100k --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name test_wfd_10yr_100k --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml 
+
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_1yr_spec_select --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_1yr_100k_spec_select --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_1yr_spec_select --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_1yr_100k_spec_select --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_4yr_spec_select --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_4yr_100k_spec_select --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_4yr_spec_select --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_4yr_100k_spec_select --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_10yr_spec_select --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_10yr_100k_spec_select --flavor prepare_roman_rubin data_challenge/preparation_roman_rubin.yaml 
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_10yr_spec_select --subsampler-class-name multi_catalog_subsampler --subsample-name train_wfd_10yr_100k_spec_select --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_deredden_lsst.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_deredden_lsst.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_1yr --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_deredden_lsst_obs_cond_1yr.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_1yr --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_deredden_lsst_obs_cond_1yr.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_4yr --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_deredden_lsst_obs_cond_4yr.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_4yr --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_deredden_lsst_obs_cond_4yr.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_10yr --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_deredden_lsst_obs_cond_10yr.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_10yr --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_deredden_lsst_obs_cond_10yr.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_spec_select --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_select_lsst_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_spec_select --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_select_lsst_obs_cond_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_1yr_spec_select --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_select_lsst_obs_cond_1yr_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_1yr_spec_select --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_select_lsst_obs_cond_1yr_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_4yr_spec_select --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_select_lsst_obs_cond_4yr_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_4yr_spec_select --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_select_lsst_obs_cond_4yr_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template train_file_100k_lsst_10yr_spec_select --subsampler-class-name random_subsampler --subsample-name train_100k --basename output_select_lsst_obs_cond_10yr_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template test_file_100k_lsst_10yr_spec_select --subsampler-class-name random_subsampler --subsample-name test_100k --basename output_select_lsst_obs_cond_10yr_all.pq --flavor prepare_flagship data_challenge/preparation_flagship.yaml
+
