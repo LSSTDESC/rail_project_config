@@ -310,10 +310,10 @@ SpecSelections:
   #      name: BOSS
   #      Select: SpecSelection_BOSS
   #      Module: rail.creation.degraders.spectroscopic_selections
-  #  - SpecSelection:
-  #      name: VVDSf02
-  #      Select: SpecSelection_VVDSf02
-  #      Module: rail.creation.degraders.spectroscopic_selections
+   - SpecSelection:
+       name: VVDSf02
+       Select: SpecSelection_VVDSf02
+       Module: rail.creation.degraders.spectroscopic_selections
   - SpecSelection:
       name: zCOSMOS
       Select: SpecSelection_zCOSMOS
@@ -321,6 +321,70 @@ SpecSelections:
   - SpecSelection:
       name: HSC
       Select: SpecSelection_HSC
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+       name: DEEP2_LSST
+       Select: SpecSelection_DEEP2_LSST
+       Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_BGS_roman_rubin
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "bgs"
+        threshold_col: "sod_halo_mass"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_roman_rubin.parquet"
+  - SpecSelection:
+      name: DESI_LRG_roman_rubin
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "lrg"
+        threshold_col: "logsm_obs"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_roman_rubin.parquet"
+  - SpecSelection:
+      name: DESI_ELG_roman_rubin
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "elg"
+        threshold_col: "sfr"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_roman_rubin.parquet"
+  - SpecSelection:
+      name: DESI_BGS_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "bgs"
+        threshold_col: "lm_halo"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_LRG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "lrg"
+        threshold_col: "log_stellar_mass"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_ELG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "elg"
+        threshold_col: "log_sfr"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_BGS_color
+      Select: SpecSelection_DESI_BGS
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_LRG_color
+      Select: SpecSelection_DESI_LRG
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_ELG_LOP_color
+      Select: SpecSelection_DESI_ELG_LOP
       Module: rail.creation.degraders.spectroscopic_selections
 
 

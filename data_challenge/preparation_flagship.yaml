@@ -32,6 +32,7 @@ Project:
             kwargs:
               error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
               models_to_run_select: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
+              selectors: ['DESI_BGS_flagship', 'DESI_LRG_flagship', 'DESI_ELG_flagship', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST']
           photometric_errors:
             kwargs:
               error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']

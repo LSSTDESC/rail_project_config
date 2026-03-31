@@ -31,6 +31,7 @@ Project:
           truth_to_observed:
             kwargs:
               models_to_run_select: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
+              selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST']
 
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
