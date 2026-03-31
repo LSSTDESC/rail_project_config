@@ -1,42 +1,22 @@
 Project:
 
+  Name: pz_challenge
+
   Includes:
     - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/preparation_library.yaml"
 
-  Name: pz_challenge
-
-  CatalogLib:
-    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
-
-  PathTemplates: {}
-
   # These are used to make all the other paths
   CommonPaths:
-    parent: pz_challenge_test
-    project: pz_challenge_test_v2
     sim_version: flagship
-    root: "{PZ_BASE_AREA}"
-    scratch_root: "{root}"
-    catalogs_dir: "{root}/data"
-
-  # Baseline configuraiton, included in others by default
-  Baseline:
-    catalog_tag: data_challenge_flagship
-    pipelines: ['all']
 
   Flavors:
     - Flavor:
-        name: prepare_flagship
+        name: flagship
         pipeline_overrides:
           truth_to_observed:
             kwargs:
-              error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
-              models_to_run_select: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr']
               selectors: ['DESI_BGS_flagship', 'DESI_LRG_flagship', 'DESI_ELG_flagship', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST']
-          photometric_errors:
-            kwargs:
-              error_models: ['lsst', 'lsst_obs_cond_1yr', 'lsst_obs_cond_4yr', 'lsst_obs_cond_10yr', 'euclid_wide', 'euclid_deep']
-
+	      
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pixel:
