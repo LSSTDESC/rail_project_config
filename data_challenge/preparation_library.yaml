@@ -68,7 +68,7 @@ SpecSelections:
       Overrides:
         desi_type: "bgs"
         threshold_col: "sod_halo_mass"
-        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/bgs_threshold.parquet"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_roman_rubin.parquet"
   - SpecSelection:
       name: DESI_LRG
       Select: SpecSelection_DESI_Phy
@@ -76,7 +76,7 @@ SpecSelections:
       Overrides:
         desi_type: "lrg"
         threshold_col: "logsm_obs"
-        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/lrg_threshold.parquet"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_roman_rubin.parquet"
   - SpecSelection:
       name: DESI_ELG
       Select: SpecSelection_DESI_Phy
@@ -84,7 +84,7 @@ SpecSelections:
       Overrides:
         desi_type: "elg"
         threshold_col: "sfr"
-        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/roman_rubin_desi_thresh/elg_threshold.parquet"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_roman_rubin.parquet"
   - SpecSelection:
       name: DESI_BGS_flagship
       Select: SpecSelection_DESI_Phy
@@ -92,7 +92,7 @@ SpecSelections:
       Overrides:
         desi_type: "bgs"
         threshold_col: "lm_halo"
-        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/flagship_desi_thresh/bgs_threshold.parquet"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_flagship.parquet"
   - SpecSelection:
       name: DESI_LRG_flagship
       Select: SpecSelection_DESI_Phy
@@ -100,7 +100,7 @@ SpecSelections:
       Overrides:
         desi_type: "lrg"
         threshold_col: "log_stellar_mass"
-        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/flagship_desi_thresh/lrg_threshold.parquet"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_flagship.parquet"
   - SpecSelection:
       name: DESI_ELG_flagship
       Select: SpecSelection_DESI_Phy
@@ -108,7 +108,7 @@ SpecSelections:
       Overrides:
         desi_type: "elg"
         threshold_col: "log_sfr"
-        threshold_table: "/global/cfs/cdirs/desc-pz/users/tqzhang/data_challenge/desi_threshold/flagship_desi_thresh/elg_threshold.parquet"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_flagship.parquet"
   - SpecSelection:
       name: DESI_BGS_color
       Select: SpecSelection_DESI_BGS
