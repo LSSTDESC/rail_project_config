@@ -125,8 +125,8 @@ Baseline:
   catalog_tag: rubin
   pipelines: ['all']
   file_aliases:  # Set the training and test files
-    test: test_file_100k_lsst
-    train: train_file_100k_lsst
+    test: taskset_1_test_file_1yr
+    train: taskset_1_train_file_1yr
   pipeline_overrides:
     estimate:
       estimate_bpz:
