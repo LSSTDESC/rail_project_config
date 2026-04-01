@@ -12,6 +12,7 @@ Project:
   Flavors:
     - Flavor:
         name: flagship
+	catalog_tag: flagship_roman_rubin
         pipeline_overrides:
           truth_to_observed:
             kwargs:
