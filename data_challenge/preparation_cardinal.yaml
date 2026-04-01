@@ -18,7 +18,6 @@ Project:
               selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST']
 
 
-
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pix:

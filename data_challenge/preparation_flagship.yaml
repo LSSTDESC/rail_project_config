@@ -16,7 +16,7 @@ Project:
           truth_to_observed:
             kwargs:
               selectors: ['DESI_BGS_flagship', 'DESI_LRG_flagship', 'DESI_ELG_flagship', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST']
-	      
+
   # These are variables that we iterate over when running over entire catalogs
   IterationVars:
     pixel:
@@ -26,4 +26,3 @@ Project:
       - 36
       - 43
       - 44
-
