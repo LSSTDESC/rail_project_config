@@ -319,16 +319,24 @@ Merges:
       # merge all the selections run on the 'lsst_10yr' photometric smearing
       name: select_lsst_obs_cond_10yr_all
       inputs:
-        hsc: output_select_lsst_obs_cond_10yr_HSC.pq
-        cosmos: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+        DEEP2_LSST: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
+	DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_color.pq
+	DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_LOP_color.pq
+	DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_color.pq
+	VVDSf02: output_select_lsst_obs_cond_10yr_VVDSf02.pq
+	zCOSMOS: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
       output_basename: output_select_lsst_obs_cond_10yr_all.pq
       merge_col: object_id
   - Merge:
       # merge all the selections run on the 'lsst_1yr' photometric smearing
       name: select_lsst_obs_cond_1yr_all
       inputs:
-        hsc: output_select_lsst_obs_cond_1yr_HSC.pq
-        cosmos: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+        DEEP2_LSST: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
+	DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_color.pq
+	DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_LOP_color.pq
+	DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_color.pq
+	VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
+	zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq      
       output_basename: output_select_lsst_obs_cond_1yr_all.pq
       merge_col: object_id
 
