@@ -143,11 +143,6 @@ CatalogTags:
           mag_limit: 25.8
         y:
           mag_limit: 24.6
-        W1:
-          filter: WISE_W1
-          mag_column_name: "mag_w1_wise"
-          mag_err_column_name: "mag_w1_wise_err"
-          mag_limit: 26.5
   - CatalogTag:
       # This is for the roman rubin sims, which don't have the euclids band yet
       name: "flagship_roman_rubin"
@@ -182,9 +177,4 @@ CatalogTags:
           filter: roman_H158
           mag_column_name: "mag_H_roman"
           mag_err_column_name: "mag_H_roman_err"
-          mag_limit: 26.5
-        W1:
-          filter: WISE_W1
-          mag_column_name: "mag_w1_wise"
-          mag_err_column_name: "mag_w1_wise_err"
           mag_limit: 26.5
