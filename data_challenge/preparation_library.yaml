@@ -64,7 +64,7 @@ Files:
       name: taskset_1_test_file_1yr
       path_template: "{catalogs_dir}/reserved/{project}_taskset_1_{sim_version}_test_1yr.hdf5"
   - FileTemplate:
-      name: taskset_1_train_file_101yr
+      name: taskset_1_train_file_10yr
       path_template: "{catalogs_dir}/public/{project}_taskset_1_{sim_version}_training_10yr.hdf5"
   - FileTemplate:
       name: taskset_1_test_file_10yr
@@ -76,7 +76,7 @@ Files:
       name: taskset_2_test_file_1yr
       path_template: "{catalogs_dir}/reserved/{project}_taskset_2_{sim_version}_test_1yr.hdf5"
   - FileTemplate:
-      name: taskset_2_train_file_101yr
+      name: taskset_2_train_file_10yr
       path_template: "{catalogs_dir}/public/{project}_taskset_2_{sim_version}_training_10yr.hdf5"
   - FileTemplate:
       name: taskset_2_test_file_10yr
@@ -88,7 +88,7 @@ Files:
       name: taskset_3_test_file_1yr
       path_template: "{catalogs_dir}/reserved/{project}_taskset_3_{sim_version}_test_1yr.hdf5"
   - FileTemplate:
-      name: taskset_3_train_file_101yr
+      name: taskset_3_train_file_10yr
       path_template: "{catalogs_dir}/public/{project}_taskset_3_{sim_version}_training_10yr.hdf5"
   - FileTemplate:
       name: taskset_3_test_file_10yr
@@ -358,20 +358,10 @@ Subsamplers:
 # These describe ways to subsample the data
 Subsamples:
   - Subsample:
-      # Grab 100k events
-      name: test_100k
-      seed: 1234
-      num_objects: 100000
-  - Subsample:
-      # Grab 100k events
-      name: train_100k
-      seed: 4321
-      num_objects: 100000
-  - Subsample:
-      # Combine roman and rubin 1yr and grab 100k events
-      name: "train_wfd_1yr_100k"
+      # Combine roman and rubin 1yr and grab 100k events for training
+      name: "taskset_1_train_1yr"
       object_id_col: "object_id"
-      seed: 1234
+      seed: 1230
       num_objects: 100000
       inputs:
         rubin:
@@ -387,125 +377,11 @@ Subsamples:
           mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
   - Subsample:
-      # Combine roman and rubin 1yr with spec-selection and grab 100k events
-      name: "train_wfd_1yr_100k_spec_select"
+      # Combine roman and rubin 1yr and grab 20k for testing
+      name: "taskset_1_test_1yr"
       object_id_col: "object_id"
-      seed: 1237
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_select_lsst_obs_cond_1yr_all.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift', 'hsc', 'cosmos']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 1yr with spec-selection and grab 100k events
-      name: "test_wfd_1yr_100k_spec_select"
-      object_id_col: "object_id"
-      seed: 1238
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_select_lsst_obs_cond_1yr_all.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift', 'hsc', 'cosmos']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 4yr with spec-selection and grab 100k events
-      name: "train_wfd_4yr_100k_spec_select"
-      object_id_col: "object_id"
-      seed: 1237
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_select_lsst_obs_cond_4yr_all.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift', 'hsc', 'cosmos']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 4yr with spec-selection and grab 100k events
-      name: "test_wfd_4yr_100k_spec_select"
-      object_id_col: "object_id"
-      seed: 1238
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_select_lsst_obs_cond_4yr_all.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift', 'hsc', 'cosmos']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 10yr with spec-selection and grab 100k events
-      name: "train_wfd_10yr_100k_spec_select"
-      object_id_col: "object_id"
-      seed: 1237
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_select_lsst_obs_cond_10yr_all.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift', 'hsc', 'cosmos']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 10yr with spec-selection and grab 100k events
-      name: "test_wfd_10yr_100k_spec_select"
-      object_id_col: "object_id"
-      seed: 1238
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_select_lsst_obs_cond_10yr_all.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift', 'hsc', 'cosmos']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 1yr and grab 100k events
-      name: "test_wfd_1yr_100k"
-      object_id_col: "object_id"
-      seed: 1235
-      num_objects: 100000
+      seed: 2230
+      num_objects: 20000
       inputs:
         rubin:
           basename: output_deredden_lsst_obs_cond_1yr.pq
@@ -520,48 +396,10 @@ Subsamples:
           mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
   - Subsample:
-      # Combine roman and rubin 4yr and grab 100k events
-      name: "train_wfd_4yr_100k"
+      # Combine roman and rubin 1yr and grab 100k events for training
+      name: "taskset_1_train_10yr"
       object_id_col: "object_id"
-      seed: 1234
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_deredden_lsst_obs_cond_4yr.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 4yr and grab 100k events
-      name: "test_wfd_4yr_100k"
-      object_id_col: "object_id"
-      seed: 1235
-      num_objects: 100000
-      inputs:
-        rubin:
-          basename: output_deredden_lsst_obs_cond_4yr.pq
-          bands: ['u', 'g', 'r', 'i', 'z', 'y']
-          mag_band_name_template: "mag_{band}_lsst"
-          mag_err_band_name_template: "mag_{band}_lsst_err"
-          extra_cols: ['redshift']
-        roman:
-          basename: output_deredden_roman_medium.pq
-          bands: ['Y', 'J', 'H']
-          mag_band_name_template: "mag_{band}_roman"
-          mag_err_band_name_template: "mag_{band}_roman_err"
-          extra_cols: []
-  - Subsample:
-      # Combine roman and rubin 10yr and grab 100k events
-      name: "train_wfd_10yr_100k"
-      object_id_col: "object_id"
-      seed: 1234
+      seed: 1231
       num_objects: 100000
       inputs:
         rubin:
@@ -577,11 +415,11 @@ Subsamples:
           mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
   - Subsample:
-      # Combine roman and rubin 10yr and grab 100k events
-      name: "test_wfd_10yr_100k"
+      # Combine roman and rubin 1yr and grab 20k for testing
+      name: "taskset_1_test_10yr"
       object_id_col: "object_id"
-      seed: 1235
-      num_objects: 100000
+      seed: 2231
+      num_objects: 20000
       inputs:
         rubin:
           basename: output_deredden_lsst_obs_cond_10yr.pq
@@ -589,6 +427,82 @@ Subsamples:
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
           extra_cols: ['redshift']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      # Combine roman and rubin 1yr with spec-selection and grab 100k events
+      name: "taskset_2_train_1yr"
+      object_id_col: "object_id"
+      seed: 1233
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_1yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      # Combine roman and rubin 1yr with spec-selection and grab 20k events
+      name: "taskset_2_test_1yr"
+      object_id_col: "object_id"
+      seed: 2233
+      num_objects: 20000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_1yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'hsc', 'cosmos']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      # Combine roman and rubin 10yr with spec-selection and grab 100k events
+      name: "taskset_2_train_10yr"
+      object_id_col: "object_id"
+      seed: 1234
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_10yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      # Combine roman and rubin 10yr with spec-selection and grab 20k events
+      name: "taskset_2_test_10yr"
+      object_id_col: "object_id"
+      seed: 2234
+      num_objects: 20000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_10yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'hsc', 'cosmos']
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
