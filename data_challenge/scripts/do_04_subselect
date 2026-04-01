@@ -1,12 +1,12 @@
-rail-project subsample --catalog-template degraded --file-template taskset_1_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_train_1yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
-rail-project subsample --catalog-template degraded --file-template taskset_1_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_test_1yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml 
+rail-project subsample --catalog-template degraded --file-template taskset_1_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_train_1yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_1_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_test_1yr --flavor cardinal data_challenge/preparation_cardinal.yaml 
 
-rail-project subsample --catalog-template degraded --file-template taskset_1_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_train_10yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
-rail-project subsample --catalog-template degraded --file-template taskset_1_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_test_10yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml 
+rail-project subsample --catalog-template degraded --file-template taskset_1_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_train_10yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_1_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_test_10yr --flavor cardinal data_challenge/preparation_cardinal.yaml 
 
-rail-project subsample --catalog-template degraded --file-template taskset_2_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_train_1yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
-rail-project subsample --catalog-template degraded --file-template taskset_2_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_test_1yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_2_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_train_1yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_2_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_test_1yr --flavor cardinal data_challenge/preparation_cardinal.yaml
 
-rail-project subsample --catalog-template degraded --file-template taskset_2_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_train_10yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
-rail-project subsample --catalog-template degraded --file-template taskset_2_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_test_10yr --flavor prepare_cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_2_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_train_10yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_2_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_test_10yr --flavor cardinal data_challenge/preparation_cardinal.yaml
 
