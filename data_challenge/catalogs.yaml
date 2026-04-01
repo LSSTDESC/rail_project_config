@@ -64,7 +64,7 @@ CatalogTags:
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
       filter_template: "DC2LSST_{band}"
-      band_list: ['u', 'g', 'r', 'i', 'z', 'y']
+      band_list: ['u', 'g', 'r', 'i', 'z', 'y', 'W1']
       bands:
         u:
           mag_limit: 26.4
@@ -89,7 +89,7 @@ CatalogTags:
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
       filter_template: "DC2LSST_{band}"
-      band_list: ['u', 'g', 'r', 'i', 'z', 'y', 'Y', 'J', 'H']
+      band_list: ['u', 'g', 'r', 'i', 'z', 'y', 'Y', 'J', 'H', 'W1']
       bands:
         u:
           mag_limit: 26.4
