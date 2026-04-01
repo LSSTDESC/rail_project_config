@@ -12,7 +12,7 @@ Project:
   Flavors:
     - Flavor:
         name: cardinal
-        catalog_tag: cardinal_roman_rubin	
+        catalog_tag: cardinal_roman_rubin
         pipeline_overrides:
           truth_to_observed:
             kwargs:
