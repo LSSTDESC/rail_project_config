@@ -50,11 +50,17 @@ Bands:
   - Band:
       name: roman_Z087
       a_env: 1.57
+  - Band:
+      name: WISE_W1
+      a_env: 0
+  - Band:
+      name: WISE_W2
+      a_env: 0
 
 CatalogTags:
   - CatalogTag:
       # This is for rubin only data in the data challenge
-      name: "rubin"
+      name: "cardinal_rubin"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
       filter_template: "DC2LSST_{band}"
@@ -72,9 +78,14 @@ CatalogTags:
           mag_limit: 25.8
         y:
           mag_limit: 24.6
+        W1:
+          filter: WISE_W1
+          mag_column_name: "mag_w1_wise"
+          mag_err_column_name: "mag_w1_wise_err"
+          mag_limit: 26.5	  
   - CatalogTag:
       # This is for the roman rubin sims, which don't have the euclids band yet
-      name: "roman_rubin"
+      name: "cardinal_roman_rubin"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"
       filter_template: "DC2LSST_{band}"
@@ -107,3 +118,8 @@ CatalogTags:
           mag_column_name: "mag_H_roman"
           mag_err_column_name: "mag_H_roman_err"
           mag_limit: 26.5
+        W1:
+          filter: WISE_W1
+          mag_column_name: "mag_w1_wise"
+          mag_err_column_name: "mag_w1_wise_err"
+          mag_limit: 26.5	  
