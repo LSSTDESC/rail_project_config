@@ -60,6 +60,26 @@ Bands:
 CatalogTags:
   - CatalogTag:
       # This is for rubin only data in the data challenge
+      name: "rubin"
+      mag_column_template: "mag_{band}_lsst"
+      mag_err_column_template: "mag_{band}_lsst_err"
+      filter_template: "DC2LSST_{band}"
+      band_list: ['u', 'g', 'r', 'i', 'z', 'y']
+      bands:
+        u:
+          mag_limit: 26.4
+        g:
+          mag_limit: 27.8
+        r:
+          mag_limit: 27.1
+        i:
+          mag_limit: 26.7
+        z:
+          mag_limit: 25.8
+        y:
+          mag_limit: 24.6
+  - CatalogTag:
+      # This is for rubin only data in the data challenge
       name: "cardinal_rubin"
       mag_column_template: "mag_{band}_lsst"
       mag_err_column_template: "mag_{band}_lsst_err"

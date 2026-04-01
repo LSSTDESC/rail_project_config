@@ -1,7 +1,5 @@
-rail-plot make-plot-groups-for-project --output-yaml ~/pz/projects/pz_challenge_test_v2/plots/flagship/plot_pz.yaml -plotter-yaml-path plotting/pz_plots.yaml --selection gold --split-mode by_flavor data_challenge/pz_flagship.yaml
-rail-plot make-plot-groups-for-project --output-yaml ~/pz/projects/pz_challenge_test_v2/plots/cardinal/plot_pz.yaml -plotter-yaml-path plotting/pz_plots.yaml --selection gold --split-mode by_flavor data_challenge/pz_cardinalyaml
-rail-plot make-plot-groups-for-project --output-yaml ~/pz/projects/pz_challenge_test_v2/plots/roman_rubin/plot_pz.yaml -plotter-yaml-path plotting/pz_plots.yaml --selection gold --split-mode by_flavor data_challenge/pz_roman_rubin.yaml
+rail-plot make-plot-groups-for-project --output-yaml ~/pz/projects/pz_challenge/plots/flagship/plot_pz.yaml -plotter-yaml-path plotting/pz_plots.yaml --selection gold --split-mode by_flavor data_challenge/pz_flagship.yaml
+rail-plot make-plot-groups-for-project --output-yaml ~/pz/projects/pz_challenge/plots/cardinal/plot_pz.yaml -plotter-yaml-path plotting/pz_plots.yaml --selection gold --split-mode by_flavor data_challenge/pz_cardinalyaml
 
-rail-plot run --save-plots --purge-plots --make-html ~/pz/projects/pz_challenge_test_v2/plots/flagship/plot_pz.yaml
-rail-plot run --save-plots --purge-plots --make-html ~/pz/projects/pz_challenge_test_v2/plots/cardinal/plot_pz.yaml
-rail-plot run --save-plots --purge-plots --make-html ~/pz/projects/pz_challenge_test_v2/plots/roman_rubin/plot_pz.yaml
+rail-plot run --save-plots --purge-plots --make-html ~/pz/projects/pz_challenge/plots/flagship/plot_pz.yaml
+rail-plot run --save-plots --purge-plots --make-html ~/pz/projects/pz_challenge/plots/cardinal/plot_pz.yaml

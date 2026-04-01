@@ -122,7 +122,7 @@ Pipelines:
 
 
 Baseline:
-  catalog_tag: roman_rubin
+  catalog_tag: rubin
   pipelines: ['all']
   file_aliases:  # Set the training and test files
     test: test_file_100k_lsst
