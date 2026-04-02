@@ -345,7 +345,7 @@ Merges:
       inputs:
         DEEP2_LSST: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
         DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_flagship.pq
-        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_LOP_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_flagship.pq
         DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_flagship.pq
         VVDSf02: output_select_lsst_obs_cond_10yr_VVDSf02.pq
         zCOSMOS: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
@@ -357,7 +357,7 @@ Merges:
       inputs:
         DEEP2_LSST: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
         DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
-        DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_LOP_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_flagship.pq
         DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
         VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
         zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
