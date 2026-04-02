@@ -41,7 +41,7 @@ Catalogs:
   # flagship sims
   - CatalogTemplate:
       name: truth_flagship
-      path_template: "{catalogs_dir}/{parent}_{sim_version}/Flagship/euclid_fs2_mock_dr_v1_1_phz.pix{pixel}.pq"
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/Flagship/Roman/euclid_fs2_mock_dr_v1_1_phz_wNIR.pix{pixel}.pq"
       iteration_vars: ['pixel']
   # Generic reduced catalogs
   - CatalogTemplate:
