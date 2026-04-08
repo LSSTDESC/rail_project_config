@@ -484,7 +484,7 @@ Subsamples:
       num_objects: 20000
       inputs:
         rubin:
-          basename: output_select_lsst_obs_cond_1yr_all.pq
+          basename: output_deredden_lsst_obs_cond_1yr.pq
           bands: ['u', 'g', 'r', 'i', 'z', 'y']
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
@@ -522,7 +522,7 @@ Subsamples:
       num_objects: 20000
       inputs:
         rubin:
-          basename: output_select_lsst_obs_cond_10yr_all.pq
+          basename: output_deredden_lsst_obs_cond_1yr.pq
           bands: ['u', 'g', 'r', 'i', 'z', 'y']
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
