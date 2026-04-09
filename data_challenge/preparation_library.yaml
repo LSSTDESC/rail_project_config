@@ -158,6 +158,7 @@ ErrorModels:
       Bands: ['u', 'g', 'r', 'i', 'z', 'y']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
         hdf5_groupname: ''
         mask: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
@@ -196,6 +197,7 @@ ErrorModels:
       Bands: ['u', 'g', 'r', 'i', 'z', 'y']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
         hdf5_groupname: ''
         mask: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
@@ -232,24 +234,39 @@ ErrorModels:
       ErrorModel: RomanWideErrorModel
       Module: rail.creation.degraders.photometric_errors
       Bands: ['H']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
   - ErrorModel:
       name: roman_medium
       ErrorModel: RomanMediumErrorModel
       Module: rail.creation.degraders.photometric_errors
       Bands: ['Y', 'J', 'H']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
   - ErrorModel:
       name: roman_ultradeep
       ErrorModel: RomanUltraDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
       Bands: ['Y', 'J', 'H']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
   - ErrorModel:
       name: euclid_wide
       ErrorModel: EuclidWideErrorModel
       Module: rail.creation.degraders.photometric_errors
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
   - ErrorModel:
       name: euclid_deep
       ErrorModel: EuclidDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
 
 
 # These describe all the algorithms that emulate spectroscopic selections
