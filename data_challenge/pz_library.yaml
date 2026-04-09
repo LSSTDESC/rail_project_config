@@ -1,53 +1,65 @@
+# Project name
+Name:
+  pz_challenge
+
+
+# Catalog definitions
+CatalogLib:
+  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
+
+# Templates for various paths
+PathTemplates:
+  ceci_output_dir: '{project_dir}/data/{sim_version}_{selection}_{flavor}'
+
+
+# These are used to make all the other paths
+CommonPaths:
+  parent: pz_challenge
+  project: pz_challenge
+  root: "{PZ_BASE_AREA}"
+  scratch_root: "{root}"
+  catalogs_dir: "{root}/data"
+
+
 # These are templates for specific files, such as testing and training files
 Files:
   - FileTemplate:
-      name: test_file_100k
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k.hdf5"
+      name: taskset_1_train_file_1yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_1_{sim_version}_training_1yr.hdf5"
   - FileTemplate:
-      name: train_file_100k
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k.hdf5"
+      name: taskset_1_test_file_1yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_1_{sim_version}_test_1yr.hdf5"
   - FileTemplate:
-      name: train_file_100k_lsst
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst.hdf5"
+      name: taskset_1_train_file_10yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_1_{sim_version}_training_10yr.hdf5"
   - FileTemplate:
-      name: test_file_100k_lsst
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst.hdf5"
+      name: taskset_1_test_file_10yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_1_{sim_version}_test_10yr.hdf5"
   - FileTemplate:
-      name: train_file_100k_lsst_1yr
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst_1yr.hdf5"
+      name: taskset_2_train_file_1yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_2_{sim_version}_training_1yr.hdf5"
   - FileTemplate:
-      name: test_file_100k_lsst_1yr
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_1yr.hdf5"
+      name: taskset_2_test_file_1yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_2_{sim_version}_test_1yr.hdf5"
   - FileTemplate:
-      name: train_file_100k_lsst_4yr
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst_4yr.hdf5"
+      name: taskset_2_train_file_10yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_2_{sim_version}_training_10yr.hdf5"
   - FileTemplate:
-      name: test_file_100k_lsst_4yr
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_4yr.hdf5"
+      name: taskset_2_test_file_10yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_2_{sim_version}_test_10yr.hdf5"
   - FileTemplate:
-      name: train_file_100k_lsst_10yr
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst_10yr.hdf5"
+      name: taskset_3_train_file_1yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_3_{sim_version}_training_1yr.hdf5"
   - FileTemplate:
-      name: test_file_100k_lsst_10yr
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_10yr.hdf5"
+      name: taskset_3_test_file_1yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_3_{sim_version}_test_1yr.hdf5"
   - FileTemplate:
-      name: train_file_100k_lsst_1yr_spec_select
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst_1yr_spec_select.hdf5"
+      name: taskset_3_train_file_10yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_3_{sim_version}_training_10yr.hdf5"
   - FileTemplate:
-      name: test_file_100k_lsst_1yr_spec_select
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_1yr_spec_select.hdf5"
-  - FileTemplate:
-      name: train_file_100k_lsst_4yr_spec_select
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst_4yr_spec_select.hdf5"
-  - FileTemplate:
-      name: test_file_100k_lsst_4yr_spec_select
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_4yr_spec_select.hdf5"
-  - FileTemplate:
-      name: train_file_100k_lsst_10yr_spec_select
-      path_template: "{catalogs_dir}/train/{project}_{sim_version}_{selection}_baseline_100k_lsst_10yr_spec_select.hdf5"
-  - FileTemplate:
-      name: test_file_100k_lsst_10yr_spec_select
-      path_template: "{catalogs_dir}/test/{project}_{sim_version}_{selection}_baseline_100k_lsst_10yr_spec_select.hdf5"
+      name: taskset_3_test_file_10yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_3_{sim_version}_test_10yr.hdf5"
 
 
 # These describe the selections going from Truth to Reduced catalog
@@ -57,6 +69,12 @@ Selections:
       name: gold
       cuts:
         maglim_i: [null, 25.5]
+      healpix_cuts:
+        ra_col: shift_ra
+        dec_col: shift_dec
+        nside: 32
+        nest: false
+        pixels: [9921, 9922, 9923, 9924, 10050, 10051, 10052, 10053, 10177, 10178, 10179, 10180, 10181, 10305, 10306, 10307, 10308, 10429, 10430, 10431, 10432, 10549, 10550, 10551, 10552, 10665, 10666, 10667, 10668, 10777, 10778, 10779]
   - Selection:
       name: deep
       cuts:
@@ -65,11 +83,11 @@ Selections:
 
 # These describe all the algorithms that estimate PZ
 PZAlgorithms:
-#  - PZAlgorithm:
-#      name: fzboost
-#      Estimate: FlexZBoostEstimator
-#      Inform: FlexZBoostInformer
-#      Module: rail.estimation.algos.flexzboost
+  #  - PZAlgorithm:
+  #      name: fzboost
+  #      Estimate: FlexZBoostEstimator
+  #      Inform: FlexZBoostInformer
+  #      Module: rail.estimation.algos.flexzboost
   - PZAlgorithm:
       name: knn
       Estimate: KNearNeighEstimator
@@ -90,33 +108,6 @@ PZAlgorithms:
 # These describe the various data analysis pipelines
 Pipelines:
   - PipelineTemplate:
-      name: inform
-      pipeline_class: rail.pipelines.estimation.inform_all.InformPipeline
-      input_file_templates:
-        input:
-          flavor: baseline
-          tag: train
-      kwargs:
-        algorithms: ['all']
-  - PipelineTemplate:
-      name: estimate
-      pipeline_class: rail.pipelines.estimation.estimate_all.EstimatePipeline
-      input_file_templates:
-        input:
-          flavor: baseline
-          tag: test
-      kwargs:
-        algorithms: ['all']
-  - PipelineTemplate:
-      name: evaluate
-      pipeline_class: rail.pipelines.evaluation.evaluate_all.EvaluationPipeline
-      input_file_templates:
-        truth:
-          flavor: baseline
-          tag: test
-      kwargs:
-        algorithms: ['all']
-  - PipelineTemplate:
       name: pz
       pipeline_class: rail.pipelines.estimation.pz_all.PzPipeline
       input_file_templates:
@@ -129,3 +120,68 @@ Pipelines:
       kwargs:
         algorithms: ['all']
 
+
+Baseline:
+  catalog_tag: rubin
+  pipelines: ['all']
+  file_aliases:  # Set the training and test files
+    test: taskset_1_test_file_1yr
+    train: taskset_1_train_file_1yr
+  pipeline_overrides:
+    estimate:
+      estimate_bpz:
+        no_prior: false
+        madau_flag: 'yes'
+        spectra_file: 'cosmossedswdust136.list'
+        zp_errors:
+          - 0.03
+          - 0.03
+          - 0.03
+          - 0.03
+          - 0.03
+          - 0.03
+    pz:
+      inform_knn:
+        nneigh_max: 10
+      inform_gpz:
+        gpz_method: 'VD'
+      inform_fzboost:
+        max_basis: 50
+        nsharp: 30
+        nbump: 40
+      inform_bpz:
+        nt_array: [7, 57, 72]
+        output_hdfn: true
+      estimate_bpz:
+        no_prior: false
+        madau_flag: 'yes'
+        spectra_file: 'cosmossedswdust136.list'
+        zp_errors:
+          - 0.03
+          - 0.03
+          - 0.03
+          - 0.03
+          - 0.03
+          - 0.03
+
+Flavors:
+  - Flavor:
+      name: taskset_1_1yr
+      file_aliases:  # Set the training and test files
+        test: taskset_1_test_file_1yr
+        train: taskset_1_train_file_1yr
+  - Flavor:
+      name: taskset_1_10yr
+      file_aliases:  # Set the training and test files
+        test: taskset_1_test_file_10yr
+        train: taskset_1_train_file_10yr
+  - Flavor:
+      name: taskset_2_1yr
+      file_aliases:  # Set the training and test files
+        test: taskset_2_test_file_1yr
+        train: taskset_2_train_file_1yr
+  - Flavor:
+      name: taskset_2_10yr
+      file_aliases:  # Set the training and test files
+        test: taskset_2_test_file_10yr
+        train: taskset_2_train_file_10yr
