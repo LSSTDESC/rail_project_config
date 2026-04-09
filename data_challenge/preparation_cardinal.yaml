@@ -23,7 +23,7 @@ Project:
   IterationVars:
     pix:
       - 19
-      - 20
+      # - 20
       - 22
       - 25
       - 27
