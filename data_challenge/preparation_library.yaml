@@ -234,7 +234,7 @@ ErrorModels:
       Bands: ['H']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
+        highSNR: false
   - ErrorModel:
       name: roman_medium
       ErrorModel: RomanMediumErrorModel
@@ -242,7 +242,7 @@ ErrorModels:
       Bands: ['Y', 'J', 'H']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
+        highSNR: false
   - ErrorModel:
       name: roman_ultradeep
       ErrorModel: RomanUltraDeepErrorModel
@@ -250,21 +250,21 @@ ErrorModels:
       Bands: ['Y', 'J', 'H']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
+        highSNR: false
   - ErrorModel:
       name: euclid_wide
       ErrorModel: EuclidWideErrorModel
       Module: rail.creation.degraders.photometric_errors
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
+        highSNR: false
   - ErrorModel:
       name: euclid_deep
       ErrorModel: EuclidDeepErrorModel
       Module: rail.creation.degraders.photometric_errors
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
+        highSNR: false
 
 
 # These describe all the algorithms that emulate spectroscopic selections
