@@ -158,7 +158,6 @@ ErrorModels:
       Bands: ['u', 'g', 'r', 'i', 'z', 'y']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
         hdf5_groupname: ''
         mask: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
@@ -189,7 +188,7 @@ ErrorModels:
           majorCol: major
           extendedType: gaap
           aMin: 1.5  # from Gaap1p0
-          highSNR: true  # found to fit the photometric error better at faint end
+          highSNR: false
   - ErrorModel:
       name: lsst_obs_cond_10yr
       ErrorModel: ObsCondition
@@ -197,7 +196,6 @@ ErrorModels:
       Bands: ['u', 'g', 'r', 'i', 'z', 'y']
       Overrides:
         # also overwrite km if the PhotErr default value differ from LSST specific value
-	highSNR: false
         hdf5_groupname: ''
         mask: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
@@ -228,7 +226,7 @@ ErrorModels:
           majorCol: major
           extendedType: gaap
           aMin: 1.5  # from Gaap1p0
-          highSNR: true  # found to fit the photometric error better at faint end
+          highSNR: false
   - ErrorModel:
       name: roman_wide
       ErrorModel: RomanWideErrorModel
