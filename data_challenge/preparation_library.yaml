@@ -493,6 +493,8 @@ Subsamples:
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
           extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
@@ -512,6 +514,8 @@ Subsamples:
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
           extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
@@ -531,6 +535,8 @@ Subsamples:
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
           extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
@@ -550,6 +556,8 @@ Subsamples:
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
           extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
