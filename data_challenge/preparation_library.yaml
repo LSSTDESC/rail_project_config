@@ -393,6 +393,13 @@ Subsamplers:
       name: multi_catalog_subsampler
       Subsample: MultiCatalogSubsampler
       Module: rail.projects.subsampler
+  - Subsampler:
+      # This one takes individual per-survey spec selection files, applies per-survey
+      # area cuts (zCOSMOS/VVDS/DEEP2), unions all spec selections, then inner-joins
+      # with photometric inputs. Returns all selected objects without random subsampling.
+      name: spec_area_subsampler
+      Subsample: SpecAreaSubsampler
+      Module: rail.projects.subsampler
 
 # These describe ways to subsample the data
 Subsamples:
