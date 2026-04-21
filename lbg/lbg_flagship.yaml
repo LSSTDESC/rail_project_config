@@ -1,0 +1,29 @@
+Project:
+
+  Name: lbg
+
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/lbg/lbg_library.yaml"
+
+  # These are used to make all the other paths
+  CommonPaths:
+    sim_version: flagship
+
+  Flavors:
+    - Flavor:
+        name: flagship
+        catalog_tag: flagship_roman_rubin
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              selectors: ['DESI_BGS_flagship', 'DESI_LRG_flagship', 'DESI_ELG_flagship']
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    pixel:
+      - 27
+      - 28
+      - 35
+      - 36
+      - 43
+      - 44

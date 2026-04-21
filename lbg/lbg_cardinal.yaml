@@ -1,0 +1,31 @@
+Project:
+
+  Name: lbg
+
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/lbg/lbg_library.yaml"
+
+  # These are used to make all the other paths
+  CommonPaths:
+    sim_version: cardinal
+
+  Flavors:
+    - Flavor:
+        name: cardinal
+        catalog_tag: cardinal_roman_rubin
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color']
+
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    pix:
+      - 19
+      # - 20
+      - 22
+      - 25
+      - 27
+      - 28
+      - 30

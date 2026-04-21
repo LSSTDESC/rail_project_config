@@ -1,0 +1,233 @@
+# Project name
+Name: lbg
+
+
+# Catalog definitions
+CatalogLib:
+  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
+
+# Templates for various paths
+PathTemplates: {}
+
+
+# These are used to make all the other paths
+CommonPaths:
+  parent: pz_challenge
+  project: lbg
+  root: "{PZ_BASE_AREA}"
+  scratch_root: "{root}"
+  catalogs_dir: "{root}/data"
+
+
+# Baseline configuraiton, included in others by default
+Baseline:
+  catalog_tag: roman_rubin
+  pipelines: ['all']
+
+
+# These are templates for catalogs produced in the early stages of the analysis
+Catalogs:
+  # roman rubin (open universe) sims
+  - CatalogTemplate:
+      name: truth_roman_rubin
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/{pixel}/part-0.parquet"
+      iteration_vars: ['pixel']
+  # cardinal sims
+  - CatalogTemplate:
+      name: truth_cardinal
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/parquet_files/Chinchilla-3-triofile.{pixel}.parquet"
+      iteration_vars: ['pixel']
+  # flagship sims
+  - CatalogTemplate:
+      name: truth_flagship
+      path_template: "{catalogs_dir}/{parent}_{sim_version}/Flagship/Roman/euclid_fs2_mock_dr_v1_1_phz_wNIR.pix{pixel}.pq"
+      iteration_vars: ['pixel']
+  # Generic reduced catalogs
+  - CatalogTemplate:
+      name: reduced
+      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}/{pixel}/part-0.pq"
+      iteration_vars: ['pixel']
+  # Generic degraed catalogs
+  - CatalogTemplate:
+      name: degraded
+      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
+      iteration_vars: ['pixel']
+
+
+# These describe the selections going from Truth to Reduced catalog
+# These are applied by the reducers
+Selections:
+  - Selection:
+      name: gold
+      cuts:
+        maglim_i: [null, 25.5]
+      healpix_cuts:
+        ra_col: ra
+        dec_col: dec
+        nside: 32
+        nest: false
+        pixels: [9921, 9922, 9923, 9924, 10050, 10051, 10052, 10053, 10177, 10178, 10179, 10180, 10181, 10305, 10306, 10307, 10308, 10429, 10430, 10431, 10432, 10549, 10550, 10551, 10552, 10665, 10666, 10667, 10668, 10777, 10778, 10779]
+  - Selection:
+      name: deep
+      cuts:
+        maglim_i: [null, 27.0]
+
+
+# These describe the various ceci-based data analysis pipelines
+Pipelines:
+  - PipelineTemplate:
+      # Do photometric smearing, spec selection and optionally blending
+      name: truth_to_observed
+      pipeline_class: rail.pipelines.degradation.truth_to_observed.TruthToObservedPipeline
+      input_catalog_template: reduced
+      output_catalog_template: degraded
+      kwargs:
+        error_models: ['all']
+        selectors: ['all']
+        models_to_run_select: ['lsst_1yr', 'lsst_10yr']
+        blending: false
+        parallel: true
+
+
+# These describe the error models we use in the truth_to_observed pipeline
+ErrorModels:
+  - ErrorModel:
+      name: lsst_1yr  
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
+  - ErrorModel:
+      name: lsst_10yr
+      ErrorModel: LSSTErrorModel
+      Module: rail.creation.degraders.photometric_errors
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
+  - ErrorModel:
+      name: roman_wide
+      ErrorModel: RomanWideErrorModel
+      Module: rail.creation.degraders.photometric_errors
+      Bands: ['H']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+	highSNR: false
+
+
+# These describe all the algorithms that emulate spectroscopic selections
+SpecSelections:
+  - SpecSelection:
+      name: VVDSf02
+      Select: SpecSelection_VVDSf02
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: zCOSMOS
+      Select: SpecSelection_zCOSMOS
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DEEP2_LSST
+      Select: SpecSelection_DEEP2_LSST
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_BGS_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "bgs"
+        threshold_col: "lm_halo"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_LRG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "lrg"
+        threshold_col: "log_stellar_mass"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_ELG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "elg"
+        threshold_col: "log_sfr"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_BGS_color
+      Select: SpecSelection_DESI_BGS
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_LRG_color
+      Select: SpecSelection_DESI_LRG
+      Module: rail.creation.degraders.spectroscopic_selections
+  - SpecSelection:
+      name: DESI_ELG_LOP_color
+      Select: SpecSelection_DESI_ELG_LOP
+      Module: rail.creation.degraders.spectroscopic_selections
+
+
+# These are the classes that we used to merge data from different files
+# in particular, to merge the spectroscopic selections
+Mergers:
+  - Merger:
+      name: spec_selection
+      Merge: SpecSelectionMerger
+      Module: rail.projects.merger
+
+
+# These are the various ways we merge the spectrscopic selections
+Merges:
+  - Merge:
+      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      name: select_lsst_obs_cond_10yr_all_cardinal
+      inputs:
+        DEEP2_LSST: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
+        DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_color.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_LOP_color.pq
+        DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_color.pq
+        VVDSf02: output_select_lsst_obs_cond_10yr_VVDSf02.pq
+        zCOSMOS: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+      output_basename: output_select_lsst_obs_cond_10yr_all.pq
+      merge_col: object_id
+  - Merge:
+      # merge all the selections run on the 'lsst_1yr' photometric smearing
+      name: select_lsst_obs_cond_1yr_all_cardinal
+      inputs:
+        DEEP2_LSST: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
+        DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_color.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_LOP_color.pq
+        DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_color.pq
+        VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
+        zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+      output_basename: output_select_lsst_obs_cond_1yr_all.pq
+      merge_col: object_id
+  - Merge:
+      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      name: select_lsst_obs_cond_10yr_all_flagship
+      inputs:
+        DEEP2_LSST: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
+        DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_flagship.pq
+        DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_flagship.pq
+        VVDSf02: output_select_lsst_obs_cond_10yr_VVDSf02.pq
+        zCOSMOS: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+      output_basename: output_select_lsst_obs_cond_10yr_all.pq
+      merge_col: object_id
+  - Merge:
+      # merge all the selections run on the 'lsst_1yr' photometric smearing
+      name: select_lsst_obs_cond_1yr_all_flagship
+      inputs:
+        DEEP2_LSST: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
+        DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_flagship.pq
+        DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
+        VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
+        zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+      output_basename: output_select_lsst_obs_cond_1yr_all.pq
+      merge_col: object_id
+
+
