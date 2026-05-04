@@ -200,12 +200,12 @@ ErrorModels:
         mask: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/masks/WFD-mask-nside-128.fits"
         map_dict:
           m5:
-            u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_ExgalM5_u-band-1-year-wfd_HEAL.fits"
-            g: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_ExgalM5_g-band-1-year-wfd_HEAL.fits"
-            r: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_ExgalM5_r-band-1-year-wfd_HEAL.fits"
-            i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_ExgalM5_i-band-1-year-wfd_HEAL.fits"
-            z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_ExgalM5_z-band-1-year-wfd_HEAL.fits"
-            y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_ExgalM5_y-band-1-year-wfd_HEAL.fits"
+            u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_u-band-4-year-wfd_HEAL.fits"
+            g: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_g-band-4-year-wfd_HEAL.fits"
+            r: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_r-band-4-year-wfd_HEAL.fits"
+            i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_i-band-4-year-wfd_HEAL.fits"
+            z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_z-band-4-year-wfd_HEAL.fits"
+            y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_ExgalM5_y-band-4-year-wfd_HEAL.fits"
           nYrObs: 1.  # do not change this as we use coadd depth map
           nVisYr:  # do not change this as we use coadd depth map
             u: 1.
@@ -215,12 +215,12 @@ ErrorModels:
             z: 1.
             y: 1.
           theta:
-            u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_Median_seeingFwhmEff_u-band-1-year-wfd_HEAL.fits"
-            g: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_Median_seeingFwhmEff_g-band-1-year-wfd_HEAL.fits"
-            r: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_Median_seeingFwhmEff_r-band-1-year-wfd_HEAL.fits"
-            i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_Median_seeingFwhmEff_i-band-1-year-wfd_HEAL.fits"
-            z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_Median_seeingFwhmEff_z-band-1-year-wfd_HEAL.fits"
-            y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y1/WFD/baseline_v5_1_0_4yrs_Median_seeingFwhmEff_y-band-1-year-wfd_HEAL.fits"
+            u: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_u-band-4-year-wfd_HEAL.fits"
+            g: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_g-band-4-year-wfd_HEAL.fits"
+            r: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_r-band-4-year-wfd_HEAL.fits"
+            i: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_i-band-4-year-wfd_HEAL.fits"
+            z: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_z-band-4-year-wfd_HEAL.fits"
+            y: "${PZ_DATA_AREA}/survey_conditions/baseline_v5.1_maps/Y4/WFD/baseline_v5_1_0_10yrs_Median_seeingFwhmEff_y-band-4-year-wfd_HEAL.fits"
           airmass: 0.  # do not change this as we use effective theta, which accounts for dependence on airmass
           minorCol: minor
           majorCol: major
