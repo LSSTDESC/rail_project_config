@@ -16,7 +16,15 @@ Project:
         pipeline_overrides:
           truth_to_observed:
             kwargs:
-              selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST']
+              selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST', 'COSMOS2020']
+    - Flavor:
+        name: cardinal_blended
+        catalog_tag: cardinal_roman_rubin
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              blending: true
+              selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST', 'COSMOS2020']
 
 
   # These are variables that we iterate over when running over entire catalogs
