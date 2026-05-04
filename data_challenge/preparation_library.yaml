@@ -635,7 +635,7 @@ Subsamples:
           basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
           bands: []
           mag_band_name_template: ""
-          mag_err_band_name_template: ""	  
+          mag_err_band_name_template: ""
           extra_cols: ["redshift_manyband"]
   - Subsample:
       # Combine roman and rubin 1yr with spec-selection and grab 20k events
@@ -662,7 +662,7 @@ Subsamples:
           basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
           bands: []
           mag_band_name_template: ""
-          mag_err_band_name_template: ""	  
+          mag_err_band_name_template: ""
           extra_cols: ["redshift_manyband"]
   - Subsample:
       # Combine roman and rubin 10yr with spec-selection and grab 100k events
@@ -689,7 +689,7 @@ Subsamples:
           basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
           bands: []
           mag_band_name_template: ""
-          mag_err_band_name_template: ""	  
+          mag_err_band_name_template: ""
           extra_cols: ["redshift_manyband"]
   - Subsample:
       # Combine roman and rubin 10yr with spec-selection and grab 20k events
