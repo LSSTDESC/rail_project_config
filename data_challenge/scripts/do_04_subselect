@@ -21,3 +21,17 @@ rail-project subsample --catalog-template degraded --file-template taskset_2_tes
 
 rail-project subsample --catalog-template degraded --file-template taskset_2_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_train_10yr --flavor flagship data_challenge/preparation_flagship.yaml
 rail-project subsample --catalog-template degraded --file-template taskset_2_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_2_test_10yr --flavor flagship data_challenge/preparation_flagship.yaml
+
+
+rail-project subsample --catalog-template degraded --file-template taskset_3_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_train_1yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_3_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_test_1yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_3_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_train_10yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_3_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_test_10yr --flavor cardinal data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_3_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_train_1yr --flavor flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_3_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_test_1yr --flavor flagship data_challenge/preparation_flagship.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_3_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_train_10yr --flavor flagship data_challenge/preparation_flagship.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_3_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_3_test_10yr --flavor flagship data_challenge/preparation_flagship.yaml
+
