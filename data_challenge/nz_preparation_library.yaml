@@ -31,7 +31,7 @@ Catalogs:
   # Generic degraed catalogs
   - CatalogTemplate:
       name: degraded
-      path_template: "{catalogs_dir}/{project}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
+      path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
       iteration_vars: ['pixel']
 
 

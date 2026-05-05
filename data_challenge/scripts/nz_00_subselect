@@ -1,0 +1,21 @@
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 00 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 01 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 02 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 03 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 04 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 05 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 06 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 07 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 08 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_ddf --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_ddf --flavor cardinal --cone-cut "10.,-44.,1.0" --label 09 data_challenge/nz_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_1_1yr_wfd --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_1_1yr_wfd --flavor cardinal data_challenge/nz_cardinal.yaml 
