@@ -1,0 +1,37 @@
+Project:
+
+  Name: pz_challenge
+
+  Includes:
+    - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/nz_preparation_library.yaml"
+
+  # These are used to make all the other paths
+  CommonPaths:
+    sim_version: flagship
+
+  Flavors:
+    - Flavor:
+        name: flagship
+        catalog_tag: flagship_roman_rubin
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              selectors: ['DESI_BGS_flagship', 'DESI_LRG_flagship', 'DESI_ELG_flagship', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST', 'COSMOS2020']
+    - Flavor:
+        name: flagship_blended
+        catalog_tag: flagship_roman_rubin
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              blending: true
+              selectors: ['DESI_BGS_flagship', 'DESI_LRG_flagship', 'DESI_ELG_flagship', 'zCOSMOS', 'VVDSf02', 'DEEP2_LSST', 'COSMOS2020']
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    pixel:
+      - 27
+      - 28
+      - 35
+      - 36
+      - 43
+      - 44
