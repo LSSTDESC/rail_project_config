@@ -13,8 +13,8 @@ PathTemplates: {}
 
 # These are used to make all the other paths
 CommonPaths:
-  parent: nz_challenge
-  project: pz_challenge
+  parent: pz_challenge
+  project: nz_challenge
   root: "{PZ_BASE_AREA}"
   scratch_root: "{root}"
   catalogs_dir: "{root}/data"
