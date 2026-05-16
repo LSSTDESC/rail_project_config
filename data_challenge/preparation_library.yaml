@@ -796,3 +796,111 @@ Subsamples:
           mag_band_name_template: ""
           mag_err_band_name_template: ""
           extra_cols: ["redshift_manyband"]
+  - Subsample:
+      # Combine roman and rubin 1yr with spec-selection and grab 100k events
+      name: "taskset_4_train_1yr"
+      object_id_col: "group_id"
+      seed: 1237
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_1yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
+  - Subsample:
+      # Combine roman and rubin 1yr with spec-selection and grab 20k events
+      name: "taskset_4_test_1yr"
+      object_id_col: "group_id"
+      seed: 2237
+      num_objects: 20000
+      inputs:
+        rubin:
+          basename: output_deredden_lsst_obs_cond_1yr.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
+  - Subsample:
+      # Combine roman and rubin 10yr with spec-selection and grab 100k events
+      name: "taskset_4_train_10yr"
+      object_id_col: "group_id"
+      seed: 1238
+      num_objects: 100000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_10yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
+  - Subsample:
+      # Combine roman and rubin 10yr with spec-selection and grab 20k events
+      name: "taskset_4_test_10yr"
+      object_id_col: "group_id"
+      seed: 2238
+      num_objects: 20000
+      inputs:
+        rubin:
+          basename: output_deredden_lsst_obs_cond_10yr.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.4]
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
