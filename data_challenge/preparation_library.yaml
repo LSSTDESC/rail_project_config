@@ -93,6 +93,18 @@ Files:
   - FileTemplate:
       name: taskset_3_test_file_10yr
       path_template: "{catalogs_dir}/reserved/{project}_taskset_3_{sim_version}_test_10yr.hdf5"
+  - FileTemplate:
+      name: taskset_4_train_file_1yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_4_{sim_version}_training_1yr.hdf5"
+  - FileTemplate:
+      name: taskset_4_test_file_1yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_4_{sim_version}_test_1yr.hdf5"
+  - FileTemplate:
+      name: taskset_4_train_file_10yr
+      path_template: "{catalogs_dir}/public/{project}_taskset_4_{sim_version}_training_10yr.hdf5"
+  - FileTemplate:
+      name: taskset_4_test_file_10yr
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_4_{sim_version}_test_10yr.hdf5"
 
 
 # These describe the ways we can reduce the data
