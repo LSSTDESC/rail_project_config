@@ -30,7 +30,7 @@ Project:
 
     - Flavor:
         name: dp2_6band
-        catalog_tag: com_cam_gaap
+        catalog_tag: lsst_gaap_1p0
         pipeline_overrides:
           default:
             kwargs:
