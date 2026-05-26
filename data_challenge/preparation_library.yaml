@@ -407,7 +407,7 @@ Merges:
       output_basename: output_select_lsst_obs_cond_10yr_all.pq
       merge_col: object_id
   - Merge:
-      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      # merge all the selections run on the 'lsst_4yr' photometric smearing
       name: select_lsst_obs_cond_4yr_all_cardinal
       inputs:
         DEEP2_LSST: output_select_lsst_obs_cond_4yr_DEEP2_LSST.pq
@@ -467,7 +467,7 @@ Merges:
       output_basename: output_select_lsst_obs_cond_1yr_all.pq
       merge_col: object_id
   - Merge:
-      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      # merge all the selections run on the 'lsst_4yr' photometric smearing
       name: select_lsst_obs_cond_4yr_all_cardinal_blended
       inputs:
         DEEP2_LSST: output_select_lsst_obs_cond_4yr_DEEP2_LSST.pq
@@ -491,7 +491,7 @@ Merges:
       output_basename: output_select_lsst_obs_cond_1yr_all.pq
       merge_col: group_id
   - Merge:
-      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      # merge all the selections run on the 'lsst_4yr' photometric smearing
       name: select_lsst_obs_cond_4yr_all_flagship_blended
       inputs:
         DEEP2_LSST: output_select_lsst_obs_cond_4yr_DEEP2_LSST.pq
@@ -514,6 +514,84 @@ Merges:
         zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
       output_basename: output_select_lsst_obs_cond_1yr_all.pq
       merge_col: group_id
+  - Merge:
+      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      name: select_lsst_obs_cond_10yr_refz_cardinal
+      inputs:
+        DEEP2_LSST:
+          basename: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
+          cone_cut: [-46.0, 6.0, 0.80]
+        DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_color.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_LOP_color.pq
+        DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_color.pq
+        VVDSf02:
+          basename: output_select_lsst_obs_cond_10yr_VVDSf02.pq
+          cone_cut: [-44.0, 8.0, 0.44]
+        zCOSMOS:
+          basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+        COSMOS:
+          basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+      output_basename: output_select_lsst_obs_cond_10yr_refz.pq
+      merge_col: object_id
+  - Merge:
+      # merge all the selections run on the 'lsst_1yr' photometric smearing
+      name: select_lsst_obs_cond_1yr_refz_cardinal
+      inputs:
+        DEEP2_LSST:
+          basename: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
+          cone_cut: [-46.0, 6.0, 0.80]
+        DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_color.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_LOP_color.pq
+        DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_color.pq
+        VVDSf02:
+          basename: output_select_lsst_obs_cond_1yr_VVDSf02.pq
+          cone_cut: [-44.0, 8.0, 0.44]
+        zCOSMOS:
+          basename: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+        COSMOS:
+          basename: output_select_lsst_obs_cond_1yr_COSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+      output_basename: output_select_lsst_obs_cond_1yr_refz.pq
+      merge_col: object_id
+  - Merge:
+      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      name: select_lsst_obs_cond_10yr_refz_flagship
+      inputs:
+        DEEP2_LSST:
+          basename: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
+          cone_cut: [-46.0, 6.0, 0.80]
+        DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_flagship.pq
+        DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_flagship.pq
+        VVDSf02:
+          basename: output_select_lsst_obs_cond_10yr_VVDSf02.pq
+          cone_cut: [-44.0, 8.0, 0.44]
+        zCOSMOS:
+          basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+      output_basename: output_select_lsst_obs_cond_10yr_refz.pq
+      merge_col: object_id
+  - Merge:
+      # merge all the selections run on the 'lsst_1yr' photometric smearing
+      name: select_lsst_obs_cond_1yr_refz_flagship
+      inputs:
+        DEEP2_LSST:
+          basename: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
+          cone_cut: [-46.0, 6.0, 0.80]
+        DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_flagship.pq
+        DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
+        VVDSf02:
+          basename: output_select_lsst_obs_cond_1yr_VVDSf02.pq
+          cone_cut: [-44.0, 8.0, 0.44]
+        zCOSMOS:
+          basename: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+      output_basename: output_select_lsst_obs_cond_1yr_refz.pq
+      merge_col: object_id
 
 
 # These are the classes that we use to subsample the data
