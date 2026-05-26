@@ -531,7 +531,7 @@ Merges:
           basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
           cone_cut: [-42.0, 12.0, 0.74]
         COSMOS:
-          basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+          basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
           cone_cut: [-42.0, 12.0, 0.74]
       output_basename: output_select_lsst_obs_cond_10yr_refz.pq
       merge_col: object_id
@@ -552,7 +552,7 @@ Merges:
           basename: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
           cone_cut: [-42.0, 12.0, 0.74]
         COSMOS:
-          basename: output_select_lsst_obs_cond_1yr_COSMOS.pq
+          basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
           cone_cut: [-42.0, 12.0, 0.74]
       output_basename: output_select_lsst_obs_cond_1yr_refz.pq
       merge_col: object_id
@@ -572,6 +572,9 @@ Merges:
         zCOSMOS:
           basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
           cone_cut: [-42.0, 12.0, 0.74]
+        COSMOS:
+          basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
+          cone_cut: [-42.0, 12.0, 0.74]
       output_basename: output_select_lsst_obs_cond_10yr_refz.pq
       merge_col: object_id
   - Merge:
@@ -589,6 +592,9 @@ Merges:
           cone_cut: [-44.0, 8.0, 0.44]
         zCOSMOS:
           basename: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+          cone_cut: [-42.0, 12.0, 0.74]
+        COSMOS:
+          basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
           cone_cut: [-42.0, 12.0, 0.74]
       output_basename: output_select_lsst_obs_cond_1yr_refz.pq
       merge_col: object_id
