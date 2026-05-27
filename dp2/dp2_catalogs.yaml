@@ -32,6 +32,24 @@ Bands:
       name: comcam_y
       a_env: 1.31
   - Band:
+      name: lsstcam_u
+      a_env: 4.78
+  - Band:
+      name: lsstcam_g
+      a_env: 3.65
+  - Band:
+      name: lsstcam_r
+      a_env: 2.70
+  - Band:
+      name: lsstcam_i
+      a_env: 2.06
+  - Band:
+      name: lsstcam_z
+      a_env: 1.58
+  - Band:
+      name: lsstcam_y
+      a_env: 1.31
+  - Band:
       name: DC2LSST_u
       a_env: 4.81
   - Band:
@@ -140,7 +158,7 @@ CatalogTags:
       name: "lsst_gaap_1p0"
       mag_column_template: "{band}_gaap1p0Mag"
       mag_err_column_template: "{band}_gaap1p0MagErr"
-      filter_template: "comcam_{band}"
+      filter_template: "lsstcam_{band}"
       band_list: ['u', 'g', 'r', 'i', 'z', 'y']
       bands:
         u:
@@ -159,7 +177,7 @@ CatalogTags:
       name: "lsst_gaap_1p0_4band"
       mag_column_template: "{band}_gaap1p0Mag"
       mag_err_column_template: "{band}_gaap1p0MagErr"
-      filter_template: "comcam_{band}"
+      filter_template: "lsstcam_{band}"
       band_list: ['g', 'r', 'i', 'z']
       bands:
         g:
