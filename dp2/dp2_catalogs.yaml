@@ -160,6 +160,9 @@ CatalogTags:
       mag_err_column_template: "{band}_gaap1p0MagErr"
       filter_template: "lsstcam_{band}"
       band_list: ['u', 'g', 'r', 'i', 'z', 'y']
+      zmax: 6.0
+      nzbins: 601
+      calculated_point_estimates: ['zmode', 'zbest']
       bands:
         u:
           mag_limit: 26.5
@@ -179,6 +182,9 @@ CatalogTags:
       mag_err_column_template: "{band}_gaap1p0MagErr"
       filter_template: "lsstcam_{band}"
       band_list: ['g', 'r', 'i', 'z']
+      zmax: 6.0
+      nzbins: 601
+      calculated_point_estimates: ['zmode', 'zbest']
       bands:
         g:
           mag_limit: 27.8
