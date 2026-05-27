@@ -62,8 +62,12 @@ Project:
               minleaf: 2
             inform_fzboost:
               max_basis: 50
-              nsharp: 30
-              nbump: 40
+              nsharp: 1
+              nbump: 1
+              bumpmin: 0.02 
+              bumpmax: 0.02
+              sharpmin: 1.2
+              sharpmax: 1.2
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
@@ -202,8 +206,12 @@ Project:
               minleaf: 2
             inform_fzboost:
               max_basis: 50
-              nsharp: 30
-              nbump: 40
+              nsharp: 1
+              nbump: 1
+              bumpmin: 0.02 
+              bumpmax: 0.02
+              sharpmin: 1.2
+              sharpmax: 1.2
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
