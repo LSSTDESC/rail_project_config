@@ -39,7 +39,7 @@ Project:
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
+              filter_list: ['lsstcam_u', 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z', 'lsstcam_y']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
                 - 0.03
@@ -67,11 +67,11 @@ Project:
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
-              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
+              filter_list: ['lsstcam_u', 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z', 'lsstcam_y']
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_u', 'comcam_g', 'comcam_r', 'comcam_i', 'comcam_z', 'comcam_y']
+              filter_list: ['lsstcam_u', 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z', 'lsstcam_y']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
                 - 0.03
@@ -82,9 +82,9 @@ Project:
                 - 0.03
             inform_lephare:
               lephare_config:
-                ADAPT_BAND: '5'
+                ADAPT_BAND: '4'
                 ADAPT_CONTEXT: '-1'
-                ADAPT_LIM: 1.5,23.0
+                ADAPT_LIM: 22,24.5
                 ADAPT_MODBIN: 1,1000
                 ADAPT_ZBIN: 0.01,6
                 ADDITIONAL_MAG: none
@@ -100,7 +100,7 @@ Project:
                 CAT_TYPE: LONG
                 CHI2_OUT: 'NO'
                 COSMOLOGY: 70,0.3,0.7
-                DZ_WIN: '1.0'
+                DZ_WIN: '0.25'
                 EBV_RANGE: 0,9
                 EB_V: 0.,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.5
                 EM_DISPERSION: 0.5,0.75,1.,1.5,2.
@@ -111,7 +111,7 @@ Project:
                 EXTINC_LAW: SMC_prevot.dat,SB_calzetti.dat,SB_calzetti_bump1.dat,SB_calzetti_bump2.dat
                 FILTER_CALIB: 0,0,0,0,0,0
                 FILTER_FILE: filter_lsst
-                FILTER_LIST: comcam/u.pb,comcam/g.pb,comcam/r.pb,comcam/i.pb,comcam/z.pb,comcam/y.pb
+                FILTER_LIST: lsstcam/u.pb,lsstcam/g.pb,lsstcam/r.pb,lsstcam/i.pb,lsstcam/z.pb,lsstcam/y.pb
                 FILTER_REP: /sdf/data/rubin/shared/pz/data/lephare/data/filt
                 FIR_CONT: '-1'
                 FIR_FREESCALE: 'YES'
@@ -125,14 +125,14 @@ Project:
                 GAL_LIB_IN: LSST_GAL_BIN
                 GAL_LIB_OUT: LSST_GAL_MAG
                 GAL_SED: /sdf/data/rubin/shared/pz/data/lephare/data/examples/COSMOS_MOD.list
-                GLB_CONTEXT: '63'
+                GLB_CONTEXT: '0'
                 INP_TYPE: M
                 LIB_ASCII: 'NO'
                 LIMITS_MAPP_CUT: '90'
                 LIMITS_MAPP_REF: '1'
                 LIMITS_MAPP_SEL: '1'
                 LIMITS_ZBIN: 0,99
-                MABS_CONTEXT: '63'
+                MABS_CONTEXT: '0'
                 MABS_FILT: 1,2,3,4
                 MABS_METHOD: '1'
                 MABS_REF: '1'
@@ -143,6 +143,7 @@ Project:
                 MAG_REF: '2'
                 MIN_THRES: '0.02'
                 MOD_EXTINC: 18,26,26,33,26,33,26,33
+                NZ_PRIOR: 4,3
                 PARA_OUT: /sdf/data/rubin/shared/pz/data/lephare/data/examples/output.para
                 PDZ_OUT: test
                 PDZ_TYPE: BAY_ZG
@@ -166,8 +167,8 @@ Project:
                 ZPHOTLIB: LSST_STAR_MAG,LSST_GAL_MAG,LSST_QSO_MAG
                 Z_INTERP: 'YES'
                 Z_METHOD: BEST
-                Z_RANGE: 0.,99.99
-                Z_STEP: 0.01,0.0,3.0
+                Z_RANGE: 0.,6.0
+                Z_STEP: 0.01,0.0,6.0
 
     - Flavor:
         name: dp2_4band
@@ -180,7 +181,7 @@ Project:
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
+              filter_list: ['lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
                 - 0.03
@@ -206,11 +207,11 @@ Project:
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
-              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
+              filter_list: [ 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: ['comcam_g', 'comcam_r', 'comcam_i', 'comcam_z']
+              filter_list: [ 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
                 - 0.03
@@ -219,9 +220,9 @@ Project:
                 - 0.03
             inform_lephare:
               lephare_config:
-                ADAPT_BAND: '5'
+                ADAPT_BAND: '3'
                 ADAPT_CONTEXT: '-1'
-                ADAPT_LIM: 1.5,23.0
+                ADAPT_LIM: 22,24.5
                 ADAPT_MODBIN: 1,1000
                 ADAPT_ZBIN: 0.01,6
                 ADDITIONAL_MAG: none
@@ -237,7 +238,7 @@ Project:
                 CAT_TYPE: LONG
                 CHI2_OUT: 'NO'
                 COSMOLOGY: 70,0.3,0.7
-                DZ_WIN: '1.0'
+                DZ_WIN: '0.25'
                 EBV_RANGE: 0,9
                 EB_V: 0.,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.5
                 EM_DISPERSION: 0.5,0.75,1.,1.5,2.
@@ -248,7 +249,7 @@ Project:
                 EXTINC_LAW: SMC_prevot.dat,SB_calzetti.dat,SB_calzetti_bump1.dat,SB_calzetti_bump2.dat
                 FILTER_CALIB: 0,0,0,0
                 FILTER_FILE: filter_lsst
-                FILTER_LIST: comcam/g.pb,comcam/r.pb,comcam/i.pb,comcam/z.pb
+                FILTER_LIST: lsstcam/g.pb,lsstcam/r.pb,lsstcam/i.pb,lsstcam/z.pb
                 FILTER_REP: /sdf/data/rubin/shared/pz/data/lephare/data/filt
                 FIR_CONT: '-1'
                 FIR_FREESCALE: 'YES'
@@ -262,14 +263,14 @@ Project:
                 GAL_LIB_IN: LSST_GAL_BIN
                 GAL_LIB_OUT: LSST_GAL_MAG
                 GAL_SED: /sdf/data/rubin/shared/pz/data/lephare/data/examples/COSMOS_MOD.list
-                GLB_CONTEXT: '63'
+                GLB_CONTEXT: '0'
                 INP_TYPE: M
                 LIB_ASCII: 'NO'
                 LIMITS_MAPP_CUT: '90'
                 LIMITS_MAPP_REF: '1'
                 LIMITS_MAPP_SEL: '1'
                 LIMITS_ZBIN: 0,99
-                MABS_CONTEXT: '63'
+                MABS_CONTEXT: '0'
                 MABS_FILT: 1,2,3,4
                 MABS_METHOD: '1'
                 MABS_REF: '1'
@@ -277,9 +278,10 @@ Project:
                 MAGTYPE: AB
                 MAG_ABS: -24,-5
                 MAG_ABS_QSO: -30,-10
-                MAG_REF: '2'
+                MAG_REF: '3'
                 MIN_THRES: '0.02'
                 MOD_EXTINC: 18,26,26,33,26,33,26,33
+                NZ_PRIOR: 3,2
                 PARA_OUT: /sdf/data/rubin/shared/pz/data/lephare/data/examples/output.para
                 PDZ_OUT: test
                 PDZ_TYPE: BAY_ZG
@@ -303,5 +305,5 @@ Project:
                 ZPHOTLIB: LSST_STAR_MAG,LSST_GAL_MAG,LSST_QSO_MAG
                 Z_INTERP: 'YES'
                 Z_METHOD: BEST
-                Z_RANGE: 0.,99.99
-                Z_STEP: 0.01,0.0,3.0
+                Z_RANGE: 0.,6.0
+                Z_STEP: 0.01,0.0,6.0
