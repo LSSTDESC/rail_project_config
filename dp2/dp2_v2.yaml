@@ -144,7 +144,7 @@ Project:
                 MAGTYPE: AB
                 MAG_ABS: -24,-5
                 MAG_ABS_QSO: -30,-10
-                MAG_REF: '2'
+                MAG_REF: '4'
                 MIN_THRES: '0.02'
                 MOD_EXTINC: 18,26,26,33,26,33,26,33
                 NZ_PRIOR: 4,3
