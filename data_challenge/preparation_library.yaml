@@ -500,7 +500,7 @@ Merges:
         VVDSf02:
           basename: output_select_lsst_obs_cond_1yr_VVDSf02.pq
           cone_cut: [8.0, -44.0, 0.44]
-        zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+        zCOSMOS:
           basename: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
           cone_cut: [12.0, -42.0, 0.74]
         COSMOS:
@@ -539,10 +539,10 @@ Merges:
         DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
         DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_flagship.pq
         DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
-        VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
+        VVDSf02:
           basename: output_select_lsst_obs_cond_1yr_VVDSf02.pq
           cone_cut: [8.0, -44.0, 0.44]
-        zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+        zCOSMOS:
           basename: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
           cone_cut: [12.0, -42.0, 0.74]
         COSMOS:
