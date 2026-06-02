@@ -243,7 +243,7 @@ Subsamples:
           mag_err_band_name_template: "mag_{band}_lsst_err"
           cuts:
             - ['mag_i_lsst', '<', 23]
-          extra_cols: ['redshift', 'redshift_manyband', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS', 'COSMOS']
+          extra_cols: ['redshift', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
@@ -285,7 +285,7 @@ Subsamples:
           mag_err_band_name_template: "mag_{band}_lsst_err"
           cuts:
             - ['mag_i_lsst', '<', 23]
-          extra_cols: ['redshift', 'redshift_manyband', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS', 'COSMOS']
+          extra_cols: ['redshift', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
