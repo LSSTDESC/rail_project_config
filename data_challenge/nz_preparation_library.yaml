@@ -237,7 +237,7 @@ Subsamples:
       num_objects: 1000000
       inputs:
         rubin:
-          basename: output_select_lsst_obs_cond_4yr_all.pq
+          basename: output_select_lsst_obs_cond_1yr_all.pq
           bands: ['u', 'g', 'r', 'i', 'z', 'y']
           mag_band_name_template: "mag_{band}_lsst"
           mag_err_band_name_template: "mag_{band}_lsst_err"
@@ -272,7 +272,7 @@ Subsamples:
           mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
   - Subsample:
-      # Combine roman and rubin 14r
+      # Combine roman and rubin yr4
       name: "taskset_1_4yr_ddf"
       object_id_col: "object_id"
       seed: 1232
