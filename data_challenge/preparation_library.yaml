@@ -467,26 +467,26 @@ Merges:
       output_basename: output_select_lsst_obs_cond_1yr_all.pq
       merge_col: object_id
   - Merge:
-      # merge all the selections run on the 'lsst_4yr' photometric smearing
-      name: select_lsst_obs_cond_4yr_refz_cardinal_blended
+      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      name: select_lsst_obs_cond_10yr_refz_cardinal_blended
       inputs:
         DEEP2_LSST:
-          basename: output_select_lsst_obs_cond_4yr_DEEP2_LSST.pq
+          basename: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
           cone_cut: [6.0, -46.0, 0.80]
-        DESI_BGS: output_select_lsst_obs_cond_4yr_DESI_BGS_color.pq
-        DESI_ELG_LOP: output_select_lsst_obs_cond_4yr_DESI_ELG_LOP_color.pq
-        DESI_LRG: output_select_lsst_obs_cond_4yr_DESI_LRG_color.pq
+        DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_color.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_LOP_color.pq
+        DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_color.pq
         VVDSf02:
-          basename: output_select_lsst_obs_cond_4yr_VVDSf02.pq
+          basename: output_select_lsst_obs_cond_10yr_VVDSf02.pq
           cone_cut: [8.0, -44.0, 0.44]
         zCOSMOS:
-          basename: output_select_lsst_obs_cond_4yr_zCOSMOS.pq
+          basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
           cone_cut: [12.0, -42.0, 0.74]
         COSMOS:
-          basename: output_select_lsst_obs_cond_4yr_COSMOS2020.pq
+          basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
           cone_cut: [12.0, -42.0, 0.74]
-      output_basename: output_select_lsst_obs_cond_4yr_refz.pq
-      merge_col: group_id
+      output_basename: output_select_lsst_obs_cond_10yr_refz.pq
+      merge_col: object_id
   - Merge:
       # merge all the selections run on the 'lsst_1yr' photometric smearing
       name: select_lsst_obs_cond_1yr_refz_cardinal_blended
@@ -507,28 +507,28 @@ Merges:
           basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
           cone_cut: [12.0, -42.0, 0.74]
       output_basename: output_select_lsst_obs_cond_1yr_refz.pq
-      merge_col: group_id
+      merge_col: object_id
   - Merge:
-      # merge all the selections run on the 'lsst_4yr' photometric smearing
-      name: select_lsst_obs_cond_4yr_refz_flagship_blended
+      # merge all the selections run on the 'lsst_10yr' photometric smearing
+      name: select_lsst_obs_cond_10yr_refz_flagship_blended
       inputs:
         DEEP2_LSST:
-          basename: output_select_lsst_obs_cond_4yr_DEEP2_LSST.pq
+          basename: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
           cone_cut: [6.0, -46.0, 0.80]
-        DESI_BGS: output_select_lsst_obs_cond_4yr_DESI_BGS_flagship.pq
-        DESI_ELG_LOP: output_select_lsst_obs_cond_4yr_DESI_ELG_flagship.pq
-        DESI_LRG: output_select_lsst_obs_cond_4yr_DESI_LRG_flagship.pq
+        #DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_flagship.pq
+        DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_flagship.pq
+        DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_flagship.pq
         VVDSf02:
-          basename: output_select_lsst_obs_cond_4yr_VVDSf02.pq
+          basename: output_select_lsst_obs_cond_10yr_VVDSf02.pq
           cone_cut: [8.0, -44.0, 0.44]
         zCOSMOS:
-          basename: output_select_lsst_obs_cond_4yr_zCOSMOS.pq
+          basename: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
           cone_cut: [12.0, -42.0, 0.74]
         COSMOS:
-          basename: output_select_lsst_obs_cond_4yr_COSMOS2020.pq
+          basename: output_select_lsst_obs_cond_10yr_COSMOS2020.pq
           cone_cut: [12.0, -42.0, 0.74]
-      output_basename: output_select_lsst_obs_cond_4yr_refz.pq
-      merge_col: group_id
+      output_basename: output_select_lsst_obs_cond_10yr_refz.pq
+      merge_col: object_id
   - Merge:
       # merge all the selections run on the 'lsst_1yr' photometric smearing
       name: select_lsst_obs_cond_1yr_refz_flagship_blended
@@ -536,7 +536,7 @@ Merges:
         DEEP2_LSST:
           basename: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
           cone_cut: [6.0, -46.0, 0.80]
-        DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
+        #DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
         DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_flagship.pq
         DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
         VVDSf02:
@@ -549,7 +549,7 @@ Merges:
           basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
           cone_cut: [12.0, -42.0, 0.74]
       output_basename: output_select_lsst_obs_cond_1yr_refz.pq
-      merge_col: group_id
+      merge_col: object_id
   - Merge:
       # merge all the selections run on the 'lsst_10yr' photometric smearing
       name: select_lsst_obs_cond_10yr_refz_cardinal
@@ -599,7 +599,7 @@ Merges:
         DEEP2_LSST:
           basename: output_select_lsst_obs_cond_10yr_DEEP2_LSST.pq
           cone_cut: [6.0, -46.0, 0.80]
-        DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_flagship.pq
+        #DESI_BGS: output_select_lsst_obs_cond_10yr_DESI_BGS_flagship.pq
         DESI_ELG_LOP: output_select_lsst_obs_cond_10yr_DESI_ELG_flagship.pq
         DESI_LRG: output_select_lsst_obs_cond_10yr_DESI_LRG_flagship.pq
         VVDSf02:
@@ -620,7 +620,7 @@ Merges:
         DEEP2_LSST:
           basename: output_select_lsst_obs_cond_1yr_DEEP2_LSST.pq
           cone_cut: [6.0, -46.0, 0.80]
-        DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
+        #DESI_BGS: output_select_lsst_obs_cond_1yr_DESI_BGS_flagship.pq
         DESI_ELG_LOP: output_select_lsst_obs_cond_1yr_DESI_ELG_flagship.pq
         DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
         VVDSf02:
@@ -961,7 +961,7 @@ Subsamples:
   - Subsample:
       # Combine roman and rubin 1yr with spec-selection and grab 100k events
       name: "taskset_4_train_1yr"
-      object_id_col: "group_id"
+      object_id_col: "object_id"
       seed: 1237
       num_objects: 100000
       inputs:
@@ -1003,7 +1003,7 @@ Subsamples:
   - Subsample:
       # Combine roman and rubin 1yr with spec-selection and grab 20k events
       name: "taskset_4_test_1yr"
-      object_id_col: "group_id"
+      object_id_col: "object_id"
       seed: 2237
       num_objects: 20000
       inputs:
@@ -1030,7 +1030,7 @@ Subsamples:
   - Subsample:
       # Combine roman and rubin 10yr with spec-selection and grab 100k events
       name: "taskset_4_train_10yr"
-      object_id_col: "group_id"
+      object_id_col: "object_id"
       seed: 1238
       num_objects: 100000
       inputs:
@@ -1072,7 +1072,7 @@ Subsamples:
   - Subsample:
       # Combine roman and rubin 10yr with spec-selection and grab 20k events
       name: "taskset_4_test_10yr"
-      object_id_col: "group_id"
+      object_id_col: "object_id"
       seed: 2238
       num_objects: 20000
       inputs:
