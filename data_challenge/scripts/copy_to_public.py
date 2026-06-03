@@ -1,20 +1,29 @@
-import glob
+from pathlib import Path
 import os
+import sys
 import tables_io
 
-res_dir = '/global/cfs/cdirs/lsst/groups/PZ/data/reserved/'
-pub_dir = res_dir.replace('reserved', 'public')
+BASE_AREA = Path(os.environ['PZ_DATA_AREA'])
+res_dir = BASE_AREA / 'reserved'
+pub_dir = BASE_AREA / 'public'
 
-files = glob.glob(f"{res_dir}/*.hdf5")
+
+def copy_files(files: list[str]) -> None:
+
+    for f in files:
+        basename = os.path.basename(f)
+        tt = tables_io.read(f)
+        tt.pop('redshift')
+        
+        outfile = os.path.join(pub_dir, basename)
+        
+        print(outfile)
+        tables_io.write(tt, outfile)
 
 
-for f in files:
-    basename = os.path.basename(f)
-    tt = tables_io.read(f)
-    tt.pop('redshift')
+if __name__ == '__main__':
 
-    outfile = os.path.join(pub_dir, basename)
+    files = sys.argv[1:]
+    copy_files(files)
 
-    print(outfile)
-    tables_io.write(tt, outfile)
-
+    
