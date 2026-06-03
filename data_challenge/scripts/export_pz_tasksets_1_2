@@ -1,13 +1,12 @@
 \cp data_challenge/preparation_library.yaml.save data_challenge/preparation_library.yaml
 chmod -r preparation_library_used.yaml
-python copy_to_public.py
-python inf_to_nan.py
-python anonymize.py
-\rm /global/cfs/projectdirs/lsst/groups/PZ/data/public/*.parquet
+python data_challenge/scripts/copy_to_public.py /global/cfs/projectdirs/lsst/groups/PZ/data/reserved/pz_challenge_taskset_1*.hdf5 /global/cfs/projectdirs/lsst/groups/PZ/data/reserved/pz_challenge_taskset_2*.hdf5
+python data_challenge/scripts/inf_to_nan.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/pz_challenge_taskset_1*.hdf5 /global/cfs/projectdirs/lsst/groups/PZ/data/public/pz_challenge_taskset_2*.hdf5
+python data_challenge/scripts/anonymize.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/pz_challenge_taskset_1*test*.hdf5 /global/cfs/projectdirs/lsst/groups/PZ/data/public/pz_challenge_taskset_2*test*.hdf5
 chmod -R g-r /global/cfs/projectdirs/lsst/groups/PZ/data/reserved
 chmod -R g-w /global/cfs/projectdirs/lsst/groups/PZ/data/reserved
 pushd /global/cfs/projectdirs/lsst/groups/PZ/data
-tar zcvf public.tgz public
+tar zcvf public.tgz public/pz_challenge_taskset_1*.hdf5 public/pz_challenge_taskset_2*.hdf5
 cp public.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public.tgz
 chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public.tgz
 popd
