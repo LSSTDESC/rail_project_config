@@ -1,0 +1,10 @@
+python copy_to_public_nz.py
+python inf_to_nan_nz.py
+python null_non_specz_nz.py
+python anonymize_nz.py
+pushd /global/cfs/projectdirs/lsst/groups/PZ/data
+tar zcvf public_nz.tgz public/nz_*taskset1*.hdf5
+cp public_nz.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz.tgz
+chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz.tgz
+popd
+
