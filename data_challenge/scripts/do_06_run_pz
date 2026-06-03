@@ -1,2 +1,4 @@
-rail-project run pz --flavor all --sim-version flagship data_challenge/pz_all.yaml
-rail-project run pz --flavor all --sim-version cardinal data_challenge/pz_all.yaml
+rail-project run pz --flavor all --selection gold data_challenge/pz_flagship.yaml
+rail-project run pz --flavor all --selection gold data_challenge/pz_cardinal.yaml
+rail-project run pz --flavor all --selection gold data_challenge/pz_roman_rubin.yaml
+

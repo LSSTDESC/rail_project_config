@@ -1,1 +1,1 @@
-rail-project build --flavor all data_challenge/pz_all.yaml
+rail-project build --force --flavor all data_challenge/pz_all.yaml

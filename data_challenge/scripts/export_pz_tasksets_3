@@ -1,0 +1,10 @@
+python copy_to_public_t3.py
+python inf_to_nan_t3.py
+python null_non_specz_t3.py 
+python anonymize_t3.py
+pushd /global/cfs/projectdirs/lsst/groups/PZ/data
+tar zcvf public_t3.tgz public/*taskset_3*.hdf5
+cp public_t3.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_t3.tgz
+chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_t3.tgz
+popd
+

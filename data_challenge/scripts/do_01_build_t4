@@ -1,0 +1,2 @@
+rail-project build --flavor flagship_blended --force data_challenge/preparation_flagship.yaml
+rail-project build --flavor cardinal_blended --force data_challenge/preparation_cardinal.yaml

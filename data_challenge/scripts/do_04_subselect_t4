@@ -1,0 +1,12 @@
+rail-project subsample --catalog-template degraded --file-template taskset_4_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_train_1yr --selection deep --flavor cardinal_blended data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_4_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_test_1yr --selection deep --flavor cardinal_blended data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_4_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_train_10yr --selection deep --flavor cardinal_blended data_challenge/preparation_cardinal.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_4_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_test_10yr --selection deep --flavor cardinal_blended data_challenge/preparation_cardinal.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_4_train_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_train_1yr_flagship --selection deep --flavor flagship_blended data_challenge/preparation_flagship_split35.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_4_test_file_1yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_test_1yr --selection deep --flavor flagship_blended data_challenge/preparation_flagship_split35.yaml
+
+rail-project subsample --catalog-template degraded --file-template taskset_4_train_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_train_10yr_flagship --selection deep --flavor flagship_blended data_challenge/preparation_flagship_split35.yaml
+rail-project subsample --catalog-template degraded --file-template taskset_4_test_file_10yr --subsampler-class-name multi_catalog_subsampler --subsample-name taskset_4_test_10yr --selection deep --flavor flagship_blended data_challenge/preparation_flagship_split35.yaml
+

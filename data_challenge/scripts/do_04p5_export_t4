@@ -1,0 +1,10 @@
+python copy_to_public_t4.py
+python inf_to_nan_t4.py
+python null_non_specz_t4.py
+python anonymize_t4.py
+pushd /global/cfs/projectdirs/lsst/groups/PZ/data
+tar zcvf public_t4.tgz public/*taskset_4*.hdf5
+cp public_t4.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_t4.tgz
+chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_t4.tgz
+popd
+

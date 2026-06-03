@@ -1,0 +1,2 @@
+rail-project run truth-to-observed --flavor flagship_blended --no-convert-output --selection deep data_challenge/preparation_flagship.yaml
+rail-project run truth-to-observed --flavor cardinal_blended --no-convert-output --selection deep data_challenge/preparation_cardinal.yaml
