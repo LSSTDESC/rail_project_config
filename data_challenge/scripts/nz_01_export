@@ -1,7 +1,7 @@
-python copy_to_public_nz.py
-python inf_to_nan_nz.py
-python null_non_specz_nz.py
-python anonymize_nz.py
+python data_challenge/scripts/copy_to_public_nz.py /global/cfs/projectdirs/lsst/groups/PZ/data/reserved/nz_challenge_taskset_1*.hdf5
+python data_challenge/scripts/inf_to_nan_nz.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_1*.hdf5
+python data_challenge/scripts/null_non_specz_nz.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_1*ddf*.hdf5
+python data_challenge/scripts/anonymize_nz.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_1*wfd*.hdf5
 pushd /global/cfs/projectdirs/lsst/groups/PZ/data
 tar zcvf public_nz.tgz public/nz_*taskset1*.hdf5
 cp public_nz.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz.tgz
