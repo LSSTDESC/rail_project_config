@@ -93,7 +93,7 @@ Merges:
         DESI_LRG: output_select_lsst_obs_cond_4yr_DESI_LRG_color.pq
         VVDSf02: output_select_lsst_obs_cond_4yr_VVDSf02.pq
         zCOSMOS: output_select_lsst_obs_cond_4yr_zCOSMOS.pq
-        COSMOS: output_select_lsst_obs_cond_4yr_COSMOS.pq	
+        COSMOS: output_select_lsst_obs_cond_4yr_COSMOS.pq
       output_basename: output_select_lsst_obs_cond_4yr_allz.pq
       merge_col: object_id
   - Merge:
@@ -106,7 +106,7 @@ Merges:
         DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_color.pq
         VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
         zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
-        COSMOS: output_select_lsst_obs_cond_1yr_COSMOS.pq	
+        COSMOS: output_select_lsst_obs_cond_1yr_COSMOS.pq
       output_basename: output_select_lsst_obs_cond_1yr_allz.pq
       merge_col: object_id
   - Merge:
@@ -119,7 +119,7 @@ Merges:
         DESI_LRG: output_select_lsst_obs_cond_4yr_DESI_LRG_flagship.pq
         VVDSf02: output_select_lsst_obs_cond_4yr_VVDSf02.pq
         zCOSMOS: output_select_lsst_obs_cond_4yr_zCOSMOS.pq
-        COSMOS: output_select_lsst_obs_cond_4yr_COSMOS.pq		
+        COSMOS: output_select_lsst_obs_cond_4yr_COSMOS.pq
       output_basename: output_select_lsst_obs_cond_4yr_allz.pq
       merge_col: object_id
   - Merge:
@@ -132,7 +132,7 @@ Merges:
         DESI_LRG: output_select_lsst_obs_cond_1yr_DESI_LRG_flagship.pq
         VVDSf02: output_select_lsst_obs_cond_1yr_VVDSf02.pq
         zCOSMOS: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
-        COSMOS: output_select_lsst_obs_cond_1yr_COSMOS.pq	
+        COSMOS: output_select_lsst_obs_cond_1yr_COSMOS.pq
       output_basename: output_select_lsst_obs_cond_1yr_allz.pq
       merge_col: object_id
 
