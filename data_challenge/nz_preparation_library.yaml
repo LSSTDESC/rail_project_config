@@ -250,6 +250,12 @@ Subsamples:
           mag_band_name_template: "mag_{band}_roman"
           mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
   - Subsample:
       # Combine roman and rubin 1yr
       name: "taskset_1_1yr_wfd"
@@ -292,6 +298,12 @@ Subsamples:
           mag_band_name_template: "mag_{band}_roman"
           mag_err_band_name_template: "mag_{band}_roman_err"
           extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_4yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
   - Subsample:
       # Combine roman and rubin 4yr
       name: "taskset_1_4yr_wfd"
@@ -307,6 +319,102 @@ Subsamples:
           extra_cols: ['redshift', 'ra', 'dec']
           cuts:
             - ['mag_i_lsst', '<', 23]
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      # Combine roman and rubin 1yr
+      name: "taskset_2_1yr_ddf"
+      object_id_col: "object_id"
+      seed: 7231
+      num_objects: 1000000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_1yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          cuts:
+            - ['mag_i_lsst', '<', 26.0]
+          extra_cols: ['redshift', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_1yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
+  - Subsample:
+      # Combine roman and rubin 1yr
+      name: "taskset_2_1yr_wfd"
+      object_id_col: "object_id"
+      seed: 8231
+      num_objects: 1000000
+      inputs:
+        rubin:
+          basename: output_deredden_lsst_obs_cond_1yr.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.5]
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+  - Subsample:
+      # Combine roman and rubin yr4
+      name: "taskset_2_4yr_ddf"
+      object_id_col: "object_id"
+      seed: 7232
+      num_objects: 1000000
+      inputs:
+        rubin:
+          basename: output_select_lsst_obs_cond_4yr_all.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          cuts:
+            - ['mag_i_lsst', '<', 26.0]
+          extra_cols: ['redshift', 'ra', 'dec', 'DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']
+        roman:
+          basename: output_deredden_roman_medium.pq
+          bands: ['Y', 'J', 'H']
+          mag_band_name_template: "mag_{band}_roman"
+          mag_err_band_name_template: "mag_{band}_roman_err"
+          extra_cols: []
+        cosmos:
+          basename: output_select_lsst_obs_cond_4yr_COSMOS2020.pq
+          bands: []
+          mag_band_name_template: ""
+          mag_err_band_name_template: ""
+          extra_cols: ["redshift_manyband"]
+  - Subsample:
+      # Combine roman and rubin 4yr
+      name: "taskset_2_4yr_wfd"
+      object_id_col: "object_id"
+      seed: 8231
+      num_objects: 1000000
+      inputs:
+        rubin:
+          basename: output_deredden_lsst_obs_cond_4yr.pq
+          bands: ['u', 'g', 'r', 'i', 'z', 'y']
+          mag_band_name_template: "mag_{band}_lsst"
+          mag_err_band_name_template: "mag_{band}_lsst_err"
+          extra_cols: ['redshift', 'ra', 'dec']
+          cuts:
+            - ['mag_i_lsst', '<', 25.5]
         roman:
           basename: output_deredden_roman_medium.pq
           bands: ['Y', 'J', 'H']
