@@ -11,6 +11,7 @@ pub_dir = BASE_AREA / 'public'
 def copy_files(files: list[str]) -> None:
 
     for f in files:
+        print(f)
         basename = os.path.basename(f)
         tt = tables_io.read(f)
         tt.pop('redshift')

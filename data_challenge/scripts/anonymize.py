@@ -1,6 +1,6 @@
 import tables_io
 import numpy as np
-
+import sys
 
 def anonymize(files: list[str]):
 

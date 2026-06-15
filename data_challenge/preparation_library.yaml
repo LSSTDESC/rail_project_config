@@ -982,7 +982,7 @@ Subsamples:
   - Subsample:
       # Combine roman and rubin 1yr with spec-selection and grab 100k events
       name: "taskset_4_train_1yr_flagship"
-      object_id_col: "group_id"
+      object_id_col: "object_id"
       seed: 1237
       num_objects: 100000
       inputs:
@@ -1051,7 +1051,7 @@ Subsamples:
   - Subsample:
       # Combine roman and rubin 10yr with spec-selection and grab 100k events
       name: "taskset_4_train_10yr_flagship"
-      object_id_col: "group_id"
+      object_id_col: "object_id"
       seed: 1238
       num_objects: 100000
       inputs:
