@@ -26,6 +26,6 @@ def fix_nz_ddf_cols(files: list[str]) -> None:
 if __name__ == '__main__':
 
     files = sys.argv[1:]
-    null_non_specz(files)
+    fix_nz_ddf_cols(files)
 
         
