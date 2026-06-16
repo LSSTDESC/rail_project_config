@@ -4,7 +4,7 @@ rail-project merge --catalog-template degraded --output-catalog-template degrade
 rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_4yr_allz_cardinal --selection gold --flavor cardinal data_challenge/nz_cardinal.yaml
 
 
-rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_1yr_allz_flagship_blended --selection deep --flavor flagship_blended data_challenge/nz_flagship_split35.yaml
-rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_4yr_allz_flagship_blended --selection deep --flavor flagship_blended data_challenge/nz_flagship_split35.yaml
-rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_1yr_allz_cardinal_blended --selection deep --flavor cardinal_blended data_challenge/nz_cardinal.yaml
-rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_4yr_allz_cardinal_blended --selection deep --flavor cardinal_blended data_challenge/nz_cardinal.yaml
+rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_1yr_allz_flagship --selection deep --flavor flagship_blended data_challenge/nz_flagship_split35.yaml
+rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_4yr_allz_flagship --selection deep --flavor flagship_blended data_challenge/nz_flagship_split35.yaml
+rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_1yr_allz_cardinal --selection deep --flavor cardinal_blended data_challenge/nz_cardinal.yaml
+rail-project merge --catalog-template degraded --output-catalog-template degraded --merger-class-name spec_selection --merge-name select_lsst_obs_cond_4yr_allz_cardinal --selection deep --flavor cardinal_blended data_challenge/nz_cardinal.yaml
