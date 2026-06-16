@@ -13,7 +13,7 @@ def fix_nz_ddf_cols(files: list[str]) -> None:
         for specz in ['DEEP2_LSST', 'DESI_BGS', 'DESI_ELG_LOP', 'DESI_LRG', 'VVDSf02', 'zCOSMOS']:
             if specz in tt:
                 has_specz = np.bitwise_or(has_specz.astype(bool), tt[specz].astype(bool))
-                tt[has_specz] = tt[has_specz].astype(bool)
+                tt[specz] = tt[specz].astype(bool)
         tt['redshift'] = np.where(has_specz, tt['redshift'], np.nan)
         tt['COSMOS'] = tt['COSMOS'].astype(bool)
         tt['redshift_manyband'] = tt['redshift_manyband_cosmos']
