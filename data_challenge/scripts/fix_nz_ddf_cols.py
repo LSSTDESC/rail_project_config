@@ -16,7 +16,7 @@ def fix_nz_ddf_cols(files: list[str]) -> None:
                 tt[specz] = tt[specz].astype(bool)
         tt['redshift'] = np.where(has_specz, tt['redshift'], np.nan)
         tt['COSMOS'] = tt['COSMOS'].astype(bool)
-        tt['redshift_manyband'] = tt['redshift_manyband_cosmos']
+        tt['redshift_manyband'] = tt.pop('redshift_manyband_cosmos')
         tt.pop('redshift_manyband_rubin+roman')               
 
         print(f)
