@@ -1,10 +1,13 @@
-python data_challenge/scripts/copy_to_public.py /global/cfs/projectdirs/lsst/groups/PZ/data/reserved/nz_challenge_taskset_*.hdf5
-python data_challenge/scripts/inf_to_nan.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_*.hdf5
-python data_challenge/scripts/fix_nz_ddf_cols.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_*ddf*.hdf5
-python data_challenge/scripts/anonymize.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_1*wfd*.hdf5
+python data_challenge/scripts/copy_to_public.py /global/cfs/projectdirs/lsst/groups/PZ/data/reserved/nz_challenge_taskset_2*.hdf5
+python data_challenge/scripts/inf_to_nan.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_2*.hdf5
+python data_challenge/scripts/fix_nz_ddf_cols.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_2*ddf*.hdf5
+python data_challenge/scripts/anonymize.py /global/cfs/projectdirs/lsst/groups/PZ/data/public/nz_challenge_taskset_2*wfd*.hdf5
 pushd /global/cfs/projectdirs/lsst/groups/PZ/data
-tar zcvf public_nz.tgz public/nz_*taskset_*.hdf5
-cp public_nz.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz.tgz
-chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz.tgz
+tar zcvf public_nz_t1.tgz public/nz_*taskset_1*.hdf5
+tar zcvf public_nz_t2.tgz public/nz_*taskset_2*.hdf5
+cp public_nz_t1.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz_t1.tgz
+cp public_nz_t2.tgz /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz_t2.tgz
+chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz_t1.tgz
+chmod o+r /global/cfs/cdirs/lsst/www/PZ/data_challenge/public_nz_t2.tgz
 popd
 
