@@ -55,6 +55,18 @@ Files:
   - FileTemplate:
       name: taskset_1_4yr_wfd
       path_template: "{catalogs_dir}/reserved/{project}_taskset_1_{sim_version}_4yr_wfd.hdf5"
+  - FileTemplate:
+      name: taskset_2_1yr_ddf
+      path_template: "{catalogs_dir}/public/{project}_taskset_2_{sim_version}_1yr_ddf_{label}.hdf5"
+  - FileTemplate:
+      name: taskset_2_1yr_wfd
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_2_{sim_version}_1yr_wfd.hdf5"
+  - FileTemplate:
+      name: taskset_2_4yr_ddf
+      path_template: "{catalogs_dir}/public/{project}_taskset_2_{sim_version}_4yr_ddf_{label}.hdf5"
+  - FileTemplate:
+      name: taskset_2_4yr_wfd
+      path_template: "{catalogs_dir}/reserved/{project}_taskset_2_{sim_version}_4yr_wfd.hdf5"
 
 
 # These describe the selections going from Truth to Reduced catalog
