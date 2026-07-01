@@ -64,7 +64,7 @@ Project:
               max_basis: 50
               nsharp: 1
               nbump: 1
-              bumpmin: 0.02 
+              bumpmin: 0.02
               bumpmax: 0.02
               sharpmin: 1.2
               sharpmax: 1.2
@@ -85,7 +85,7 @@ Project:
                 - 0.03
                 - 0.03
             inform_lephare:
-	      lephare.ADAPT_BAND: '4'
+              lephare.ADAPT_BAND: '4'
               lephare.ADAPT_CONTEXT: '-1'
               lephare.ADAPT_LIM: 22,24.5
               lephare.ADAPT_MODBIN: 1,1000
@@ -206,18 +206,18 @@ Project:
               max_basis: 50
               nsharp: 1
               nbump: 1
-              bumpmin: 0.02 
+              bumpmin: 0.02
               bumpmax: 0.02
               sharpmin: 1.2
               sharpmax: 1.2
             inform_bpz:
               nt_array: [7, 57, 72]
               output_hdfn: true
-              filter_list: [ 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
+              filter_list: ['lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
             estimate_bpz:
               no_prior: false
               madau_flag: 'yes'
-              filter_list: [ 'lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
+              filter_list: ['lsstcam_g', 'lsstcam_r', 'lsstcam_i', 'lsstcam_z']
               spectra_file: 'cosmossedswdust136.list'
               zp_errors:
                 - 0.03
