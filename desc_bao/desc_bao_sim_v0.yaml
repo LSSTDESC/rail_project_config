@@ -1,0 +1,30 @@
+Project:
+
+  Name: desc_bao_sim_v0
+
+  Includes:
+    - '${RAIL_PROJECT_CONFIG_DIR}/desc_bao/desc_bao_sim_library.yaml'
+
+  PathTemplates: {}
+
+  # These are used to make all the other paths
+  CommonPaths:
+    parent: pz_challenge
+    sim_version: cardinal
+    project: desc_bao_sim_v0
+    release_version: v29.0.0
+    root: "{PZ_BASE_AREA}"
+    scratch_root: "{root}"
+    catalogs_dir: "{root}/data"
+
+  Baseline:
+    catalog_tag: rubin
+    pipelines: ['all']
+    file_aliases:  # Set the training and test files
+      test: taskset_2_test_file_1yr
+      train: taskset_2_train_file_1yr
+    pipeline_overrides:
+      default:
+        kwargs:
+          algorithms: ['fzboost', 'knn', 'gpz', 'bpz', 'dnf', 'tpz']
+

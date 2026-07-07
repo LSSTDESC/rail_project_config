@@ -1,0 +1,154 @@
+# Catalog definitions
+CatalogLib:
+  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
+
+# These are templates for catalogs produced in the early stages of the analysis
+Catalogs:
+  # Generic degraed catalogs
+  - CatalogTemplate:
+      name: degraded
+      path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
+      iteration_vars: ['pixel']
+
+
+# These are templates for specific files, such as testing and training files
+Files:
+  - FileTemplate:
+      name: taskset_2_train_file_1yr
+      path_template: "{catalogs_dir}/public/{parent}_taskset_2_{sim_version}_training_1yr.hdf5"
+  - FileTemplate:
+      name: taskset_2_test_file_1yr
+      path_template: "{catalogs_dir}/public/{parent}_taskset_2_{sim_version}_training_1yr.hdf5"
+  - FileTemplate:
+      name: taskset_4_train_file_1yr
+      path_template: "{catalogs_dir}/public/{parent}_taskset_4_{sim_version}_training_1yr.hdf5"
+  - FileTemplate:
+      name: taskset_4_test_file_1yr
+      path_template: "{catalogs_dir}/public/{parent}_taskset_4_{sim_version}_training_1yr.hdf5"
+
+
+# These describe all the algorithms that estimate PZ
+PZAlgorithms:
+  - PZAlgorithm:
+      name: trainz
+      Estimate: TrainZEstimator
+      Inform: TrainZInformer
+      Module: rail.estimation.algos.train_z
+  - PZAlgorithm:
+      name: simplenn
+      Estimate: SklNeurNetEstimator
+      Inform: SklNeurNetInformer
+      Module: rail.estimation.algos.sklearn_neurnet
+  - PZAlgorithm:
+      name: fzboost
+      Estimate: FlexZBoostEstimator
+      Inform: FlexZBoostInformer
+      Module: rail.estimation.algos.flexzboost
+  - PZAlgorithm:
+      name: knn
+      Estimate: KNearNeighEstimator
+      Inform: KNearNeighInformer
+      Module: rail.estimation.algos.k_nearneigh
+  - PZAlgorithm:
+      name: gpz
+      Estimate: GPzEstimator
+      Inform: GPzInformer
+      Module: rail.estimation.algos.gpz
+  - PZAlgorithm:
+      name: bpz
+      Estimate: BPZliteEstimator
+      Inform: BPZliteInformer
+      Module: rail.estimation.algos.bpz_lite
+  - PZAlgorithm:
+      name: tpz
+      Estimate: TPZliteEstimator
+      Inform: TPZliteInformer
+      Module: rail.estimation.algos.tpz_lite
+  - PZAlgorithm:
+      name: cmnn
+      Estimate: CMNNEstimator
+      Inform: CMNNInformer
+      Module: rail.estimation.algos.cmnn
+  - PZAlgorithm:
+      name: lephare
+      Estimate: LephareEstimator
+      Inform: LephareInformer
+      Module: rail.estimation.algos.lephare
+  - PZAlgorithm:
+      name: dnf
+      Estimate: DNFEstimator
+      Inform: DNFInformer
+      Module: rail.estimation.algos.dnf
+
+
+# These describe all the algorithms that classify objects into tomographic bins
+Classifiers:
+  - Classifier:
+      name: equal_count
+      Classify: EqualCountClassifier
+      Module: rail.estimation.algos.equal_count
+  - Classifier:
+      name: uniform_binning
+      Classify: UniformBinningClassifier
+      Module: rail.estimation.algos.uniform_binning
+
+
+# These describe all the algorithms that summarize PZ information into NZ distributions
+Summarizers:
+  - Summarizer:
+      name: naive_stack
+      Summarize: NaiveStackMaskedSummarizer
+      Module: rail.estimation.algos.naive_stack
+  - Summarizer:
+      name: point_est_hist
+      Summarize: PointEstHistMaskedSummarizer
+      Module: rail.estimation.algos.point_est_hist
+
+
+# These describe the various data analysis pipelines
+Pipelines:
+  - PipelineTemplate:
+      name: pz
+      pipeline_class: rail.pipelines.estimation.pz_all.PzPipeline
+      input_file_templates:
+        input_train:
+          flavor: baseline
+          tag: train
+        input_test:
+          flavor: baseline
+          tag: test
+      kwargs:
+        algorithms: ['all']
+  - PipelineTemplate:
+      name: estimate
+      pipeline_class: rail.pipelines.estimation.estimate_all.EstimatePipeline
+      input_file_templates:
+        input:
+          flavor: baseline
+          tag: test
+      kwargs:
+        algorithms: ['all']
+  - PipelineTemplate:
+      name: tomography
+      pipeline_class: rail.pipelines.estimation.tomography.TomographyPipeline
+      input_file_templates:
+        truth:
+          flavor: baseline
+          tag: test
+      kwargs:
+        algorithms: ['all']
+        classifiers: ['all']
+        summarizers: ['all']
+        n_tomo_bins: 5
+
+
+Selections:
+  - Selection:
+      name: gold
+      cuts:
+        maglim_i: [null, 26.0]
+  - Selection:
+      name: deep
+      cuts:
+        maglim_i: [null, 27.0]
