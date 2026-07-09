@@ -26,5 +26,16 @@ Project:
     pipeline_overrides:
       default:
         kwargs:
-          algorithms: ['fzboost', 'knn', 'gpz', 'bpz', 'dnf', 'tpz']
+          algorithms: ['fzboost', 'knn', 'gpz', 'bpz', 'dnf']
+
+  IterationVars:
+    pixel:
+      - 19
+      - 20
+      - 22
+      - 25
+      - 27
+      - 28
+      - 30
+
 

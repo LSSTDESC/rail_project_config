@@ -10,6 +10,11 @@ Catalogs:
       name: degraded
       path_template: "{catalogs_dir}/{parent}_{sim_version}_{selection}_{flavor}/{pixel}/{basename}"
       iteration_vars: ['pixel']
+  # PZ estiamttion catalogs
+  - CatalogTemplate:
+      name: estimates 
+      path_template: "{root}/projects/{project}/data/estimates/{pixel}/{basename}"
+      iteration_vars: ['pixel']
 
 
 # These are templates for specific files, such as testing and training files
@@ -123,6 +128,8 @@ Pipelines:
   - PipelineTemplate:
       name: estimate
       pipeline_class: rail.pipelines.estimation.estimate_all.EstimatePipeline
+      input_catalog_template: degraded
+      output_catalog_template: estimates
       input_file_templates:
         input:
           flavor: baseline
@@ -132,6 +139,8 @@ Pipelines:
   - PipelineTemplate:
       name: tomography
       pipeline_class: rail.pipelines.estimation.tomography.TomographyPipeline
+      input_catalog_template: estimates
+      output_catalog_template: estimates
       input_file_templates:
         truth:
           flavor: baseline
