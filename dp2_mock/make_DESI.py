@@ -8,7 +8,7 @@ import os
 flagship = 1
 cardinal = 0
 
-mask_desi = hp.read_map("/pscratch/sd/q/qhang/Flagship/desi-model-mask-nside-256.fits")
+mask_desi = hp.read_map("/global/cfs/cdirs/lsst/groups/PZ/users/qhang/desi-model-mask-nside-256.fits")
 
 if flagship:
     root = '/global/cfs/cdirs/lsst/groups/PZ/Flagship/dp2_mock_run_flagship_gold_test/'
