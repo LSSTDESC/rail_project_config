@@ -1,0 +1,94 @@
+Project:
+
+  Name: dp2_mock
+
+  Includes:
+    - "/global/homes/q/qhang/desc/flagship_dp2/preparation_library.yaml"
+
+  PathTemplates: {}
+
+  # These are used to make all the other paths
+  CommonPaths:
+    project: dp2_mock_run
+    sim_version: cardinal
+    root: "/global/cfs/cdirs/lsst/groups/PZ/Cardinal"
+    scratch_root: "{root}"
+    catalogs_dir: "{root}/parquet_files"
+    
+
+  # Baseline configuraiton, included in others by default
+  Baseline:
+    catalog_tag: cardinal_rubin
+    pipelines: ['all']
+
+  # These define the variant configurations for the various parts of the analysis
+  Flavors:
+    - Flavor:
+        name: test
+        pipeline_overrides:
+          truth_to_observed:
+            kwargs:
+              error_models: ['lsst_obs_cond_dp2']
+              models_to_run_select: ['lsst_obs_cond_dp2']
+              selectors: ['DESI_BGS_color', 'DESI_LRG_color', 'DESI_ELG_LOP_color']
+          photometric_errors:
+            kwargs:
+              error_models: ['lsst_obs_cond_dp2']
+
+  # These are variables that we iterate over when running over entire catalogs
+  IterationVars:
+    healpix:
+      - 64
+      - 65
+      - 66
+      - 67
+      - 68
+      - 69
+      - 70
+      - 71
+      - 72
+      - 73
+      - 74
+      - 75
+      - 76
+      - 77
+      - 78
+      - 80
+      - 81
+      - 82
+      - 96
+      - 97
+      - 341
+      - 342
+      - 343
+      - 345
+      - 346
+      - 347
+      - 348
+      - 349
+      - 350
+      - 351
+      - 369
+      - 371
+      - 372
+      - 373
+      - 374
+      - 375
+      - 421
+      - 422
+      - 423
+      - 425
+      - 426
+      - 427
+      - 428
+      - 429
+      - 430
+      - 431
+      - 432
+      - 434
+      - 435
+      - 440
+      - 441
+      - 442
+      - 443
+      - 444

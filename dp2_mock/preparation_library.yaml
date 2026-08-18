@@ -1,0 +1,445 @@
+# Catalog definitions
+CatalogLib:
+  - "${RAIL_PROJECT_CONFIG_DIR}/data_challenge/catalogs.yaml"
+
+# These are templates for catalogs produced in the early stages of the analysis
+Catalogs:
+  #- CatalogTemplate:
+  #    name: truth_roman_rubin
+  #    path_template: "{catalogs_dir}/{project}_roman_rubin/{pixel}/part-0.parquet"
+  #    iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: truth_cardinal
+      path_template: "{catalogs_dir}/Chinchilla-3-triofile.{pixel}.parquet"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: truth_flagship
+      path_template: "{catalogs_dir}/euclid_fs2_mock_dr_v1_1_phz.pix{pixel}.pq"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: reduced
+      path_template: "{catalogs_dir}/{project}_{selection}/{pixel}/part-0.pq"
+      iteration_vars: ['pixel']
+  - CatalogTemplate:
+      name: degraded
+      path_template: "{catalogs_dir}/{project}_{selection}_{flavor}/{pixel}/{basename}"
+      iteration_vars: ['pixel']
+
+
+# These are templates for specific files, such as testing and training files
+Files:
+  - FileTemplate:
+      name: test_file_100k
+      path_template: "{catalogs_dir}/test/{project}_{selection}_baseline_100k.hdf5"
+  - FileTemplate:
+      name: train_file_100k
+      path_template: "{catalogs_dir}/train/{project}_{selection}_baseline_100k.hdf5"
+
+
+# These describe all the algorithms that estimate PZ
+PZAlgorithms:
+  - PZAlgorithm:
+      name: trainz
+      Estimate: TrainZEstimator
+      Inform: TrainZInformer
+      Module: rail.estimation.algos.train_z
+  - PZAlgorithm:
+      name: simplenn
+      Estimate: SklNeurNetEstimator
+      Inform: SklNeurNetInformer
+      Module: rail.estimation.algos.sklearn_neurnet
+  - PZAlgorithm:
+      name: fzboost
+      Estimate: FlexZBoostEstimator
+      Inform: FlexZBoostInformer
+      Module: rail.estimation.algos.flexzboost
+  - PZAlgorithm:
+      name: knn
+      Estimate: KNearNeighEstimator
+      Inform: KNearNeighInformer
+      Module: rail.estimation.algos.k_nearneigh
+  - PZAlgorithm:
+      name: gpz
+      Estimate: GPzEstimator
+      Inform: GPzInformer
+      Module: rail.estimation.algos.gpz
+  - PZAlgorithm:
+      name: bpz
+      Estimate: BPZliteEstimator
+      Inform: BPZliteInformer
+      Module: rail.estimation.algos.bpz_lite
+  - PZAlgorithm:
+      name: tpz
+      Estimate: TPZliteEstimator
+      Inform: TPZliteInformer
+      Module: rail.estimation.algos.tpz_lite
+
+
+# These describe the ways we can sub-sample the data
+Subsamplers:
+  - Subsampler:
+      name: random_subsampler
+      Subsample: RandomSubsampler
+      Module: rail.projects.subsampler
+  - Subsampler:
+      name: multi_catalog_subsampler
+      Subsample: MultiCatalogSubsampler
+      Module: rail.projects.subsampler
+
+
+# These describe the ways we can reduce the data
+Reducers:
+  - Reducer:
+      name: roman_rubin
+      Reduce: RomanRubinReducer
+      Module: rail.projects.reducer
+  - Reducer:
+      name: flagship
+      Reduce: FlagshipReducer
+      Module: rail.projects.reducer
+      rotation_angle: [217, 14, 29]
+      flip_dec: false
+  - Reducer:
+      name: cardinal
+      Reduce: CardinalReducer
+      Module: rail.projects.reducer
+      rotation_angle: [170, 12, 30]
+      flip_dec: false
+
+
+# These describe the selections going from Input to Reduced catalog
+Selections:
+  #- Selection:
+  #    name: roman_rubin_gold
+  #    cuts:
+  #      maglim_i: [null, 25.5]
+  - Selection:
+      name: cardinal_gold
+      cuts:
+        maglim_i: [null, 25.5]
+  - Selection:
+      name: flagship_gold
+      cuts:
+        maglim_i: [null, 25.5]
+  #- Selection:
+  #    name: deep
+  #    cuts:
+  #      maglim_i: [null, 27.0]
+
+
+# These describe ways to subsampe the data
+Subsamples:
+  - Subsample:
+      name: test_100k
+      seed: 1234
+      num_objects: 100000
+  - Subsample:
+      name: train_100k
+      seed: 4321
+      num_objects: 100000
+
+# These describe the error models we use in the truth_to_observed pipeline # modify this to dp2
+ErrorModels:
+  #- ErrorModel:
+  #    name: lsst
+  #    ErrorModel: LSSTErrorModel
+  #    Module: rail.creation.degraders.photometric_errors
+  - ErrorModel:
+      name: lsst_obs_cond_sv
+      ErrorModel: ObsCondition
+      Module: rail.creation.degraders.observing_condition_degrader
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+        hdf5_groupname: ''
+        mask: "${obs_cond_dir}/masks/dp2_mask.fits"
+        weight: ""
+        nside: 256
+        map_dict:
+          m5:
+            u: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_u_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            g: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_g_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            r: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_r_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            i: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_i_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            z: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_z_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            y: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_y_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+          nYrObs: 1.  # do not change this as we use coadd depth map
+          nVisYr:  # do not change this as we use coadd depth map
+            u: 1.
+            g: 1.
+            r: 1.
+            i: 1.
+            z: 1.
+            y: 1.
+          theta:
+            u: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_u_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            g: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_g_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            r: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_r_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            i: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_i_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            z: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_z_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            y: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_y_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+          airmass: 1.  # do not change this as we use effective theta, which accounts for dependence on airmass
+          minorCol: minor
+          majorCol: major
+          extendedType: gaap
+          aMin: 1.5  # from Gaap1p0
+          highSNR: false 
+  - ErrorModel:
+      name: lsst_obs_cond_sv_psf
+      ErrorModel: ObsCondition
+      Module: rail.creation.degraders.observing_condition_degrader
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+        hdf5_groupname: ''
+        mask: "${obs_cond_dir}/masks/dp2_mask.fits"
+        weight: ""
+        nside: 256
+        map_dict:
+          m5:
+            u: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_u_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            g: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_g_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            r: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_r_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            i: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_i_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            z: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_z_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            y: "${obs_cond_dir}/lsstcam_20250930_ExgalM5_y_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+          nYrObs: 1.  # do not change this as we use coadd depth map
+          nVisYr:  # do not change this as we use coadd depth map
+            u: 1.
+            g: 1.
+            r: 1.
+            i: 1.
+            z: 1.
+            y: 1.
+          extendedType: point
+          highSNR: false 
+  - ErrorModel:
+      name: lsst_obs_cond_dp2
+      ErrorModel: ObsCondition
+      Module: rail.creation.degraders.observing_condition_degrader
+      Bands: ['u', 'g', 'r', 'i', 'z', 'y']
+      Overrides:
+        # also overwrite km if the PhotErr default value differ from LSST specific value
+        hdf5_groupname: ''
+        mask: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_mask_nside-256.fits"
+        weight: ""
+        nside: 256
+        map_dict:
+          m5:
+            u: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_m5_ps_u_nside-256.fits"
+            g: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_m5_ps_g_nside-256.fits"
+            r: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_m5_ps_r_nside-256.fits"
+            i: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_m5_ps_i_nside-256.fits"
+            z: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_m5_ps_z_nside-256.fits"
+            y: "/global/cfs/cdirs/lsst/groups/PZ/users/qhang/dp2_maps_may/dp2_public_catalog_m5_ps_y_nside-256.fits"
+          nYrObs: 1.  # do not change this as we use coadd depth map
+          nVisYr:  # do not change this as we use coadd depth map
+            u: 1.
+            g: 1.
+            r: 1.
+            i: 1.
+            z: 1.
+            y: 1.
+          theta: # we will use the median values from SV
+            u: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_u_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            g: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_g_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            r: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_r_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            i: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_i_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            z: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_z_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+            y: "${obs_cond_dir}/lsstcam_20250930_Median_seeingFwhmEff_y_and_observation_reason_!_field_survey_science_and_fiveSigmaDepth_is_not_NULL_HEAL.fits"
+          airmass: 1.  # do not change this as we use effective theta, which accounts for dependence on airmass
+          minorCol: minor
+          majorCol: major
+          extendedType: gaap
+          aMin: 1.5  # from Gaap1p0
+          highSNR: false 
+
+
+# These describe all the algorithms that emulate spectroscopic selections
+SpecSelections:
+  # - SpecSelection:
+  #      name: GAMA:
+  #      Select: SpecSelection_GAMA
+  #      Module: rail.creation.degraders.spectroscopic_selections
+  # - SpecSelection:
+  #      name: BOSS
+  #      Select: SpecSelection_BOSS
+  #      Module: rail.creation.degraders.spectroscopic_selections
+  # - SpecSelection:
+  #     name: VVDSf02
+  #     Select: SpecSelection_VVDSf02
+  #     Module: rail.creation.degraders.spectroscopic_selections
+  # - SpecSelection:
+  #     name: zCOSMOS
+  #     Select: SpecSelection_zCOSMOS
+  #     Module: rail.creation.degraders.spectroscopic_selections
+  #- SpecSelection:
+  #    name: HSC
+  #    Select: SpecSelection_HSC
+  #    Module: rail.creation.degraders.spectroscopic_selections
+  # - SpecSelection:
+  #     name: DEEP2_LSST
+  #     Select: SpecSelection_DEEP2_LSST
+  #     Module: rail.creation.degraders.spectroscopic_selections
+  # - SpecSelection:
+  #     name: DESI_BGS_roman_rubin
+  #     Select: SpecSelection_DESI_Phy
+  #     Module: rail.creation.degraders.desi_selector_phy
+  #     Overrides:
+  #       desi_type: "bgs"
+  #       threshold_col: "sod_halo_mass"
+  #       threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_roman_rubin.parquet"
+  # - SpecSelection:
+  #     name: DESI_LRG_roman_rubin
+  #     Select: SpecSelection_DESI_Phy
+  #     Module: rail.creation.degraders.desi_selector_phy
+  #     Overrides:
+  #       desi_type: "lrg"
+  #       threshold_col: "logsm_obs"
+  #       threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_roman_rubin.parquet"
+  # - SpecSelection:
+  #     name: DESI_ELG_roman_rubin
+  #     Select: SpecSelection_DESI_Phy
+  #     Module: rail.creation.degraders.desi_selector_phy
+  #     Overrides:
+  #       desi_type: "elg"
+  #       threshold_col: "sfr"
+  #       threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_roman_rubin.parquet"
+  - SpecSelection:
+      name: DESI_BGS_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "bgs"
+        threshold_col: "lm_halo"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/bgs_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_LRG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "lrg"
+        threshold_col: "log_stellar_mass"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/lrg_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_ELG_flagship
+      Select: SpecSelection_DESI_Phy
+      Module: rail.creation.degraders.desi_selector_phy
+      Overrides:
+        desi_type: "elg"
+        threshold_col: "log_sfr"
+        threshold_table: "/global/cfs/cdirs/lsst/groups/PZ/data/desi_thresholds/elg_threshold_flagship.parquet"
+  - SpecSelection:
+      name: DESI_BGS_color
+      Select: SpecSelection_DESI_BGS
+      Module: rail.creation.degraders.spectroscopic_selections
+      Overrides:
+        colnames:
+          g: mag_g_lsst
+          r: mag_r_lsst
+          i: mag_i_lsst
+          z: mag_z_lsst
+          redshift: redshift
+  - SpecSelection:
+      name: DESI_LRG_color
+      Select: SpecSelection_DESI_LRG
+      Module: rail.creation.degraders.spectroscopic_selections
+      Overrides:
+        colnames:
+          g: mag_g_lsst
+          r: mag_r_lsst
+          i: mag_i_lsst
+          z: mag_z_lsst
+          W1: WISE_W1
+          redshift: redshift
+  - SpecSelection:
+      name: DESI_ELG_LOP_color
+      Select: SpecSelection_DESI_ELG_LOP
+      Module: rail.creation.degraders.spectroscopic_selections
+      Overrides:
+        colnames:
+          g: mag_g_lsst
+          r: mag_r_lsst
+          i: mag_i_lsst
+          z: mag_z_lsst
+          redshift: redshift
+
+# These describe the various data analysis pipelines
+Pipelines:
+  - PipelineTemplate:
+      name: truth_to_observed
+      pipeline_class: rail.pipelines.degradation.truth_to_observed.TruthToObservedPipeline
+      input_catalog_template: reduced
+      output_catalog_template: degraded
+      kwargs:
+        error_models: ['lsst_obs_cond_dp2']
+        selectors: ['all']
+        blending: false
+        parallel: true
+  - PipelineTemplate:
+      name: photometric_errors
+      pipeline_class: rail.pipelines.degradation.apply_phot_errors.ApplyPhotErrorsPipeline
+      input_catalog_template: reduced
+      output_catalog_template: degraded
+      kwargs:
+        error_models: ['lsst_obs_cond_dp2']
+        parallel: true
+  - PipelineTemplate:
+      name: blending
+      input_catalog_template: degraded
+      output_catalog_template: degraded
+      pipeline_class: rail.pipelines.degradation.blending.BlendingPipeline
+      kwargs: {}
+  - PipelineTemplate:
+      name: spec_selection
+      input_catalog_template: degraded
+      output_catalog_template: degraded
+      pipeline_class: rail.pipelines.degradation.spectroscopic_selection_pipeline.SpectroscopicSelectionPipeline
+      kwargs:
+        selectors: ['all']
+
+
+# These are the classes that we used to merge data from different files
+# in particular, to merge the spectroscopic selections
+#Mergers:
+#  - Merger:
+#      name: spec_selection
+#      Merge: SpecSelectionMerger
+#      Module: rail.projects.merger
+
+
+## These are the various ways we merge the spectrscopic selections
+#Merges:
+#  - Merge:
+#      name: select_lsst_all
+#      # merge all the selections run on the 'lsst' photometric smearing
+#      inputs:
+#        hsc: output_select_lsst_HSC.pq
+#        cosmos: output_select_lsst_zCOSMOS.pq
+#      output_basename: output_select_lsst_all.pq
+#      merge_col: object_id
+#  - Merge:
+#      # merge all the selections run on the 'lsst_10yr' photometric smearing
+#      name: select_lsst_obs_cond_10yr_all
+#      inputs:
+#        hsc: output_select_lsst_obs_cond_10yr_HSC.pq
+#        cosmos: output_select_lsst_obs_cond_10yr_zCOSMOS.pq
+#      output_basename: output_select_lsst_obs_cond_10yr_all.pq
+#      merge_col: object_id
+#  - Merge:
+ #     # merge all the selections run on the 'lsst_1yr' photometric smearing
+#      name: select_lsst_obs_cond_1yr_all
+#      inputs:
+#        hsc: output_select_lsst_obs_cond_1yr_HSC.pq
+#        cosmos: output_select_lsst_obs_cond_1yr_zCOSMOS.pq
+#      output_basename: output_select_lsst_obs_cond_1yr_all.pq
+#      merge_col: object_id
+#  - Merge:
+#      # merge all the selections run on the 'lsst_4yr' photometric smearing
+#      name: select_lsst_obs_cond_4yr_all
+#      inputs:
+#        hsc: output_select_lsst_obs_cond_4yr_HSC.pq
+#        cosmos: output_select_lsst_obs_cond_4yr_zCOSMOS.pq
+#      output_basename: output_select_lsst_obs_cond_4yr_all.pq
+#      merge_col: object_id
+
